@@ -120,8 +120,8 @@ sidebar_position: 2
 | vprof_generate_report_budget | Generate a report to the console based on budget group. |  |
 | vprof_generate_report_hierarchy | Generate a report to the console. |  |
 | vprof_vtrace | Toggle whether vprof data is sent to VTrace |  |
-| vprof_time_scale | Scale used when displaying time (0 = use default) | developmentonly missing0 |
-| vprof_loadhitstore_scale | Scale used when displaying load-hit-stores (0 = use default) | developmentonly missing0 |
+| vprof_time_scale | Scale used when displaying time (0 = use default) | developmentonly hidden |
+| vprof_loadhitstore_scale | Scale used when displaying load-hit-stores (0 = use default) | developmentonly hidden |
 | vprof_dump_counters | Dump vprof counters to the console |  |
 | mem_dump | Dump memory stats to text file or &lt;stdout&gt;. |  |
 | mem_compact | Compacts the heap |  |
@@ -204,8 +204,8 @@ sidebar_position: 2
 | writeid | Writes a list of permanently-banned user IDs to file. |  |
 | log | Enables logging to file, console, and udp &lt; on \| off &gt;. |  |
 | sv_packstats | Show entity packing stats, pass 'clear' as argument to reset counts. | release |
-| redirectstart | Redirect server console output | missing0 |
-| redirectend | Redirect server console output | missing0 |
+| redirectstart | Redirect server console output | hidden |
+| redirectend | Redirect server console output | hidden |
 | stats | Prints server performance variables |  |
 | net_stats_json | Output server networking statistics in json format |  |
 | sv_spewmeta | Spew serializer meta | cheat |
@@ -525,7 +525,7 @@ sidebar_position: 2
 | notarget | Toggle. Player becomes hidden to NPCs. | gamedll cheat missing4 |
 | hurtme | Hurts the player..       Arguments: &lt;health to lose&gt; | gamedll cheat missing4 |
 | groundlist | Display ground entity list &lt;index&gt; | developmentonly gamedll cheat |
-| steamvrevent_quit | steamvrevent_quit | gamedll missing0 |
+| steamvrevent_quit | steamvrevent_quit | gamedll hidden |
 | commentary_cvarsnotchanging |  | gamedll |
 | commentary_finishnode |  | gamedll missing4 |
 | test_entity_blocker | Test command that drops an entity blocker out in front of the player. | gamedll cheat |
@@ -592,7 +592,7 @@ sidebar_position: 2
 | script_help2 | Output help for script functions suitable for auto-completion | gamedll |
 | script_dump_all | Dump the state of the VM to the console | gamedll cheat |
 | print_mapgroup_sv | Prints the current mapgroup and the contained maps | gamedll release |
-| send_round_backup_file_list |  | gamedll missing0 release |
+| send_round_backup_file_list |  | gamedll hidden release |
 | mp_backup_restore_list_files | Lists recent backup round files matching the prefix, most recent files first, accepts a numeric parameter to limit the number of files displayed | gamedll release |
 | mp_backup_restore_load_file | Loads player cash, KDA, scores and team scores; resets to the next round after the backup | gamedll release |
 | timeout_terrorist_start |  | gamedll |
@@ -795,20 +795,20 @@ sidebar_position: 2
 | cl_sos_test_get_opvar |  | clientdll cheat |
 | toggleRdrOpt |  | developmentonly clientdll |
 | cl_steamscreenshots | Enable/disable saving screenshots to Steam | clientdll |
-| error_message_explain_vac | Take user to Steam support article | missing0 clientdll clientcmd_can_execute |
-| error_message_explain_pure | Take user to Steam support article | missing0 clientdll clientcmd_can_execute |
-| error_message_explain_unsigned | Take user to Steam support article | missing0 clientdll clientcmd_can_execute |
-| restart_normal | Restart | missing0 clientdll clientcmd_can_execute |
-| restart_in_insecure | Restart in insecure mode | missing0 clientdll clientcmd_can_execute |
-| show_untrusted_warning_again | Show untrusted warning again | missing0 clientdll clientcmd_can_execute |
-| restart_in_trusted | Restart in trusted mode | missing0 clientdll clientcmd_can_execute |
-| restart_in_untrusted | Restart in untrusted mode | missing0 clientdll clientcmd_can_execute |
+| error_message_explain_vac | Take user to Steam support article | hidden clientdll clientcmd_can_execute |
+| error_message_explain_pure | Take user to Steam support article | hidden clientdll clientcmd_can_execute |
+| error_message_explain_unsigned | Take user to Steam support article | hidden clientdll clientcmd_can_execute |
+| restart_normal | Restart | hidden clientdll clientcmd_can_execute |
+| restart_in_insecure | Restart in insecure mode | hidden clientdll clientcmd_can_execute |
+| show_untrusted_warning_again | Show untrusted warning again | hidden clientdll clientcmd_can_execute |
+| restart_in_trusted | Restart in trusted mode | hidden clientdll clientcmd_can_execute |
+| restart_in_untrusted | Restart in untrusted mode | hidden clientdll clientcmd_can_execute |
 | mm_queue_show_stats | Display global server stats | clientdll clientcmd_can_execute |
 | clutch_mode_toggle | Toggle clutch mode convar | clientdll release |
 | csgo_launch_workshop_map | Launch a workshop map | clientdll vconsole_fuzzy_matching vconsole_set_focus |
 | ShowSteamStatsSessionID | Prints out the game stats session ID's (developer convar must be set to non-zero). | developmentonly clientdll |
 | refresh_ui_audio_state | Restores audio DSP state for the UI. | clientdll cheat |
-| confirm_join_new_session_exit_current | Confirm that we wish to join a new session, destroying a previous session | missing0 clientdll clientcmd_can_execute |
+| confirm_join_new_session_exit_current | Confirm that we wish to join a new session, destroying a previous session | hidden clientdll clientcmd_can_execute |
 | cl_avatar_convert_rgb | Converts all png avatars in the avatars directory to rgb | clientdll cheat release |
 | cl_avatar_convert_png | Converts all rgb avatars in the avatars directory to png | clientdll cheat release |
 | drawoverviewmap | Draws the overview map | clientdll |
@@ -837,28 +837,28 @@ sidebar_position: 2
 | +spray_menu |  | clientdll |
 | -spray_menu |  | clientdll |
 | voice_status_test_toggle | Test voice and status notices | developmentonly clientdll |
-| cl_mainmenu_show_blog | Show the blog and hide news panel | missing0 clientdll clientcmd_can_execute |
-| cl_mainmenu_hide_blog | Show the news panel and hide blog | missing0 clientdll clientcmd_can_execute |
-| confirm_abandon_match | Confirm that we wish to abandon match | missing0 clientdll clientcmd_can_execute |
-| confirm_join_friend_session_exit_current | Confirm that we wish to join a friend session, destroying a previous session | missing0 clientdll clientcmd_can_execute |
-| csgo_watch_friend_session_exit_current |  | missing0 clientdll clientcmd_can_execute |
-| confirm_watch_friend_session_exit_current | Confirm that we wish to watch a friend session, destroying a previous session | missing0 clientdll clientcmd_can_execute |
+| cl_mainmenu_show_blog | Show the blog and hide news panel | hidden clientdll clientcmd_can_execute |
+| cl_mainmenu_hide_blog | Show the news panel and hide blog | hidden clientdll clientcmd_can_execute |
+| confirm_abandon_match | Confirm that we wish to abandon match | hidden clientdll clientcmd_can_execute |
+| confirm_join_friend_session_exit_current | Confirm that we wish to join a friend session, destroying a previous session | hidden clientdll clientcmd_can_execute |
+| csgo_watch_friend_session_exit_current |  | hidden clientdll clientcmd_can_execute |
+| confirm_watch_friend_session_exit_current | Confirm that we wish to watch a friend session, destroying a previous session | hidden clientdll clientcmd_can_execute |
 | voice_modenable_toggle | Toggle the voice_modenable convar. | clientdll |
 | localization_quest_item_string_printout | localization_quest_item_string_printout | clientdll |
-| csgo_econ_action_preview | Preview an economy item | missing0 clientdll dontrecord clientcmd_can_execute |
+| csgo_econ_action_preview | Preview an economy item | hidden clientdll dontrecord clientcmd_can_execute |
 | launch_warmup_map | Launches warmup map | clientdll dontrecord clientcmd_can_execute |
-| matchdraft_debug_sendlog | Print debug draft into HTTP log | missing0 clientdll dontrecord release clientcmd_can_execute |
-| mm_queue_draft_show | Display current draft | missing0 clientdll clientcmd_can_execute |
+| matchdraft_debug_sendlog | Print debug draft into HTTP log | hidden clientdll dontrecord release clientcmd_can_execute |
+| mm_queue_draft_show | Display current draft | hidden clientdll clientcmd_can_execute |
 | csgo_download_match | Downloads a match via serial code and starts playback | clientdll dontrecord clientcmd_can_execute |
 | cl_matchstats_print_own_data | cl_matchstats_print_own_data RANGENAME | clientdll |
-| gcmd | Generate a command | missing0 clientdll clientcmd_can_execute |
-| confirm_join_party_session_exit_current | Confirm that we wish to join a party session, destroying a previous session | missing0 clientdll clientcmd_can_execute |
-| confirm_activate_itemid_now | Confirm item activation by item id | missing0 clientdll clientcmd_can_execute |
+| gcmd | Generate a command | hidden clientdll clientcmd_can_execute |
+| confirm_join_party_session_exit_current | Confirm that we wish to join a party session, destroying a previous session | hidden clientdll clientcmd_can_execute |
+| confirm_activate_itemid_now | Confirm item activation by item id | hidden clientdll clientcmd_can_execute |
 | reload_store_config |  | clientdll |
-| confirm_purchase_item_def_now | Confirm item purchase | missing0 clientdll clientcmd_can_execute |
+| confirm_purchase_item_def_now | Confirm item purchase | hidden clientdll clientcmd_can_execute |
 | cl_sim_grenade_trajectory | Draw trajectory of the deployed grenade if thrown from this position. Takes an optional parameter for how long the drawn trajectory will last. | clientdll cheat |
 | apply_crosshair_code | Apply a crosshair code to the current crosshair settings. | clientdll |
-| perfectworld_replenish_funds | Opens Perfect World funds replenishment page for account. | missing0 clientdll clientcmd_can_execute |
+| perfectworld_replenish_funds | Opens Perfect World funds replenishment page for account. | hidden clientdll clientcmd_can_execute |
 | debug_purchase_defidx | Purchase an item by defindex | clientdll release clientcmd_can_execute |
 | cl_quest_schedule_print | cl_quest_schedule_print | clientdll |
 | cl_quest_events_print | cl_quest_events_print | clientdll |
