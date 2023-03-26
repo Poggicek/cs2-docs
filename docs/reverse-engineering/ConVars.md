@@ -2,6 +2,8 @@
 
 ## Flags
 
+### List
+
 | Flag | Value |
 | ---- | ----- |
 | FCVAR_LINKED_CONCOMMAND | 1 << 0 |
@@ -34,6 +36,42 @@
 | FCVAR_VCONSOLE_SET_FOCUS | 1 << 27 |
 | FCVAR_CLIENTCMD_CAN_EXECUTE | 1 << 28 |
 | FCVAR_EXECUTE_PER_TICK | 1 << 29 |
+
+### Definitions
+
+```cpp
+#define FCVAR_NONE 0
+#define FCVAR_LINKED_CONCOMMAND (1 << 0)
+#define FCVAR_DEVELOPMENTONLY (1 << 1)
+#define FCVAR_GAMEDLL (1 << 2)
+#define FCVAR_CLIENTDLL (1 << 3)
+#define FCVAR_HIDDEN (1 << 4)
+#define FCVAR_PROTECTED (1 << 5)
+#define FCVAR_SPONLY (1 << 6)
+#define FCVAR_ARCHIVE (1 << 7)
+#define FCVAR_NOTIFY (1 << 8)
+#define FCVAR_USERINFO (1 << 9)
+#define FCVAR_HIDE (1 << 10)
+#define FCVAR_UNLOGGED (1 << 11)
+#define FCVAR_MISSING1 (1 << 12)
+#define FCVAR_REPLICATED (1 << 13)
+#define FCVAR_CHEAT (1 << 14)
+#define FCVAR_PER_USER (1 << 15)
+#define FCVAR_DEMO (1 << 16)
+#define FCVAR_DONTRECORD (1 << 17)
+#define FCVAR_MISSING2 (1 << 18)
+#define FCVAR_RELEASE (1 << 19)
+#define FCVAR_MENUBAR_ITEM (1 << 20)
+#define FCVAR_MISSING3 (1 << 21)
+#define FCVAR_NOT_CONNECTED (1 << 22)
+#define FCVAR_VCONSOLE_FUZZY_MATCHING (1 << 23)
+#define FCVAR_SERVER_CAN_EXECUTE (1 << 24)
+#define FCVAR_MISSING4 (1 << 25)
+#define FCVAR_SERVER_CANNOT_QUERY (1 << 26)
+#define FCVAR_VCONSOLE_SET_FOCUS (1 << 27)
+#define FCVAR_CLIENTCMD_CAN_EXECUTE (1 << 28)
+#define FCVAR_EXECUTE_PER_TICK (1 << 29)
+```
 
 :::info
 Flag definitons can be found in **tier0** by searching for xrefs to any of the flag names (e.g. `DEVELOPMENTONLY`)
