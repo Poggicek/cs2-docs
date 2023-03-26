@@ -141,11 +141,11 @@ sidebar_position: 1
 | mobile_fps_limit | MOBILE_FPS_CONTROL: Mobile FPS limit - 15, 30, 60 | archive |
 | mobile_fps_increase_during_touch | MOBILE_FPS_CONTROL: If true we increase framerate limit during touch | archive |
 | mobile_fps_increase_during_charging | MOBILE_FPS_CONTROL: If true we increase framerate limit while charging | archive |
-| mobile_fps_increase_during_hfr_animations | MOBILE_FPS_CONTROL: If true we increase framerate limit during HFR-tagged animations and transitions. | developmentonly missing0 |
+| mobile_fps_increase_during_hfr_animations | MOBILE_FPS_CONTROL: If true we increase framerate limit during HFR-tagged animations and transitions. | developmentonly hidden |
 | fps_max | Frame rate limiter.  0=no limit.  Does not apply to dedicated server. | archive release |
 | fps_max_ui | Frame rate limiter while the game UI is displayed.  0=no limit.  Does not apply to dedicated server. | archive |
 | fps_max_tools | Additional frame rate limit while in tools mode and a window other than the game window has focus. Note that fps_max still applies, this only allows the maximum frame rate for tools mode to be lower. 0=no tools specific limit. | archive |
-| sv_fps_max | Dedicated server frame rate limiter. 0=tick rate. Only applies to the dedicated server. | developmentonly missing0 |
+| sv_fps_max | Dedicated server frame rate limiter. 0=tick rate. Only applies to the dedicated server. | developmentonly hidden |
 | async_serialize | Force async reads to serialize for profiling | developmentonly |
 | con_logfile_suffix | Suffix to append to the console log, may be changed to reopen the log | developmentonly |
 | gameevents_showevents | Dump game events to console. (1 = Show Signaling, 2 = Show Posting also). | developmentonly |
@@ -207,10 +207,10 @@ sidebar_position: 1
 | engine_sse42 | turn on sse4.2 optimizations in the engine | developmentonly |
 | sv_temp_baseline_string_table_buffer_size | Buffer size for writing string table baselines | developmentonly |
 | tv_playcast_delay_resync | To alleviate intermittent network connectivity problems, this is the number of seconds to wait before actually re-syncing the stream after failure | release |
-| tv_playcast_showerrors | Set to display headers upon error (e.g. "CF-Ray,CF-Cache-Status,Body" ) | missing0 release |
-| tv_playcast_origin_auth | Get request X-Origin-Auth string | missing0 release |
-| tv_playcast_max_rcvage |  | missing0 release |
-| tv_playcast_max_rtdelay |  | missing0 release |
+| tv_playcast_showerrors | Set to display headers upon error (e.g. "CF-Ray,CF-Cache-Status,Body" ) | hidden release |
+| tv_playcast_origin_auth | Get request X-Origin-Auth string | hidden release |
+| tv_playcast_max_rcvage |  | hidden release |
+| tv_playcast_max_rtdelay |  | hidden release |
 | tv_playcast_delay_prediction |  | release |
 | tv_playcast_retry_timeout | In case of intermittent network problems, how long should playcast retry fragment retrieval before resorting to resync | release |
 | tv_broadcast_keyframe_interval | The frequency, in seconds, of sending keyframes and delta fragments to the broadcast relay server | release |
@@ -218,11 +218,11 @@ sidebar_position: 1
 | tv_broadcast_startup_resend_interval | The interval, in seconds, of re-sending startup data to the broadcast relay server (useful in case relay crashes, restarts or startup data http request fails) | release |
 | tv_broadcast_max_requests | Max number of broadcast http requests in flight. If there is a network issue, the requests may start piling up, degrading server performance. If more than the specified number of requests are in flight, the new requests are dropped. | release |
 | tv_broadcast_max_requests1 | Max number of broadcast1 http requests in flight. If there is a network issue, the requests may start piling up, degrading server performance. If more than the specified number of requests are in flight, the new requests are dropped. | release |
-| tv_broadcast_drop_fragments | Drop every Nth fragment | missing0 release |
-| tv_broadcast_terminate | Terminate every broadcast with a stop command | missing0 release |
-| tv_broadcast_origin_auth | X-Origin-Auth header of the broadcast POSTs | missing0 release |
-| tv_broadcast_origin_auth1 | X-Origin-Auth header of the broadcast1 POSTs | missing0 release |
-| tv_broadcast_origin_delay | Injection delay request for CDN rebroadcast frameworks, seconds | missing0 release |
+| tv_broadcast_drop_fragments | Drop every Nth fragment | hidden release |
+| tv_broadcast_terminate | Terminate every broadcast with a stop command | hidden release |
+| tv_broadcast_origin_auth | X-Origin-Auth header of the broadcast POSTs | hidden release |
+| tv_broadcast_origin_auth1 | X-Origin-Auth header of the broadcast1 POSTs | hidden release |
+| tv_broadcast_origin_delay | Injection delay request for CDN rebroadcast frameworks, seconds | hidden release |
 | tv_maxrate | Max SourceTV spectator bandwidth rate allowed, 0 == unlimited | release |
 | tv_rate_multiplier | Multiply requested rate by this value to adjust Dota TV send rate | developmentonly |
 | tv_relaypassword | SourceTV password for relay proxies | protected notify dontrecord release |
@@ -435,79 +435,79 @@ sidebar_position: 1
 | font_show_glyph_miss |  | developmentonly |
 | mat_colorcorrection |  | developmentonly |
 | mat_viewportscale | Scale down the main viewport (to reduce GPU impact on CPU profiling) | developmentonly clientdll |
-| @panorama_disable_blur |  | developmentonly missing0 |
-| @panorama_disable_box_shadow |  | developmentonly missing0 |
-| @panorama_disable_render_callbacks |  | developmentonly missing0 |
-| @panorama_disable_draw_fancy_quad |  | developmentonly missing0 |
-| @panorama_disable_layer_clear |  | developmentonly missing0 |
-| @panorama_disable_draw_text |  | developmentonly missing0 |
-| @panorama_force_text_shadow_strength |  | developmentonly missing0 |
-| @panorama_disable_draw_text_shadow |  | developmentonly missing0 |
-| @panorama_disable_layer_cache |  | developmentonly missing0 |
-| @panorama_use_backbuffer_directly |  | developmentonly missing0 |
-| @panorama_highlight_composition_layers |  | developmentonly missing0 |
-| @panorama_highlight_slow_operations |  | developmentonly missing0 |
-| @panorama_highlight_bad_opacity_masks |  | developmentonly missing0 |
-| @panorama_stats_log_time |  | developmentonly missing0 |
-| @panorama_min_comp_layer_cache_cost |  | developmentonly missing0 |
-| @panorama_comp_layer_lru_lifetime |  | developmentonly missing0 |
-| @panorama_command_reordering |  | developmentonly missing0 |
-| @panorama_composition_atlas |  | developmentonly missing0 |
-| @panorama_temp_comp_layer_min_dimension |  | developmentonly missing0 |
-| @panorama_disable_render_target_cache |  | developmentonly missing0 |
-| @panorama_render_target_cache_max_size |  | developmentonly missing0 |
+| @panorama_disable_blur |  | developmentonly hidden |
+| @panorama_disable_box_shadow |  | developmentonly hidden |
+| @panorama_disable_render_callbacks |  | developmentonly hidden |
+| @panorama_disable_draw_fancy_quad |  | developmentonly hidden |
+| @panorama_disable_layer_clear |  | developmentonly hidden |
+| @panorama_disable_draw_text |  | developmentonly hidden |
+| @panorama_force_text_shadow_strength |  | developmentonly hidden |
+| @panorama_disable_draw_text_shadow |  | developmentonly hidden |
+| @panorama_disable_layer_cache |  | developmentonly hidden |
+| @panorama_use_backbuffer_directly |  | developmentonly hidden |
+| @panorama_highlight_composition_layers |  | developmentonly hidden |
+| @panorama_highlight_slow_operations |  | developmentonly hidden |
+| @panorama_highlight_bad_opacity_masks |  | developmentonly hidden |
+| @panorama_stats_log_time |  | developmentonly hidden |
+| @panorama_min_comp_layer_cache_cost |  | developmentonly hidden |
+| @panorama_comp_layer_lru_lifetime |  | developmentonly hidden |
+| @panorama_command_reordering |  | developmentonly hidden |
+| @panorama_composition_atlas |  | developmentonly hidden |
+| @panorama_temp_comp_layer_min_dimension |  | developmentonly hidden |
+| @panorama_disable_render_target_cache |  | developmentonly hidden |
+| @panorama_render_target_cache_max_size |  | developmentonly hidden |
 | snd_ui_spatialization_spread |  | developmentonly cheat |
-| panorama_spew_async_event_substring | If non-empty, print debug info about async event queue and dispatch behavior for events containing the substring. | developmentonly missing0 |
-| panorama_js_minidumps | Enable sending minidumps on JS Exceptions. | developmentonly missing0 |
-| @panorama_max_fps |  | developmentonly missing0 |
-| @panorama_max_overlay_fps |  | developmentonly missing0 |
-| @panorama_max_oof_overlay_up_fps |  | developmentonly missing0 |
-| @panorama_large_dispatch_event_queue |  | developmentonly missing0 |
-| @panorama_frame_limit_v8_gc_microseconds |  | developmentonly missing0 |
-| @panorama_reload_animations |  | developmentonly missing0 |
-| @panorama_debug_overlay_opacity_min |  | missing0 archive |
-| @panorama_debug_overlay_opacity_max |  | missing0 archive |
-| @panorama_debug_overlay_opacity |  | missing0 archive |
-| @panorama_cache_command_list_repaint_threshold |  | developmentonly missing0 |
-| @panorama_cache_command_list_size_threshold |  | developmentonly missing0 |
-| @panorama_disallow_hover_styles |  | developmentonly missing0 |
-| @panorama_debug_ready_for_display |  | developmentonly missing0 |
-| @panorama_style_flag_force_invalidate | Force style invalidation of the entire panel subtree when adding / removing style flags. | developmentonly missing0 |
-| @panorama_classes_force_invalidate | Force style invalidation of the entire panel subtree when adding / removing classes. | developmentonly missing0 |
+| panorama_spew_async_event_substring | If non-empty, print debug info about async event queue and dispatch behavior for events containing the substring. | developmentonly hidden |
+| panorama_js_minidumps | Enable sending minidumps on JS Exceptions. | developmentonly hidden |
+| @panorama_max_fps |  | developmentonly hidden |
+| @panorama_max_overlay_fps |  | developmentonly hidden |
+| @panorama_max_oof_overlay_up_fps |  | developmentonly hidden |
+| @panorama_large_dispatch_event_queue |  | developmentonly hidden |
+| @panorama_frame_limit_v8_gc_microseconds |  | developmentonly hidden |
+| @panorama_reload_animations |  | developmentonly hidden |
+| @panorama_debug_overlay_opacity_min |  | hidden archive |
+| @panorama_debug_overlay_opacity_max |  | hidden archive |
+| @panorama_debug_overlay_opacity |  | hidden archive |
+| @panorama_cache_command_list_repaint_threshold |  | developmentonly hidden |
+| @panorama_cache_command_list_size_threshold |  | developmentonly hidden |
+| @panorama_disallow_hover_styles |  | developmentonly hidden |
+| @panorama_debug_ready_for_display |  | developmentonly hidden |
+| @panorama_style_flag_force_invalidate | Force style invalidation of the entire panel subtree when adding / removing style flags. | developmentonly hidden |
+| @panorama_classes_force_invalidate | Force style invalidation of the entire panel subtree when adding / removing classes. | developmentonly hidden |
 | @panorama_show_fps |  | developmentonly |
 | @panorama_show_fps_scale |  | developmentonly |
-| @panorama_clear_frames_on_device_restore |  | developmentonly missing0 |
-| @panorama_disable_descendant_filtering | Disable descendant selector filtering | developmentonly missing0 |
-| @panorama_suspend_paint |  | developmentonly missing0 |
-| @panorama_enable_secondary_layout_pass |  | developmentonly missing0 |
-| @panorama_joystick_axis_repeat_interval_start |  | developmentonly missing0 |
-| @panorama_joystick_axis_repeat_interval_end |  | developmentonly missing0 |
-| @panorama_joystick_axis_repeat_curve_time |  | developmentonly missing0 |
-| @panorama_joystick_button_repeat_interval_start |  | developmentonly missing0 |
-| @panorama_joystick_button_repeat_interval_end |  | developmentonly missing0 |
-| @panorama_joystick_button_repeat_curve_time |  | developmentonly missing0 |
+| @panorama_clear_frames_on_device_restore |  | developmentonly hidden |
+| @panorama_disable_descendant_filtering | Disable descendant selector filtering | developmentonly hidden |
+| @panorama_suspend_paint |  | developmentonly hidden |
+| @panorama_enable_secondary_layout_pass |  | developmentonly hidden |
+| @panorama_joystick_axis_repeat_interval_start |  | developmentonly hidden |
+| @panorama_joystick_axis_repeat_interval_end |  | developmentonly hidden |
+| @panorama_joystick_axis_repeat_curve_time |  | developmentonly hidden |
+| @panorama_joystick_button_repeat_interval_start |  | developmentonly hidden |
+| @panorama_joystick_button_repeat_interval_end |  | developmentonly hidden |
+| @panorama_joystick_button_repeat_curve_time |  | developmentonly hidden |
 | @panorama_steampad_button_repeat_interval_start |  | developmentonly |
 | @panorama_steampad_button_repeat_interval_end |  | developmentonly |
 | @panorama_steampad_button_repeat_curve_time |  | developmentonly |
 | @panorama_debug_dead_pad |  | developmentonly |
 | steamcontroller_flow_sensitivity |  | developmentonly |
-| @panorama_dragscroll_affordance | Minimum mouse movement in pixels before a move is treated as a drag scroll | developmentonly missing0 |
-| @panorama_dragscroll_mintime | Minimum time that the mouse button must be down before a move is treated as a drag scroll | developmentonly missing0 |
-| @panorama_dragscroll_velocitymultiplier | Multiplier for flick velocity off of actual measured velocity | developmentonly missing0 |
-| forceactivecontrollertype |  | developmentonly missing0 |
-| @panorama_spew_layout_invalidates |  | developmentonly missing0 |
-| @panorama_transition_time_factor | A float representing a scale factor for transitions. 1.0 is normal, 2.0 would be twice as fast as normal, 0.5 half as fast | developmentonly missing0 |
-| @panorama_max_text_shadow_strength |  | developmentonly missing0 |
-| @panorama_allow_transitions |  | developmentonly missing0 |
-| @panorama_2d_translate_no_comp_layer |  | developmentonly missing0 |
-| @panorama_might_scroll_no_comp_layer |  | developmentonly missing0 |
-| @panorama_box_shadow_no_comp_layer |  | developmentonly missing0 |
-| @panorama_simple_borders_no_comp_layer |  | developmentonly missing0 |
-| @panorama_allow_texture_composition_layer_fast_path |  | developmentonly missing0 |
-| @panorama_transforms_no_comp_layer |  | developmentonly missing0 |
-| @panorama_transform_parents_no_layer_for_perspective |  | developmentonly missing0 |
-| @panorama_hsbc_through_fast_path |  | developmentonly missing0 |
-| @panorama_track_render_commands |  | developmentonly missing0 |
+| @panorama_dragscroll_affordance | Minimum mouse movement in pixels before a move is treated as a drag scroll | developmentonly hidden |
+| @panorama_dragscroll_mintime | Minimum time that the mouse button must be down before a move is treated as a drag scroll | developmentonly hidden |
+| @panorama_dragscroll_velocitymultiplier | Multiplier for flick velocity off of actual measured velocity | developmentonly hidden |
+| forceactivecontrollertype |  | developmentonly hidden |
+| @panorama_spew_layout_invalidates |  | developmentonly hidden |
+| @panorama_transition_time_factor | A float representing a scale factor for transitions. 1.0 is normal, 2.0 would be twice as fast as normal, 0.5 half as fast | developmentonly hidden |
+| @panorama_max_text_shadow_strength |  | developmentonly hidden |
+| @panorama_allow_transitions |  | developmentonly hidden |
+| @panorama_2d_translate_no_comp_layer |  | developmentonly hidden |
+| @panorama_might_scroll_no_comp_layer |  | developmentonly hidden |
+| @panorama_box_shadow_no_comp_layer |  | developmentonly hidden |
+| @panorama_simple_borders_no_comp_layer |  | developmentonly hidden |
+| @panorama_allow_texture_composition_layer_fast_path |  | developmentonly hidden |
+| @panorama_transforms_no_comp_layer |  | developmentonly hidden |
+| @panorama_transform_parents_no_layer_for_perspective |  | developmentonly hidden |
+| @panorama_hsbc_through_fast_path |  | developmentonly hidden |
+| @panorama_track_render_commands |  | developmentonly hidden |
 | lua_assert_on_error |  | developmentonly |
 | lua_shipping_assert_on_error |  | developmentonly |
 | dti_report_stddev_threshold | For network encoding stats, provide a notes field if field change count is above this many standard deviations for the average field change counts for the serializer. | release |
@@ -1086,16 +1086,16 @@ sidebar_position: 1
 | r_particle_enable_fastpath |  | developmentonly |
 | r_particle_force_material_binds |  | developmentonly |
 | panorama_debugger_theme |  | clientdll archive |
-| @panorama_debug_movies |  | developmentonly missing0 clientdll |
-| @panorama_movie_async_load_size_bytes |  | developmentonly missing0 clientdll |
-| @panorama_movie_force_not_ready_behavior |  | developmentonly missing0 clientdll |
-| @console_position_and_size |  | missing0 clientdll archive |
-| @console_max_history |  | developmentonly missing0 clientdll |
-| @console_max_autocomplete |  | developmentonly missing0 clientdll |
-| @console_max_lines |  | developmentonly missing0 clientdll |
-| @panorama_dragscroll_minflickvelocity | Minimum velocity that the mouse must be moving as mouse up time to qualify as a drag scroll flick | developmentonly missing0 clientdll |
-| @panorama_dragscroll_maxflickvelocity | Maximum velocity for a drag scroll flick | developmentonly missing0 clientdll |
-| @panorama_daisy_wheel | Daisy wheel input mode: RS \| ABXY | developmentonly missing0 clientdll |
+| @panorama_debug_movies |  | developmentonly hidden clientdll |
+| @panorama_movie_async_load_size_bytes |  | developmentonly hidden clientdll |
+| @panorama_movie_force_not_ready_behavior |  | developmentonly hidden clientdll |
+| @console_position_and_size |  | hidden clientdll archive |
+| @console_max_history |  | developmentonly hidden clientdll |
+| @console_max_autocomplete |  | developmentonly hidden clientdll |
+| @console_max_lines |  | developmentonly hidden clientdll |
+| @panorama_dragscroll_minflickvelocity | Minimum velocity that the mouse must be moving as mouse up time to qualify as a drag scroll flick | developmentonly hidden clientdll |
+| @panorama_dragscroll_maxflickvelocity | Maximum velocity for a drag scroll flick | developmentonly hidden clientdll |
+| @panorama_daisy_wheel | Daisy wheel input mode: RS \| ABXY | developmentonly hidden clientdll |
 | nav_path_optimizer_debug |  | gamedll cheat |
 | nav_path_jump_process_debug |  | gamedll cheat |
 | nav_path_debug |  | gamedll cheat |
@@ -1947,7 +1947,7 @@ sidebar_position: 1
 | sv_pushaway_player_force | How hard the player is pushed away from physics objects (falls off with inverse square of distance). | developmentonly gamedll clientdll replicated cheat |
 | sv_pushaway_max_player_force | Maximum of how hard the player is pushed away from physics objects. | developmentonly gamedll clientdll replicated cheat |
 | sv_turbophysics | Turns on turbo physics | developmentonly gamedll clientdll replicated |
-| steamworks_sessionid_server | The server session ID for the new steamworks gamestats. | developmentonly gamedll missing0 clientdll replicated |
+| steamworks_sessionid_server | The server session ID for the new steamworks gamestats. | developmentonly gamedll hidden clientdll replicated |
 | sv_grenade_trajectory_time_spectator | Length of time grenade trajectory remains visible as a spectator. | gamedll clientdll replicated release missing3 |
 | sv_grenade_trajectory_prac_trailtime | Shows grenade trajectory practice visualization for this number of seconds. | gamedll clientdll replicated release missing3 |
 | sv_grenade_trajectory_prac_pipreview | Shows grenade trajectory practice picture-in-picture preview. | gamedll clientdll replicated release missing3 |
@@ -2007,7 +2007,7 @@ sidebar_position: 1
 | sv_endmatch_item_drop_interval_ancient | The time between drops on the end match scoreboard for ancient items  | developmentonly gamedll clientdll replicated |
 | sv_compute_per_bot_difficulty | 0 = compute all bot difficulties equally, 1 = compute unique bot difficulty for each bot  | developmentonly gamedll clientdll replicated |
 | sv_show_bot_difficulty_in_name | 0 = hide bot difficulty in bot name, 1 = show bot difficulty in bot name | developmentonly gamedll clientdll replicated |
-| sv_bot_difficulty_kbm | Bot difficulty while playing with Keyboard/Mouse device | developmentonly gamedll missing0 clientdll replicated |
+| sv_bot_difficulty_kbm | Bot difficulty while playing with Keyboard/Mouse device | developmentonly gamedll hidden clientdll replicated |
 | sv_kick_ban_duration | How long should a kick ban from the server should last (in minutes) | gamedll clientdll notify replicated release |
 | sv_disable_immunity_alpha | If set, clients won't slam the player model render settings each frame for immunity [mod authors use this] | gamedll clientdll replicated release missing3 |
 | sv_deadtalk | Dead players can speak (voice, text) to the living | gamedll clientdll notify replicated release missing3 |
@@ -2242,8 +2242,8 @@ sidebar_position: 1
 | nextmode | Sets the game mode to be played when the next level loads | gamedll notify replicated release |
 | nextlevel | If set to a valid map name, will trigger a changelevel to the specified map at the end of the round | gamedll notify release |
 | mapcyclefile | Name of the .txt file used to cycle the maps on multiplayer servers  | developmentonly gamedll |
-| game_online | The current game is online. | developmentonly gamedll missing0 clientdll replicated |
-| game_public | The current game is public. | developmentonly gamedll missing0 clientdll replicated |
+| game_online | The current game is online. | developmentonly gamedll hidden clientdll replicated |
+| game_public | The current game is public. | developmentonly gamedll hidden clientdll replicated |
 | mp_teamname_1 | A non-empty string overrides the first team's name. | gamedll release |
 | mp_teamname_2 | A non-empty string overrides the second team's name. | gamedll release |
 | mp_teamflag_1 | Enter a country's alpha 2 code to show that flag next to team 1's name in the spectator scoreboard. | gamedll release |
@@ -2639,10 +2639,10 @@ sidebar_position: 1
 | ui_show_subscription_alert |  | clientdll archive release |
 | ui_mainmenu_bkgnd_movie_94408AE3 | Main menu background movie | clientdll archive release |
 | lobby_default_privacy_bits2 | Lobby default permissions (0: private, 1: public) | clientdll archive release |
-| cl_clanid | Current clan ID for name decoration | missing0 clientdll archive userinfo |
+| cl_clanid | Current clan ID for name decoration | hidden clientdll archive userinfo |
 | ui_setting_advertiseforhire_auto | Whether users will automatically advertise for invites (0: off; 1: last; 2: auto) | clientdll archive release |
 | ui_setting_advertiseforhire_auto_last | Which game mode users last used to advertise for invites | clientdll archive release |
-| key_bind_version |  | missing0 clientdll archive release |
+| key_bind_version |  | hidden clientdll archive release |
 | cl_streams_request_url | Number of streams requested for display | developmentonly clientdll |
 | cl_streams_request_accept | Header for api request | developmentonly clientdll |
 | cl_streams_image_sfurl | Format of Scaleform image representing the stream | developmentonly clientdll |
@@ -2650,7 +2650,7 @@ sidebar_position: 1
 | cl_streams_write_response_file | When set will save streams info file for diagnostics | developmentonly clientdll |
 | cl_streams_mytwitchtv_nolink | Twitch.tv account linking URL | developmentonly clientdll |
 | cl_streams_mytwitchtv_channel | Twitch.tv account channel URL | developmentonly clientdll |
-| cachedvalue_count_teammates |  | missing0 clientdll archive |
+| cachedvalue_count_teammates |  | hidden clientdll archive |
 | cl_righthand | Use right-handed view models. | clientdll archive |
 | vm_draw_always |  | developmentonly clientdll |
 | vm_camera |  | developmentonly clientdll |
@@ -2692,7 +2692,7 @@ sidebar_position: 1
 | radio_icons_use_particles | 0 = classic style, 1 = particles | developmentonly clientdll |
 | cq_netgraph | Display command queue statistics on the hud | clientdll userinfo cheat |
 | dota_toast_manager_override_duration |  | developmentonly clientdll |
-| sticky_tooltips | Don't ever hide tooltips. Helpful when debugging complicated tooltip layouts. | developmentonly missing0 clientdll |
+| sticky_tooltips | Don't ever hide tooltips. Helpful when debugging complicated tooltip layouts. | developmentonly hidden clientdll |
 | r_csgo_render_post_fxaa |  | developmentonly clientdll |
 | csgo_render_post_colorcorrection |  | clientdll cheat |
 | csgo_render_post_bloom |  | clientdll cheat |
@@ -2765,9 +2765,9 @@ sidebar_position: 1
 | player_competitive_maplist_2v2_10_0_DBAEB932 |  | clientdll archive |
 | player_wargames_list2_10_0_DC207394 |  | clientdll archive |
 | player_survival_list_10_0_303 |  | clientdll archive |
-| cl_embedded_stream_audio_volume | Embedded stream audio volume | missing0 clientdll archive |
-| cl_embedded_stream_audio_volume_xmaster | Whether embedded stream audio volume gets multiplied by master volume | missing0 clientdll archive |
-| cl_embedded_stream_video_playing | Embedded stream video playing state | developmentonly missing0 clientdll |
+| cl_embedded_stream_audio_volume | Embedded stream audio volume | hidden clientdll archive |
+| cl_embedded_stream_audio_volume_xmaster | Whether embedded stream audio volume gets multiplied by master volume | hidden clientdll archive |
+| cl_embedded_stream_video_playing | Embedded stream video playing state | developmentonly hidden clientdll |
 | cl_promoted_settings_acknowledged |  | clientdll archive |
 | cl_mute_player_after_reporting_abuse | Mute players reported for abuse automatically. | developmentonly clientdll |
 | cl_inventory_saved_filter2 |  | clientdll archive release |
@@ -2779,13 +2779,13 @@ sidebar_position: 1
 | cl_spec_stats |  | clientdll release |
 | cl_server_graphic1_enable | When enabled, 360x60 (&lt;16kb) image file will be displayed to on-server spectators. | clientdll release |
 | cl_server_graphic2_enable | When enabled, 220x45 (&lt;16kb) image file will be displayed to on-server spectators. | clientdll release |
-| cl_accountprivacysetting1 |  | missing0 clientdll release |
+| cl_accountprivacysetting1 |  | hidden clientdll release |
 | partybrowser_throttle_data |  | developmentonly clientdll |
 | partybrowser_timeout |  | developmentonly clientdll |
 | cl_invites_only_friends | If turned on, will ignore in-game invites from recent teammates or other non-friends | clientdll archive release |
 | cl_invites_only_mainmenu | If turned on, will ignore all invites when user is playing a match | clientdll archive release |
-| cachedvalue_count_partybrowser |  | missing0 clientdll archive |
-| cl_voip_lobby_audio_volume | Lobby voip stream audio volume | developmentonly missing0 clientdll |
+| cachedvalue_count_partybrowser |  | hidden clientdll archive |
+| cl_voip_lobby_audio_volume | Lobby voip stream audio volume | developmentonly hidden clientdll |
 | ui_nearbylobbies_filter3 |  | clientdll archive release |
 | ui_playsettings_prime |  | clientdll archive release |
 | ui_playsettings_mode_listen |  | clientdll archive release |
@@ -2838,7 +2838,7 @@ sidebar_position: 1
 | ui_steam_overlay_notification_position | Steam overlay notification position | clientdll archive |
 | ui_steam_overlay_notification_position_horz | Steam overlay notification position horizontal offset | clientdll archive |
 | ui_steam_overlay_notification_position_vert | Steam overlay notification position vertical offset | clientdll archive |
-| connect_lobby | Sets the lobby ID to connect to on start. | developmentonly missing0 clientdll |
+| connect_lobby | Sets the lobby ID to connect to on start. | developmentonly hidden clientdll |
 | trusted_launch | Trusted launch status | clientdll archive |
 | snd_headphone_eq | Select Headphone EQ Preset | clientdll archive clientcmd_can_execute |
 | cl_hide_avatar_images | Hide avatar images for other players. .   0 - Off..       1 - Block All.  2 - Block all but friends | clientdll archive |
@@ -2953,9 +2953,9 @@ sidebar_position: 1
 | cl_deathcam_audio_mix_phase2_fade_amount | Sets the amount of ducking to do on death cam fade out. When set to 1, full DeathFadeLayer is applied. | clientdll release |
 | cl_scoreboard_mouse_enable_binding | Name of the binding to enable mouse selection in the scoreboard | clientdll archive |
 | snd_mute_mvp_music_live_players | If set, MVP music is muted if players from both teams are still alive. | clientdll archive release |
-| force_spectator_only_tools |  | developmentonly missing0 clientdll cheat |
+| force_spectator_only_tools |  | developmentonly hidden clientdll cheat |
 | cl_debug_client_gamestats |  | developmentonly clientdll |
-| steamworks_sessionid_lifetime_client | The full client session ID for the new steamworks gamestats. | developmentonly missing0 clientdll |
+| steamworks_sessionid_lifetime_client | The full client session ID for the new steamworks gamestats. | developmentonly hidden clientdll |
 | cl_debug_round_stat_submission |  | developmentonly clientdll |
 | cl_csgo_shoot_debugvis_show_rdp |  | developmentonly clientdll |
 | cl_csgo_shoot_debugvis_rdp_text_x |  | developmentonly clientdll |
@@ -2966,7 +2966,7 @@ sidebar_position: 1
 | cl_show_matchmaking_stat_spew |  | developmentonly clientdll |
 | lobby_stats_fake |  | developmentonly clientdll |
 | lobby_gamesearch_fake |  | developmentonly clientdll |
-| cl_session |  | developmentonly missing0 server_can_execute |
+| cl_session |  | developmentonly hidden server_can_execute |
 | tv_spectator_port_offset |  | clientdll release |
 | cl_player_visibility_stencil_bloat_amount_box |  | developmentonly clientdll |
 | cl_player_visibility_stencil_bloat_amount_ellipsoid |  | developmentonly clientdll |
@@ -2995,7 +2995,7 @@ sidebar_position: 1
 | damage_impact_medium | Damage BELOW this value is considered light damage | developmentonly clientdll |
 | directional_blood_impacts | 1 means we calculate the direction outward from the hit players body in relation to local client | developmentonly clientdll |
 | steam_controller_haptics |  | clientdll release |
-| steamworks_sessionid_client | The client session ID for the new steamworks gamestats. | missing0 clientdll userinfo |
+| steamworks_sessionid_client | The client session ID for the new steamworks gamestats. | hidden clientdll userinfo |
 | r_drawchickens | Render chickens | clientdll cheat |
 | inferno_dlight_spacing | Inferno dlights are at least this far apart | clientdll cheat |
 | inferno_dlights | Min FPS at which molotov dlights will be created | developmentonly clientdll |
@@ -3284,7 +3284,7 @@ sidebar_position: 1
 | cl_showpos | Draw current position at top of screen | clientdll release |
 | cl_showmem | Draw approximate memory use at top of screen | clientdll release |
 | report_clientthinklist | List all clientside entities thinking and time - will report and turn itself off. | clientdll cheat |
-| vprof_scope_entity_clientthink | Does nothing whatsoever. | developmentonly missing0 clientdll |
+| vprof_scope_entity_clientthink | Does nothing whatsoever. | developmentonly hidden clientdll |
 | cl_showusercmd | Show user command encoding | developmentonly clientdll |
 | cl_anglespeedkey |  | developmentonly clientdll |
 | cl_yawspeed |  | developmentonly clientdll |
@@ -3316,7 +3316,7 @@ sidebar_position: 1
 | c_thirdpersonshoulderoffset |  | clientdll archive |
 | c_thirdpersonshoulderdist |  | clientdll archive |
 | c_thirdpersonshoulderheight |  | clientdll archive |
-| game_particle_manager_requeue_messages |  | developmentonly missing0 clientdll |
+| game_particle_manager_requeue_messages |  | developmentonly hidden clientdll |
 | cl_hold_game_events_until_server_tick | Holds game events until client has received the tick the event was fired on. | developmentonly clientdll |
 | cl_hold_game_events_force_delay_ticks | Debugging convar to force late dispatch of game events. | developmentonly clientdll |
 | cl_net_showevents | Dump game events to console (1=client only, 2=all). | developmentonly clientdll |
