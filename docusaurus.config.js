@@ -4,6 +4,18 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
+const addItemToCategory = (sidebarItems, categoryLabel, item) => {
+  const category = sidebarItems.find(
+    // @ts-ignore
+    (item) => item.label === categoryLabel,
+  );
+
+  if (category) {
+    // @ts-ignore
+    category.items.push(item);
+  }
+};
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'CS2 Docs',
@@ -40,6 +52,32 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
           editUrl: 'https://github.com/poggicek/cs2-docs/edit/master',
+          async sidebarItemsGenerator({
+            defaultSidebarItemsGenerator,
+            ...args
+          }) {
+            const sidebarItems = await defaultSidebarItemsGenerator(args);
+
+            addItemToCategory(sidebarItems, 'Reverse Engineering', {
+              type: 'link',
+              label: "Schema System",
+              href: "https://praydog.com/index.php/2015/06/24/an-analysis-of-the-source-2-engine-part-1-the-schema-system/"
+            })
+
+            addItemToCategory(sidebarItems, 'Dumped Data', {
+              type: 'link',
+              label: "Schemas",
+              href: "https://github.com/neverlosecc/source2sdk/tree/cs2/sdk"
+            })
+
+            addItemToCategory(sidebarItems, 'Dumped Data', {
+              type: 'link',
+              label: "Usermessages",
+              href: "https://gist.github.com/psychonic/f529f20a02f6d78d56513127ff720683#file-usermessages-proto"
+            })
+
+            return sidebarItems;
+          },
         },
         blog: false,
         theme: {
