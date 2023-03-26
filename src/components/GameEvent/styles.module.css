@@ -1,0 +1,14 @@
+.type {
+	background: #0A246A;
+	color: white;
+	font-weight: 600;
+	padding: 0.2rem 0.4rem;
+}
+
+.name {
+	padding: 0.2rem 0.4rem;
+}
+
+.member {
+	background-color: unset!important;
+}
