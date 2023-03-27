@@ -1106,3 +1106,31 @@ sidebar_position: 2
 | cl_commandtool_exec | Runs a command from the command tool | clientdll |
 | cl_entityreport | Reports all extant entities. Optional 2nd arg is a substring of a classname that the list will be filtered by. | clientdll |
 | cl_entitysummary | Summarizes (by class) all extant entities. Optional 2nd arg is a substring of a classname that the list will be filtered by. | clientdll |
+| +voicerecord | Key binding | |
+| +camin | Key binding | |
+| +camout | Key binding | |
+| +campitchdown | Key binding | |
+| +campitchup | Key binding | |
+| +camyawleft | Key binding | |
+| +camyawright | Key binding | |
+| +attack | Key binding | |
+| +attack2 | Key binding | |
+| +back | Key binding | |
+| +duck | Key binding | |
+| +forward | Key binding | |
+| +jump | Key binding | |
+| +left | Key binding | |
+| +right | Key binding | |
+| +reload | Key binding | |
+| +sprint | Key binding | |
+| +turnleft | Key binding | |
+| +turnright | Key binding | |
+| +turndown | Key binding | |
+| +turnup | Key binding | |
+| +use | Key binding | |
+| +klook | Key binding | |
+| +movedown | Key binding | |
+| +moveup | Key binding | |
+| +strafe | Key binding | |
+| +showscores | Key binding | |
+| +zoom | Key binding | |
