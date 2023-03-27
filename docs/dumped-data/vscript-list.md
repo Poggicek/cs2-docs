@@ -483,7 +483,6 @@ sidebar_position: 5
 | Function | Signature | Description |
 | -------- | --------- | ----------- |
 | Msg | void Msg( string <em>string_1</em> ) | Print a message |
-| print | void print( string <em>message</em> ) | Prints the given message to the developer console |
 | PrintLinkedConsoleMessage | void PrintLinkedConsoleMessage( string <em>string_1</em>, string <em>string_2</em> ) | Print a console message with a linked console command |
 | Say | void Say( handle <em>handle_1</em>, string <em>string_2</em>, bool <em>bool_3</em> ) | Have Entity say string, and teamOnly or not |
 | ScriptPrintMessageCenterAll | void ScriptPrintMessageCenterAll( string <em>string_1</em> ) | Prints an alert message in the center print method to all players. |
