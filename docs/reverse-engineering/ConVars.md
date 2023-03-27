@@ -57,3 +57,13 @@ Current known types are:
 - TODO
 
 In most cases there's only one value, but if the flag is `FCVAR_PER_USER` it will be equal to `g_pCVar->GetMaxSplitScreenSlots()`.
+
+## ConVar callbacks
+
+Rather than convars storing a pointer to their callback function, they store an ID that gets looked up in a list of callbacks.
+
+CCvar+0x80 is a pointer to a list of ConVar callbacks. Every callback pointer will be `24 * callbackId` bytes away from the start of the list.
+
+Every convar will store its callback ID in the `callbackId` field. See above.
+
+![Callback List](img/callbacklist.png)
