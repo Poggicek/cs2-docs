@@ -70,7 +70,7 @@ sidebar_position: 5
 | NextMovePeer | handle NextMovePeer( ) |     |
 | OverrideFriction | void OverrideFriction( float <em>duration</em>, float <em>friction</em> ) | Takes duration, value for a temporary override. |
 | PrecacheScriptSound | void PrecacheScriptSound( string <em>soundname</em> ) | Precache a sound for later playing. |
-| RemoveEffects | void RemoveEffects( int <em>nFlags</em> ) | RemoveEffects( int ): Removes the render effect flag. |
+| RemoveEffects | void RemoveEffects( int <em>nFlags</em> ) | Removes the render effect flag. |
 | SetAbsAngles | void SetAbsAngles( float <em>fPitch</em>, float <em>fYaw</em>, float <em>fRoll</em> ) | Set entity pitch, yaw, roll by component. |
 | SetAbsOrigin | void SetAbsOrigin( Vector <em>origin</em> ) |     |
 | SetAbsScale | void SetAbsScale( float <em>flScale</em> ) |     |
@@ -610,8 +610,8 @@ sidebar_position: 5
 | PlayerInstanceFromIndex | handle PlayerInstanceFromIndex( int <em>int_1</em> ) | Get a script instance of a player by index. |
 | PrecacheEntityFromTable | void PrecacheEntityFromTable( string <em>string_1</em>, handle <em>handle_2</em>, handle <em>handle_3</em> ) | Precache an entity from KeyValues in table |
 | PrecacheEntityListFromTable | void PrecacheEntityListFromTable( handle <em>handle_1</em>, handle <em>handle_2</em> ) | Precache a list of entity KeyValues tables |
-| PrecacheResource | void PrecacheResource( string <em>string_1</em>, handle <em>handle_2</em> ) | ( modelName, context ) - Manually precache a single model |
-| QSlerp | QAngle QSlerp( QAngle <em>QAngle_1</em>, QAngle <em>QAngle_2</em>, float <em>float_3</em> ) | (from angle, to angle, time) - Spherical lerp of angle from->to based on time |
+| PrecacheResource | void PrecacheResource( string <em>modelName</em>, handle <em>context</em> ) | Manually precache a single model |
+| QSlerp | QAngle QSlerp( QAngle <em>fromAngle</em>, QAngle <em>toAngle</em>, float <em>time</em> ) | Spherical lerp of angle from->to based on time |
 | RandomFloat | float RandomFloat( float <em>float_1</em>, float <em>float_2</em> ) | Get a random float within a range |
 | RandomInt | int RandomInt( int <em>int_1</em>, int <em>int_2</em> ) | Get a random int within a range |
 | RegisterSpawnGroupFilterProxy | void RegisterSpawnGroupFilterProxy( string <em>string_1</em> ) | Create a C proxy for a script-based spawn group filter |
@@ -622,7 +622,7 @@ sidebar_position: 5
 | RotateQuaternionByAxisAngle | Quaternion RotateQuaternionByAxisAngle( Quaternion <em>Quaternion_1</em>, Vector <em>Vector_2</em>, float <em>float_3</em> ) | Rotates a quaternion by the specified angle around the specified vector axis |
 | RotationDelta | QAngle RotationDelta( QAngle <em>QAngle_1</em>, QAngle <em>QAngle_2</em> ) | Find the delta between two QAngles. |
 | RotationDeltaAsAngularVelocity | Vector RotationDeltaAsAngularVelocity( QAngle <em>QAngle_1</em>, QAngle <em>QAngle_2</em> ) | Converts delta QAngle to an angular velocity Vector |
-| ScreenShake | void ScreenShake( Vector <em>Vector_1</em>, float <em>float_2</em>, float <em>float_3</em>, float <em>float_4</em>, float <em>float_5</em>, int <em>int_6</em>, bool <em>bool_7</em> ) | Start a screenshake with the following parameters. vecCenter, flAmplitude, flFrequency, flDuration, flRadius, eCommand( SHAKE_START = 0, SHAKE_STOP = 1 ), bAirShake |
+| ScreenShake | void ScreenShake( Vector <em>vecCenter</em>, float <em>flAmplitude</em>, float <em>flFrequency</em>, float <em>flDuration</em>, float <em>flRadius</em>, int <em>eCommand</em>, bool <em>bAirShake</em> ) | Start a screenshake. eCommand values: SHAKE_START = 0, SHAKE_STOP = 1 |
 | ScriptGetGameMode | int ScriptGetGameMode( ) | Gets the current game mode. |
 | ScriptGetGameType | int ScriptGetGameType( ) | Gets the current game type. |
 | ScriptGetRoundsPlayed | int ScriptGetRoundsPlayed( ) | Get the number of rounds played so far. |
@@ -654,7 +654,7 @@ sidebar_position: 5
 | UTIL_RemoveImmediate | void UTIL_RemoveImmediate( handle <em>handle_1</em> ) | Immediately removes the specified entity |
 | UnloadSpawnGroup | void UnloadSpawnGroup( string <em>string_1</em> ) | Unload a spawn group by name |
 | UnloadSpawnGroupByHandle | void UnloadSpawnGroupByHandle( int <em>int_1</em> ) | Unload a spawn group by handle |
-| UserIDToControllerHScript | handle UserIDToControllerHScript( int <em>int_1</em> ) | Turn a userid integer (typically, fields named 'userid' in game events) to an HScript representing the associated player controller's script instance. |
+| UserIDToControllerHScript | handle UserIDToControllerHScript( int <em>userid</em> ) | Turn a userid integer (typically, fields named 'userid' in game events) to an HScript representing the associated player controller's script instance. |
 | VectorToAngles | QAngle VectorToAngles( Vector <em>Vector_1</em> ) | Get Qangles (with no roll) for a Vector. |
 | cvar_getf | float cvar_getf( string <em>string_1</em> ) | Gets the value of the given cvar, as a float. |
 | cvar_setf | bool cvar_setf( string <em>string_1</em>, float <em>float_2</em> ) | Sets the value of the given cvar, as a float. |
