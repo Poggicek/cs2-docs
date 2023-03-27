@@ -716,12 +716,10 @@ sidebar_position: 2
 | ent_ungrab | un-grabs all objects | gamedll cheat |
 | ent_name | Displays the entity name | gamedll cheat |
 | ent_actornames | Displays the entity name for all entities that have ShouldDisplayInActorNames true in code | gamedll cheat |
- | undefined |isplays text debugging information about the given entity(ies) on top of the entity (See Overlay Text).
-|         Arguments:      {entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | undefined |eat
-| ent_text_radius | Displays text debugging information about the given entity(ies) [near the player] on top of the entity (See Overlay Text).      2 Arguments:    &lt;Radius&gt; &lt;{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at}&gt; | gamedll cheat |
-| ent_text256 | Displays text debugging information about the given entity(ies) [within 256 units of the player] on top of the entity (See Overlay Text).   Arguments:      {entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | gamedll cheat |
- | undefined |ar | Hide text debugging information about the given entity(ies) on top of the entity (See Overlay Text).
-|         Arguments:      {entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | undefined |eat
+| ent_text | Displays text debugging information about the given entity(ies) on top of the entity (See Overlay Text). Arguments:      {entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | gamedll cheat |
+| ent_text_radius | Displays text debugging information about the given entity(ies) [near the player] on top of the entity (See Overlay Text). 2 Arguments: &lt;Radius&gt; &lt;{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at}&gt; | gamedll cheat |
+| ent_text256 | Displays text debugging information about the given entity(ies) [within 256 units of the player] on top of the entity (See Overlay Text). Arguments: {entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | gamedll cheat |
+| ent_text_clear | Hide text debugging information about the given entity(ies) on top of the entity (See Overlay Text). Arguments:      {entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | gamedll cheat
 | ent_text_sticky_add | Adds to list of names to display text debugging information about the given entity(ies) on top of the entity (See Overlay Text).    Arguments:      {entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | gamedll cheat |
 | ent_text_sticky_remove | Removes from the list of names to display text debugging information about the given entity(ies) on top of the entity (See Overlay Text).        Arguments:      {entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | gamedll cheat |
 | ent_text_sticky_clear | Clears the list of names to display text debugging information about the given entity(ies) on top of the entity (See Overlay Text).       Arguments:      {entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | gamedll cheat |
@@ -989,12 +987,10 @@ sidebar_position: 2
 | cl_ent_ungrab | un-grabs all objects | clientdll cheat |
 | cl_ent_name | Displays the entity name | clientdll cheat |
 | cl_ent_actornames | Displays the entity name for all entities that have ShouldDisplayInActorNames true in code | clientdll cheat |
- | undefined || Displays text debugging information about the given entity(ies) on top of the entity (See Overlay Text).
-|         Arguments:      {entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | undefined |cheat
+| cl_ent_text | Displays text debugging information about the given entity(ies) on top of the entity (See Overlay Text).<br/>Arguments:      {entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | clientdll cheat |
 | cl_ent_text_radius | Displays text debugging information about the given entity(ies) [near the player] on top of the entity (See Overlay Text).   2 Arguments:    &lt;Radius&gt; &lt;{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at}&gt; | clientdll cheat |
 | cl_ent_text256 | Displays text debugging information about the given entity(ies) [within 256 units of the player] on top of the entity (See Overlay Text).        Arguments:      {entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | clientdll cheat |
-| cl_ent_text_clear | Hide text debugging information about the given entity(ies) on top of the entity (See Overlay Text | undefined |
-|         Arguments:      {entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | undefined |cheat
+| cl_ent_text_clear | Hide text debugging information about the given entity(ies) on top of the entity (See Overlay Text). Arguments:      {entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | clientdll cheat
 | cl_ent_text_sticky_add | Adds to list of names to display text debugging information about the given entity(ies) on top of the entity (See Overlay Text). Arguments:      {entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | clientdll cheat |
 | cl_ent_text_sticky_remove | Removes from the list of names to display text debugging information about the given entity(ies) on top of the entity (See Overlay Text).     Arguments:      {entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | clientdll cheat |
 | cl_ent_text_sticky_clear | Clears the list of names to display text debugging information about the given entity(ies) on top of the entity (See Overlay Text).    Arguments:      {entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | clientdll cheat |
