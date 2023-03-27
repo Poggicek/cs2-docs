@@ -24,29 +24,30 @@ If we iterate through the array and dereference the pointers, we can get all the
 
 ## ConVar structure
 
+Thanks to SlidyBat for the proper ConVar structure.
+
 ```cpp
 class ConVar
 {
 public:
-	char *name; //0x0000
-	void *nextConVar; //0x0008
-	uint64_t unk1; //0x0010
-	uint64_t unk2; //0x0018
-	char *description; //0x0020
-	uint32_t type; //0x0028
-	uint32_t registered; //0x002C
-	uint32_t flags; //0x0030
-	uint32_t unk3; //0x0034
+	const char *name; //0x0000
+	ConVarValue_t *defaultValue; //0x0008
+	ConVarValue_t *minValue; //0x0010
+	ConVarValue_t *maxValue; //0x0018
+	const char *description; //0x0020
+	ConVarType_t type; //0x0028
+	uint16_t padding; //0x002A
+	uint32_t timesChanged; //0x002C
+	ConVarFlags_t flags; //0x0030
 	uint32_t callbackId; //0x0038
-	uint32_t unk4; //0x003C
-	uint64_t value; //0x0040
-	uint64_t defaultValue; //0x0048
-}; //Size: 0x0050
+	uint32_t unk; //0x003C
+	ConVarValue_t value[]; //0x0040
+}; //Size: 0x0044
 ```
 
 ![ConVar structure](img/convarstruct.png)
 
-`callbackId` is an index of a callback in an array of callbacks.
+`callbackId` is the index of the callback that gets looked up in another linked list.
 
 `type` indicates the type of the value.
 Current known types are:
@@ -55,6 +56,4 @@ Current known types are:
 - 7: `float`
 - TODO
 
-:::caution
-For whatever reason, some convars don't have a defaultValue field, unsure in which conditions this happens. For example the `mat_shading_complexity` convar does this
-:::
+In most cases there's only one value, but if the flag is `FCVAR_PER_USER` it will be equal to `g_pCVar->GetMaxSplitScreenSlots()`.
