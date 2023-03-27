@@ -10,7 +10,7 @@ sidebar_position: 5
 
 | Function | Signature | Description |
 | -------- | --------- | ----------- |
-| AddEffects | void AddEffects( int <em>nFlags</em> ) | AddEffects( int ): Adds the render effect flag. |
+| AddEffects | void AddEffects( int <em>nFlags</em> ) | Adds the render effect flag. |
 | ApplyAbsVelocityImpulse | void ApplyAbsVelocityImpulse( Vector <em>vecImpulse</em> ) | Apply a Velocity Impulse |
 | ApplyLocalAngularVelocityImpulse | void ApplyLocalAngularVelocityImpulse( Vector <em>angImpulse</em> ) | Apply an Ang Velocity Impulse |
 | Attribute_GetFloatValue | float Attribute_GetFloatValue( string <em>pName</em>, float <em>flDefault</em> ) | Get float value for an entity attribute. |
@@ -37,7 +37,7 @@ sidebar_position: 5
 | GetBounds | table GetBounds( ) | Get a table containing the 'Mins' & 'Maxs' vector bounds, centered on object. |
 | GetCenter | Vector GetCenter( ) | Get vector to center of object - absolute coords |
 | GetChildren | handle GetChildren( ) | Get the entities parented to this entity. |
-| GetContext | table GetContext( string <em>name</em> ) | GetContext( name ): looks up a context and returns it if available. May return string, float, or null (if the context isn't found). |
+| GetContext | table GetContext( string <em>name</em> ) | Looks up a context and returns it if available. May return string, float, or null (if the context isn't found). |
 | GetForwardVector | Vector GetForwardVector( ) | Get the forward vector of the entity. |
 | GetHealth | int GetHealth( ) | Get the health of this entity. |
 | GetLeftVector | Vector GetLeftVector( ) | Get the left vector of the entity. |
@@ -77,8 +77,8 @@ sidebar_position: 5
 | SetAngles | void SetAngles( float <em>fPitch</em>, float <em>fYaw</em>, float <em>fRoll</em> ) | Set entity pitch, yaw, roll by component. |
 | SetAngularVelocity | void SetAngularVelocity( float <em>pitchVel</em>, float <em>yawVel</em>, float <em>rollVel</em> ) | Set the local angular velocity - takes float pitch,yaw,roll velocities |
 | SetConstraint | void SetConstraint( Vector <em>vPos</em> ) | Set the position of the constraint. |
-| SetContext | void SetContext( string <em>pName</em>, string <em>pValue</em>, float <em>duration</em> ) | SetContext( name , value, duration ): store any key/value pair in this entity's dialog contexts. Value must be a string. Will last for duration (set 0 to mean 'forever'). |
-| SetContextNum | void SetContextNum( string <em>pName</em>, float <em>fValue</em>, float <em>duration</em> ) | SetContextNum( name , value, duration ): store any key/value pair in this entity's dialog contexts. Value must be a number (int or float). Will last for duration (set 0 to mean 'forever'). |
+| SetContext | void SetContext( string <em>pName</em>, string <em>pValue</em>, float <em>duration</em> ) | Store any key/value pair in this entity's dialog contexts. Value must be a string. Will last for duration (set 0 to mean 'forever'). |
+| SetContextNum | void SetContextNum( string <em>pName</em>, float <em>fValue</em>, float <em>duration</em> ) | Store any key/value pair in this entity's dialog contexts. Value must be a number (int or float). Will last for duration (set 0 to mean 'forever'). |
 | SetContextThink | void SetContextThink( string <em>pszContextName</em>, handle <em>hThinkFunc</em>, float <em>flInterval</em> ) | Set a think function on this entity. |
 | SetEntityName | void SetEntityName( string <em>pName</em> ) | Set the name of an entity. |
 | SetForwardVector | void SetForwardVector( Vector <em>v</em> ) | Set the orientation of the entity to have this forward vector. |
@@ -121,7 +121,7 @@ sidebar_position: 5
 | -------- | --------- | ----------- |
 | GetCurrentScene | handle GetCurrentScene( ) | Returns the instance of the oldest active scene entity (if any). |
 | GetSceneByIndex | handle GetSceneByIndex( int <em>index</em> ) | Returns the instance of the scene entity at the specified index. |
-| ScriptPlayScene | float ScriptPlayScene( string <em>pszScene</em>, float <em>flDelay</em> ) | ( vcd file, delay ) - play specified vcd file |
+| ScriptPlayScene | float ScriptPlayScene( string <em>pszScene</em>, float <em>flDelay</em> ) | Play specified vcd file |
 
 ### CBaseModelEntity
 
@@ -130,24 +130,24 @@ sidebar_position: 5
 | GetAttachmentAngles | Vector GetAttachmentAngles( int <em>iAttachment</em> ) | Get the attachment id's angles as a p,y,r vector. |
 | GetAttachmentForward | Vector GetAttachmentForward( int <em>iAttachment</em> ) | Get the attachment id's forward vector. |
 | GetAttachmentOrigin | Vector GetAttachmentOrigin( int <em>iAttachment</em> ) | Get the attachment id's origin vector. |
-| GetMaterialGroupHash | unsigned GetMaterialGroupHash( ) | GetMaterialGroupHash(): Get the material group hash of this entity. |
-| GetMaterialGroupMask | uint64 GetMaterialGroupMask( ) | GetMaterialGroupMask(): Get the mesh group mask of this entity. |
+| GetMaterialGroupHash | unsigned GetMaterialGroupHash( ) | Get the material group hash of this entity. |
+| GetMaterialGroupMask | uint64 GetMaterialGroupMask( ) | Get the mesh group mask of this entity. |
 | GetModelScale | float GetModelScale( ) | Get scale of entity's model. |
-| GetRenderAlpha | int GetRenderAlpha( ) | GetRenderAlpha(): Get the alpha modulation of this entity. |
-| GetRenderColor | Vector GetRenderColor( ) | GetRenderColor(): Get the render color of the entity. |
+| GetRenderAlpha | int GetRenderAlpha( ) | Get the alpha modulation of this entity. |
+| GetRenderColor | Vector GetRenderColor( ) | Get the render color of the entity. |
 | ScriptLookupAttachment | int ScriptLookupAttachment( string <em>pAttachmentName</em> ) | Get the named attachment id. |
 | SetBodygroup | void SetBodygroup( int <em>iGroup</em>, int <em>iValue</em> ) | Sets a bodygroup. |
 | SetBodygroupByName | void SetBodygroupByName( string <em>pName</em>, int <em>iValue</em> ) | Sets a bodygroup by name. |
-| SetLightGroup | void SetLightGroup( string <em>pLightGroup</em> ) | SetLightGroup( string ): Sets the light group of the entity. |
-| SetMaterialGroup | void SetMaterialGroup( string <em>pMaterialGroup</em> ) | SetMaterialGroup( string ): Set the material group of this entity. |
-| SetMaterialGroupHash | void SetMaterialGroupHash( unsigned <em>nHash</em> ) | SetMaterialGroupHash( uint32 ): Set the material group hash of this entity. |
-| SetMaterialGroupMask | void SetMaterialGroupMask( uint64 <em>nMeshGroupMask</em> ) | SetMaterialGroupMask( uint64 ): Set the mesh group mask of this entity. |
+| SetLightGroup | void SetLightGroup( string <em>pLightGroup</em> ) | Sets the light group of the entity. |
+| SetMaterialGroup | void SetMaterialGroup( string <em>pMaterialGroup</em> ) | Set the material group of this entity. |
+| SetMaterialGroupHash | void SetMaterialGroupHash( unsigned <em>nHash</em> ) | Set the material group hash of this entity. |
+| SetMaterialGroupMask | void SetMaterialGroupMask( uint64 <em>nMeshGroupMask</em> ) | Set the mesh group mask of this entity. |
 | SetModel | void SetModel( string <em>pModelName</em> ) |     |
 | SetModelScale | void SetModelScale( float <em>flScale</em> ) | Set scale of entity's model. |
-| SetRenderAlpha | void SetRenderAlpha( int <em>nAlpha</em> ) | SetRenderAlpha( int ): Set the alpha modulation of this entity. |
-| SetRenderColor | void SetRenderColor( int <em>r</em>, int <em>g</em>, int <em>b</em> ) | SetRenderColor( r, g, b ): Sets the render color of the entity. |
-| SetRenderMode | void SetRenderMode( int <em>nMode</em> ) | SetRenderMode( int ): Sets the render mode of the entity. |
-| SetSingleMeshGroup | void SetSingleMeshGroup( string <em>pMeshGroupName</em> ) | SetSingleMeshGroup( string ): Set a single mesh group for this entity. |
+| SetRenderAlpha | void SetRenderAlpha( int <em>nAlpha</em> ) | Set the alpha modulation of this entity. |
+| SetRenderColor | void SetRenderColor( int <em>r</em>, int <em>g</em>, int <em>b</em> ) | Sets the render color of the entity. |
+| SetRenderMode | void SetRenderMode( int <em>nMode</em> ) | Sets the render mode of the entity. |
+| SetSingleMeshGroup | void SetSingleMeshGroup( string <em>pMeshGroupName</em> ) | Set a single mesh group for this entity. |
 | SetSize | void SetSize( Vector <em>mins</em>, Vector <em>maxs</em> ) |     |
 | SetSkin | void SetSkin( int <em>iSkin</em> ) | Set skin (int). |
 
@@ -155,15 +155,15 @@ sidebar_position: 5
 
 | Function | Signature | Description |
 | -------- | --------- | ----------- |
-| GetPawn | handle GetPawn( ) | GetPawn() : Returns the pawn for this controller |
+| GetPawn | handle GetPawn( ) | Returns the pawn for this controller |
 
 ### CBasePlayerPawn
 
 | Function | Signature | Description |
 | -------- | --------- | ----------- |
-| GetController | handle GetController( ) | GetController() : Returns the controller for this pawn |
-| GetEquippedWeapons | table GetEquippedWeapons( ) | GetEquippedWeapons() : Returns an array of all the equipped weapons |
-| GetWeaponCount | int GetWeaponCount( ) | GetWeaponCount() : Gets the number of weapons currently equipped |
+| GetController | handle GetController( ) | Returns the controller for this pawn |
+| GetEquippedWeapons | table GetEquippedWeapons( ) | Returns an array of all the equipped weapons |
+| GetWeaponCount | int GetWeaponCount( ) | Gets the number of weapons currently equipped |
 | IsNoclipping | bool IsNoclipping( ) | Returns true if the player is in noclip mode. |
 
 ### CBaseTrigger
@@ -335,7 +335,7 @@ sidebar_position: 5
 
 | Function | Signature | Description |
 | -------- | --------- | ----------- |
-| Trigger | void Trigger( handle <em>hActivator</em>, handle <em>hCaller</em> ) | Trigger( hActivator, hCaller ) : Triggers the logic_relay |
+| Trigger | void Trigger( handle <em>hActivator</em>, handle <em>hCaller</em> ) | Triggers the logic_relay |
 
 ### CMarkupVolumeTagged
 
@@ -372,9 +372,9 @@ sidebar_position: 5
 
 | Function | Signature | Description |
 | -------- | --------- | ----------- |
-| DeleteCreatedSpawnGroups | void DeleteCreatedSpawnGroups( ) | DeleteCreatedSpawnGroups() : Deletes any spawn groups that this point_template has spawned. Note: The point_template will not be deleted by this. |
-| ForceSpawn | void ForceSpawn( ) | ForceSpawn() : Spawns all of the entities the point_template is pointing at. |
-| GetSpawnedEntities | handle GetSpawnedEntities( ) | GetSpawnedEntities() : Get the list of the most recent spawned entities |
+| DeleteCreatedSpawnGroups | void DeleteCreatedSpawnGroups( ) | Deletes any spawn groups that this point_template has spawned. Note: The point_template will not be deleted by this. |
+| ForceSpawn | void ForceSpawn( ) | Spawns all of the entities the point_template is pointing at. |
+| GetSpawnedEntities | handle GetSpawnedEntities( ) | Get the list of the most recent spawned entities |
 | SetSpawnCallback | void SetSpawnCallback( handle <em>hCallbackFunc</em>, handle <em>hCallbackScope</em> ) | SetSpawnCallback( hCallbackFunc, hCallbackScope, hCallbackData ) : Set a callback for when the template spawns entities. The spawned entities will be passed in as an array. |
 
 ### CPointWorldText
@@ -394,7 +394,7 @@ sidebar_position: 5
 | FindNamedEntity | handle FindNamedEntity( string <em>string_1</em> ) | given an entity reference, such as !target, get actual entity from scene object |
 | IsPaused | bool IsPaused( ) | If this scene is currently paused. |
 | IsPlayingBack | bool IsPlayingBack( ) | If this scene is currently playing. |
-| LoadSceneFromString | bool LoadSceneFromString( string <em>string_1</em>, string <em>string_2</em> ) | given a dummy scene name and a vcd string, load the scene |
+| LoadSceneFromString | bool LoadSceneFromString( string <em>string_1</em>, string <em>string_2</em> ) | Given a dummy scene name and a vcd string, load the scene |
 | RemoveBroadcastTeamTarget | void RemoveBroadcastTeamTarget( int <em>int_1</em> ) | Removes a team (by index) from the broadcast list |
 | Start | void Start( handle <em>handle_1</em> ) | Start scene playback, takes activatorEntity as param |
 
@@ -410,15 +410,15 @@ sidebar_position: 5
 | -------- | --------- | ----------- |
 | CreateParticle | int CreateParticle( string <em>string_1</em>, int <em>int_2</em>, handle <em>handle_3</em> ) | Creates a new particle effect |
 | CreateParticleForPlayer | int CreateParticleForPlayer( string <em>string_1</em>, int <em>int_2</em>, handle <em>handle_3</em>, handle <em>handle_4</em> ) | Creates a new particle effect that only plays for the specified player |
-| DestroyParticle | void DestroyParticle( int <em>int_1</em>, bool <em>bool_2</em> ) | (int index, bool bDestroyImmediately) - Destroy a particle, if bDestroyImmediately destroy it without playing end caps. |
+| DestroyParticle | void DestroyParticle( int <em>omdex</em>, bool <em>bDestroyImmediately</em> ) | Destroy a particle, if bDestroyImmediately destroy it without playing end caps. |
 | GetParticleReplacement | string GetParticleReplacement( string <em>string_1</em>, handle <em>handle_2</em> ) |     |
 | ReleaseParticleIndex | void ReleaseParticleIndex( int <em>int_1</em> ) | Frees the specified particle index |
 | SetParticleAlwaysSimulate | void SetParticleAlwaysSimulate( int <em>int_1</em> ) |     |
 | SetParticleControl | void SetParticleControl( int <em>int_1</em>, int <em>int_2</em>, Vector <em>Vector_3</em> ) | Set the control point data for a control on a particle effect |
 | SetParticleControlEnt | void SetParticleControlEnt( int <em>int_1</em>, int <em>int_2</em>, handle <em>handle_3</em>, int <em>int_4</em>, string <em>string_5</em>, Vector <em>Vector_6</em>, bool <em>bool_7</em> ) |     |
-| SetParticleControlOffset | void SetParticleControlOffset( int <em>int_1</em>, int <em>int_2</em>, Vector <em>Vector_3</em> ) | (int iIndex, int iPoint, Vector vecOffset ) - Set the linear offset for a control on a particle effect |
-| SetParticleControlTransform | void SetParticleControlTransform( int <em>int_1</em>, int <em>int_2</em>, Vector <em>Vector_3</em>, QAngle <em>QAngle_4</em> ) | (int iIndex, int iPoint, Vector vOrigin, QAngle qAngles ) - Set the transform for a control on a particle effect |
-| SetParticleControlTransformForward | void SetParticleControlTransformForward( int <em>int_1</em>, int <em>int_2</em>, Vector <em>Vector_3</em>, Vector <em>Vector_4</em> ) | (int iIndex, int iPoint, Vector vOrigin, Vector vecForward ) - Set the origin and forward direction for a control on a particle effect |
+| SetParticleControlOffset | void SetParticleControlOffset( int <em>iIndex</em>, int <em>iPoint</em>, Vector <em>vecOffset</em> ) | Set the linear offset for a control on a particle effect |
+| SetParticleControlTransform | void SetParticleControlTransform( int <em>iIndex</em>, int <em>iPoint</em>, Vector <em>vOrigin</em>, QAngle <em>qAngles</em> ) | Set the transform for a control on a particle effect |
+| SetParticleControlTransformForward | void SetParticleControlTransformForward( int <em>iIndex</em>, int <em>iPoint</em>, Vector <em>vOrigin</em>, Vector <em>vecForward</em> ) | Set the origin and forward direction for a control on a particle effect |
 
 ### CScriptPrecacheContext
 
@@ -431,26 +431,26 @@ sidebar_position: 5
 
 | Function | Signature | Description |
 | -------- | --------- | ----------- |
-| GetBool | table GetBool( string <em>string_1</em> ) | GetBool(name) : returns the convar as a boolean flag. |
-| GetCommandClient | handle GetCommandClient( ) | GetCommandClient() : returns the player who issued this console command. |
-| GetFloat | table GetFloat( string <em>string_1</em> ) | GetFloat(name) : returns the convar as a float. May return null if no such convar. |
-| GetInt | table GetInt( string <em>string_1</em> ) | GetInt(name) : returns the convar as an int. May return null if no such convar. |
-| GetStr | table GetStr( string <em>string_1</em> ) | GetStr(name) : returns the convar as a string. May return null if no such convar. |
-| RegisterCommand | void RegisterCommand( string <em>string_1</em>, handle <em>handle_2</em>, string <em>string_3</em>, int <em>int_4</em> ) | RegisterCommand(name, fn, helpString, flags) : register a console command. |
-| RegisterConvar | void RegisterConvar( string <em>string_1</em>, string <em>string_2</em>, string <em>string_3</em>, int <em>int_4</em> ) | RegisterConvar(name, defaultValue, helpString, flags): register a new console variable. |
-| SetBool | void SetBool( string <em>string_1</em>, bool <em>bool_2</em> ) | SetBool(name, val) : sets the value of the convar to the bool. |
-| SetFloat | void SetFloat( string <em>string_1</em>, float <em>float_2</em> ) | SetFloat(name, val) : sets the value of the convar to the float. |
-| SetInt | void SetInt( string <em>string_1</em>, int <em>int_2</em> ) | SetInt(name, val) : sets the value of the convar to the int. |
-| SetStr | void SetStr( string <em>string_1</em>, string <em>string_2</em> ) | SetStr(name, val) : sets the value of the convar to the string. |
+| GetBool | table GetBool( string <em>name</em> ) | Returns the convar as a boolean flag. |
+| GetCommandClient | handle GetCommandClient( ) | Returns the player who issued this console command. |
+| GetFloat | table GetFloat( string <em>name</em> ) | Returns the convar as a float. May return null if no such convar. |
+| GetInt | table GetInt( string <em>name</em> ) | Returns the convar as an int. May return null if no such convar. |
+| GetStr | table GetStr( string <em>name</em> ) | Returns the convar as a string. May return null if no such convar. |
+| RegisterCommand | void RegisterCommand( string <em>name</em>, handle <em>fn</em>, string <em>helpString</em>, int <em>flags</em> ) | Register a console command. |
+| RegisterConvar | void RegisterConvar( string <em>name</em>, string <em>defaultValue</em>, string <em>helpString</em>, int <em>flags</em> ) | Register a new console variable. |
+| SetBool | void SetBool( string <em>name</em>, bool <em>val</em> ) | Sets the value of the convar to the bool. |
+| SetFloat | void SetFloat( string <em>name</em>, float <em>val</em> ) | Sets the value of the convar to the float. |
+| SetInt | void SetInt( string <em>name</em>, int <em>val</em> ) | Sets the value of the convar to the int. |
+| SetStr | void SetStr( string <em>name</em>, string <em>val</em> ) | Sets the value of the convar to the string. |
 
 ### GlobalSys
 
 | Function | Signature | Description |
 | -------- | --------- | ----------- |
-| CommandLineCheck | table CommandLineCheck( string <em>string_1</em> ) | CommandLineCheck(name) : returns true if the command line param was used, otherwise false. |
-| CommandLineFloat | table CommandLineFloat( string <em>string_1</em>, float <em>float_2</em> ) | CommandLineFloat(name) : returns the command line param as a float. |
-| CommandLineInt | table CommandLineInt( string <em>string_1</em>, int <em>int_2</em> ) | CommandLineInt(name) : returns the command line param as an int. |
-| CommandLineStr | table CommandLineStr( string <em>string_1</em>, string <em>string_2</em> ) | CommandLineStr(name) : returns the command line param as a string. |
+| CommandLineCheck | table CommandLineCheck( string <em>name</em> ) | Returns true if the command line param was used, otherwise false. |
+| CommandLineFloat | table CommandLineFloat( string <em>name</em>, float <em>float_2</em> ) | Returns the command line param as a float. |
+| CommandLineInt | table CommandLineInt( string <em>name</em>, int <em>int_2</em> ) | Returns the command line param as an int. |
+| CommandLineStr | table CommandLineStr( string <em>name</em>, string <em>string_2</em> ) | Returns the command line param as a string. |
 
 ### SteamInfo
 
@@ -560,7 +560,7 @@ sidebar_position: 5
 | AngleDiff | float AngleDiff( float <em>float_1</em>, float <em>float_2</em> ) | Returns the number of degrees difference between two yaw angles |
 | AnglesToVector | Vector AnglesToVector( QAngle <em>QAngle_1</em> ) | Generate a vector given a QAngles |
 | AppendToLogFile | void AppendToLogFile( string <em>string_1</em>, string <em>string_2</em> ) | AppendToLogFile is deprecated. Print to the console for logging instead. |
-| AxisAngleToQuaternion | Quaternion AxisAngleToQuaternion( Vector <em>Vector_1</em>, float <em>float_2</em> ) | (vector,float) constructs a quaternion representing a rotation by angle around the specified vector axis |
+| AxisAngleToQuaternion | Quaternion AxisAngleToQuaternion( Vector <em>Vector_1</em>, float <em>float_2</em> ) | Constructs a quaternion representing a rotation by angle around the specified vector axis |
 | CalcClosestPointOnEntityOBB | Vector CalcClosestPointOnEntityOBB( handle <em>handle_1</em>, Vector <em>Vector_2</em> ) | Compute the closest point on the OBB of an entity. |
 | CalcDistanceBetweenEntityOBB | float CalcDistanceBetweenEntityOBB( handle <em>handle_1</em>, handle <em>handle_2</em> ) | Compute the distance between two entity OBB. A negative return value indicates an input error. A return value of zero indicates that the OBBs are overlapping. |
 | CalcDistanceToLineSegment2D | float CalcDistanceToLineSegment2D( Vector <em>Vector_1</em>, Vector <em>Vector_2</em>, Vector <em>Vector_3</em> ) |     |
@@ -568,10 +568,10 @@ sidebar_position: 5
 | CreateDamageInfo | handle CreateDamageInfo( handle <em>handle_1</em>, handle <em>handle_2</em>, Vector <em>Vector_3</em>, Vector <em>Vector_4</em>, float <em>float_5</em>, int <em>int_6</em> ) | (hInflictor, hAttacker, flDamage) - Allocate a damageinfo object, used as an argument to TakeDamage(). Call DestroyDamageInfo( hInfo ) to free the object. |
 | CreateEffect | bool CreateEffect( handle <em>handle_1</em> ) | Pass table - Inputs: entity, effect |
 | CreateSceneEntity | handle CreateSceneEntity( string <em>string_1</em> ) | Create a scene entity to play the specified scene. |
-| CreateTrigger | handle CreateTrigger( Vector <em>Vector_1</em>, Vector <em>Vector_2</em>, Vector <em>Vector_3</em> ) | CreateTrigger( vecMin, vecMax ) : Creates and returns an AABB trigger |
-| CreateTriggerRadiusApproximate | handle CreateTriggerRadiusApproximate( Vector <em>Vector_1</em>, float <em>float_2</em> ) | CreateTriggerRadiusApproximate( vecOrigin, flRadius ) : Creates and returns an AABB trigger thats bigger than the radius provided |
-| CreateUniformRandomStream | handle CreateUniformRandomStream( int <em>int_1</em> ) | ( iSeed ) - Creates a separate random number stream. |
-| CrossVectors | Vector CrossVectors( Vector <em>Vector_1</em>, Vector <em>Vector_2</em> ) | (vector,vector) cross product between two vectors |
+| CreateTrigger | handle CreateTrigger( Vector <em>origin</em>, Vector <em>vecMin</em>, Vector <em>vecMax</em> ) | Creates and returns an AABB trigger |
+| CreateTriggerRadiusApproximate | handle CreateTriggerRadiusApproximate( Vector <em>vecOrigin</em>, float <em>flRadius</em> ) | Creates and returns an AABB trigger thats bigger than the radius provided |
+| CreateUniformRandomStream | handle CreateUniformRandomStream( int <em>iSeed</em> ) | Creates a separate random number stream. |
+| CrossVectors | Vector CrossVectors( Vector <em>Vector_1</em>, Vector <em>Vector_2</em> ) | Cross product between two vectors |
 | DestroyDamageInfo | void DestroyDamageInfo( handle <em>handle_1</em> ) | Free a damageinfo object that was created with CreateDamageInfo(). |
 | DoEntFire | void DoEntFire( string <em>string_1</em>, string <em>string_2</em>, string <em>string_3</em>, float <em>float_4</em>, handle <em>handle_5</em>, handle <em>handle_6</em> ) | #EntFire:Generate and entity i/o event |
 | DoEntFireByInstanceHandle | void DoEntFireByInstanceHandle( handle <em>handle_1</em>, string <em>string_2</em>, string <em>string_3</em>, float <em>float_4</em>, handle <em>handle_5</em>, handle <em>handle_6</em> ) | #EntFireByHandle:Generate and entity i/o event |
@@ -599,7 +599,7 @@ sidebar_position: 5
 | IsMarkedForDeletion | bool IsMarkedForDeletion( handle <em>handle_1</em> ) | Returns true if the entity is valid and marked for deletion. |
 | IsServer | bool IsServer( ) | Returns true if this is lua running from the server.dll. |
 | IsValidEntity | bool IsValidEntity( handle <em>handle_1</em> ) | Checks to see if the given hScript is a valid entity |
-| LerpVectors | Vector LerpVectors( Vector <em>Vector_1</em>, Vector <em>Vector_2</em>, float <em>float_3</em> ) | (vector,vector,float) lerp between two vectors by a float factor returning new vector |
+| LerpVectors | Vector LerpVectors( Vector <em>Vector_1</em>, Vector <em>Vector_2</em>, float <em>float_3</em> ) | lerp between two vectors by a float factor returning new vector |
 | ListenToGameEvent | int ListenToGameEvent( string <em>string_1</em>, handle <em>handle_2</em>, handle <em>handle_3</em> ) | Register as a listener for a game event from script. |
 | LoadKeyValues | table LoadKeyValues( string <em>string_1</em> ) | Creates a table from the specified keyvalues text file |
 | LoadKeyValuesFromString | table LoadKeyValuesFromString( string <em>string_1</em> ) | Creates a table from the specified keyvalues string |
@@ -619,9 +619,9 @@ sidebar_position: 5
 | RemoveSpawnGroupFilterProxy | void RemoveSpawnGroupFilterProxy( string <em>string_1</em> ) | Remove the C proxy for a script-based spawn group filter |
 | RotateOrientation | QAngle RotateOrientation( QAngle <em>QAngle_1</em>, QAngle <em>QAngle_2</em> ) | Rotate a QAngle by another QAngle. |
 | RotatePosition | Vector RotatePosition( Vector <em>Vector_1</em>, QAngle <em>QAngle_2</em>, Vector <em>Vector_3</em> ) | Rotate a Vector around a point. |
-| RotateQuaternionByAxisAngle | Quaternion RotateQuaternionByAxisAngle( Quaternion <em>Quaternion_1</em>, Vector <em>Vector_2</em>, float <em>float_3</em> ) | (quaternion,vector,float) rotates a quaternion by the specified angle around the specified vector axis |
+| RotateQuaternionByAxisAngle | Quaternion RotateQuaternionByAxisAngle( Quaternion <em>Quaternion_1</em>, Vector <em>Vector_2</em>, float <em>float_3</em> ) | Rotates a quaternion by the specified angle around the specified vector axis |
 | RotationDelta | QAngle RotationDelta( QAngle <em>QAngle_1</em>, QAngle <em>QAngle_2</em> ) | Find the delta between two QAngles. |
-| RotationDeltaAsAngularVelocity | Vector RotationDeltaAsAngularVelocity( QAngle <em>QAngle_1</em>, QAngle <em>QAngle_2</em> ) | converts delta QAngle to an angular velocity Vector |
+| RotationDeltaAsAngularVelocity | Vector RotationDeltaAsAngularVelocity( QAngle <em>QAngle_1</em>, QAngle <em>QAngle_2</em> ) | Converts delta QAngle to an angular velocity Vector |
 | ScreenShake | void ScreenShake( Vector <em>Vector_1</em>, float <em>float_2</em>, float <em>float_3</em>, float <em>float_4</em>, float <em>float_5</em>, int <em>int_6</em>, bool <em>bool_7</em> ) | Start a screenshake with the following parameters. vecCenter, flAmplitude, flFrequency, flDuration, flRadius, eCommand( SHAKE_START = 0, SHAKE_STOP = 1 ), bAirShake |
 | ScriptGetGameMode | int ScriptGetGameMode( ) | Gets the current game mode. |
 | ScriptGetGameType | int ScriptGetGameType( ) | Gets the current game type. |
@@ -641,8 +641,8 @@ sidebar_position: 5
 | SpawnEntityGroupFromTable | bool SpawnEntityGroupFromTable( handle <em>handle_1</em>, bool <em>bool_2</em>, handle <em>handle_3</em> ) | Hierarchically spawn an entity group from a set of spawn tables. |
 | SpawnEntityListFromTableAsynchronous | int SpawnEntityListFromTableAsynchronous( handle <em>handle_1</em>, handle <em>handle_2</em> ) | Asynchronously spawn an entity group from a list of spawn tables. A callback will be triggered when the spawning is complete |
 | SpawnEntityListFromTableSynchronous | handle SpawnEntityListFromTableSynchronous( handle <em>handle_1</em> ) | Synchronously spawn an entity group from a list of spawn tables. |
-| SplineQuaternions | Quaternion SplineQuaternions( Quaternion <em>Quaternion_1</em>, Quaternion <em>Quaternion_2</em>, float <em>float_3</em> ) | (quaternion,quaternion,float) very basic interpolation of v0 to v1 over t on [0,1 |
-| SplineVectors | Vector SplineVectors( Vector <em>Vector_1</em>, Vector <em>Vector_2</em>, float <em>float_3</em> ) | (vector,vector,float) very basic interpolation of v0 to v1 over t on [0,1 |
+| SplineQuaternions | Quaternion SplineQuaternions( Quaternion <em>Quaternion_1</em>, Quaternion <em>Quaternion_2</em>, float <em>float_3</em> ) | Very basic interpolation of v0 to v1 over t on [0,1] |
+| SplineVectors | Vector SplineVectors( Vector <em>Vector_1</em>, Vector <em>Vector_2</em>, float <em>float_3</em> ) | Very basic interpolation of v0 to v1 over t on [0,1] |
 | StopEffect | void StopEffect( handle <em>handle_1</em>, string <em>string_2</em> ) | Pass entity and effect name |
 | StopListeningToAllGameEvents | void StopListeningToAllGameEvents( handle <em>handle_1</em> ) | Stop listening to all game events within a specific context. |
 | StopListeningToGameEvent | bool StopListeningToGameEvent( int <em>int_1</em> ) | Stop listening to a particular game event. |
