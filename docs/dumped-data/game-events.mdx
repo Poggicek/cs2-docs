@@ -165,7 +165,7 @@ All the game events parsed from:
 
 
 ### demo_start
-<GameEvent structure={{"local":{"value":"1"},"dota_combatlog_list":{"value":"local","comment":"CSVCMsgList_GameEvents that are combat log events"},"dota_hero_chase_list":{"value":"local","comment":"CSVCMsgList_GameEvents"},"dota_pick_hero_list":{"value":"local","comment":"CSVCMsgList_GameEvents"}}}/>
+<GameEvent structure={{"local":{"value":"1", "comment": "Event is not networked to clients"},"dota_combatlog_list":{"value":"local","comment":"CSVCMsgList_GameEvents that are combat log events"},"dota_hero_chase_list":{"value":"local","comment":"CSVCMsgList_GameEvents"},"dota_pick_hero_list":{"value":"local","comment":"CSVCMsgList_GameEvents"}}}/>
 
 
 ### demo_stop
@@ -173,7 +173,7 @@ All the game events parsed from:
 
 
 ### demo_skip
-<GameEvent structure={{"local":{"value":"1"},"playback_tick":{"value":"long","comment":"current playback tick","a":1},"skipto_tick":{"value":"long","comment":"tick we're going to","a":1},"user_message_list":{"value":"local","comment":"CSVCMsgList_UserMessages"},"dota_hero_chase_list":{"value":"local","comment":"CSVCMsgList_GameEvents"}}}/>
+<GameEvent structure={{"local":{"value":"1", "comment": "Event is not networked to clients"},"playback_tick":{"value":"long","comment":"current playback tick","a":1},"skipto_tick":{"value":"long","comment":"tick we're going to","a":1},"user_message_list":{"value":"local","comment":"CSVCMsgList_UserMessages"},"dota_hero_chase_list":{"value":"local","comment":"CSVCMsgList_GameEvents"}}}/>
 
 
 ### map_shutdown
@@ -1033,7 +1033,7 @@ All the game events parsed from:
 
 
 ### cs_handle_ime_event
-<GameEvent structure={{"local":{"value":"1"},"eventtype":{"value":"string","a":1},"eventdata":{"value":"wstring"}}}/>
+<GameEvent structure={{"local":{"value":"1", "comment": "Event is not networked to clients"},"eventtype":{"value":"string","a":1},"eventdata":{"value":"wstring"}}}/>
 
 
 ### nextlevel_changed
