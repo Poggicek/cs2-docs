@@ -9,7 +9,7 @@ export default function GameEvent({structure, comment}) {
 				<tbody>
 					{Object.entries(structure).map(([key, value], index) => (
 						<tr className={styles.member} key={index}>
-							<td className={styles.type}>{value.value}</td>
+							<td className={value.a ? styles.typeConfirmed :styles.type}>{value.value}</td>
 							<td className={styles.name}>{key}</td>
 							{value.comment ? <td className={styles.comment}>{value.comment}</td> : <td className={styles.comment}></td>}
 						</tr>

@@ -11,18 +11,364 @@ All the game events parsed from:
 - csgo/pak01_dir.vpk/resource/game.gameevents
 - csgo/pak01_dir.vpk/resource/mod.gameevents
 
+<GameEvent comment={"An example of a GameEvent structure"} structure={{"field name":{"value":"field type","comment": "This field is both in .gameevents file and runtime dump","a":1}, "field name ":{"value":"field type","comment": "This field isn't in the runtime dump","a":0}}}/>
+
 ## List
 
-### team_info
-<GameEvent comment={"info about team"} structure={{"teamid":{"value":"byte","comment":"unique team id"},"teamname":{"value":"string","comment":"team name eg \"Team Blue\""}}}/>
+### server_spawn
+<GameEvent comment={"send once a server starts"} structure={{"hostname":{"value":"string","comment":"public host name","a":1},"address":{"value":"string","comment":"hostame, IP or DNS name","a":1},"port":{"value":"short","comment":"server port","a":1},"game":{"value":"string","comment":"game dir","a":1},"mapname":{"value":"string","comment":"map name","a":1},"addonname":{"value":"string","comment":"addon name","a":1},"maxplayers":{"value":"long","comment":"max players","a":1},"os":{"value":"string","comment":"WIN32, LINUX","a":1},"dedicated":{"value":"bool","comment":"true if dedicated server","a":1},"password":{"value":"bool","comment":"true if password protected","a":1}}}/>
 
 
-### team_score
-<GameEvent comment={"team score changed"} structure={{"teamid":{"value":"byte","comment":"team id"},"score":{"value":"short","comment":"total team score"}}}/>
+### server_pre_shutdown
+<GameEvent comment={"server is about to be shut down"} structure={{"reason":{"value":"string","comment":"reason why server is about to be shut down","a":1}}}/>
+
+
+### server_shutdown
+<GameEvent comment={"server shut down"} structure={{"reason":{"value":"string","comment":"reason why server was shut down","a":1}}}/>
+
+
+### server_message
+<GameEvent comment={"a generic server message"} structure={{"text":{"value":"string","comment":"the message text","a":1}}}/>
+
+
+### server_cvar
+<GameEvent comment={"a server console var has changed"} structure={{"cvarname":{"value":"string","comment":"cvar name, eg \"mp_roundtime\"","a":1},"cvarvalue":{"value":"string","comment":"new cvar value","a":1}}}/>
+
+
+### player_activate
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"user ID on server","a":1}}}/>
+
+
+### player_connect_full
+<GameEvent comment={"player has sent final message in the connection sequence"} structure={{"userid":{"value":"playercontroller","comment":"user ID on server (unique on server)","a":1}}}/>
+
+
+### player_full_update
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"user ID on server","a":1},"count":{"value":"short","comment":"Number of this full update","a":1}}}/>
+
+
+### player_connect
+<GameEvent comment={"a new client connected"} structure={{"name":{"value":"string","comment":"player name","a":1},"userid":{"value":"playercontroller","comment":"user ID on server (unique on server)","a":1},"networkid":{"value":"string","comment":"player network (i.e steam) id","a":1},"xuid":{"value":"uint64","comment":"steam id","a":1},"address":{"value":"string","comment":"ip:port","a":1},"bot":{"value":"bool","a":1}}}/>
+
+
+### player_disconnect
+<GameEvent comment={"a client was disconnected"} structure={{"userid":{"value":"playercontroller","comment":"user ID on server","a":1},"reason":{"value":"short","comment":"see networkdisconnect enum protobuf","a":1},"name":{"value":"string","comment":"player name","a":1},"networkid":{"value":"string","comment":"player network (i.e steam) id","a":1},"xuid":{"value":"uint64","comment":"steam id","a":1},"PlayerID":{"value":"short","a":1}}}/>
+
+
+### player_info
+<GameEvent comment={"a player changed his name"} structure={{"name":{"value":"string","comment":"player name","a":1},"userid":{"value":"playercontroller","comment":"user ID on server (unique on server)","a":1},"steamid":{"value":"uint64","comment":"player network (i.e steam) id","a":1},"bot":{"value":"bool","comment":"true if player is a AI bot","a":1}}}/>
+
+
+### player_spawn
+<GameEvent comment={"player spawned in game"} structure={{"userid":{"value":"playercontroller","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
+
+
+### player_team
+<GameEvent comment={"player change his team. You can receive this on the client before the local player has updated the team field locally"} structure={{"userid":{"value":"playercontroller","comment":"player","a":1},"team":{"value":"byte","comment":"team id","a":1},"oldteam":{"value":"byte","comment":"old team id","a":1},"disconnect":{"value":"bool","comment":"team change because player disconnects","a":1},"silent":{"value":"bool","a":1},"isbot":{"value":"bool","comment":"true if player is a bot","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
+
+
+### local_player_team
+<GameEvent comment={"sent only on the client for the local player - happens only after a local players pawn team variable has been updated"} structure={{}}/>
+
+
+### local_player_controller_team
+<GameEvent comment={"sent only on the client for the local player - happens only after the local players controller team variable has been updated"} structure={{}}/>
+
+
+### player_changename
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"user ID on server","a":1},"oldname":{"value":"string","comment":"players old (current) name","a":1},"newname":{"value":"string","comment":"players new name","a":1}}}/>
+
+
+### player_hurt
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player index who was hurt","a":1},"attacker":{"value":"playercontroller","comment":"player index who attacked","a":1},"health":{"value":"byte","comment":"remaining health points","a":1},"armor":{"value":"byte","comment":"remaining armor points","a":1},"weapon":{"value":"string","comment":"weapon name attacker used, if not the world","a":1},"dmg_health":{"value":"short","comment":"damage done to health","a":1},"dmg_armor":{"value":"byte","comment":"damage done to armor","a":1},"hitgroup":{"value":"byte","comment":"hitgroup that was damaged","a":1},"userid_pawn":{"value":"strict_ehandle","a":1},"attacker_pawn":{"value":"strict_ehandle","a":1}}}/>
+
+
+### player_chat
+<GameEvent comment={"a public player chat"} structure={{"teamonly":{"value":"bool","comment":"true if team only chat","a":1},"userid":{"value":"short","comment":"chatting player","a":1},"text":{"value":"string","comment":"chat text","a":1}}}/>
+
+
+### local_player_pawn_changed
+<GameEvent structure={{}}/>
 
 
 ### teamplay_broadcast_audio
-<GameEvent comment={"emits a sound to everyone on a team"} structure={{"team":{"value":"byte","comment":"unique team id"},"sound":{"value":"string","comment":"name of the sound to emit"}}}/>
+<GameEvent comment={"emits a sound to everyone on a team"} structure={{"team":{"value":"byte","comment":"unique team id","a":1},"sound":{"value":"string","comment":"name of the sound to emit","a":1}}}/>
+
+
+### finale_start
+<GameEvent structure={{"rushes":{"value":"short","a":1}}}/>
+
+
+### player_stats_updated
+<GameEvent structure={{"forceupload":{"value":"bool","a":1}}}/>
+
+
+### user_data_downloaded
+<GameEvent comment={"fired when achievements/stats are downloaded from Steam or XBox Live"} structure={{}}/>
+
+
+### ragdoll_dissolved
+<GameEvent structure={{"entindex":{"value":"long","a":1}}}/>
+
+
+### team_info
+<GameEvent comment={"info about team"} structure={{"teamid":{"value":"byte","comment":"unique team id","a":1},"teamname":{"value":"string","comment":"team name eg \"Team Blue\"","a":1}}}/>
+
+
+### team_score
+<GameEvent comment={"team score changed"} structure={{"teamid":{"value":"byte","comment":"team id","a":1},"score":{"value":"short","comment":"total team score","a":1}}}/>
+
+
+### hltv_cameraman
+<GameEvent comment={"a spectator/player is a cameraman"} structure={{"userid":{"value":"playercontroller","comment":"camera man entity index","a":1}}}/>
+
+
+### hltv_chase
+<GameEvent comment={"shot of a single entity"} structure={{"target1":{"value":"playercontroller","comment":"primary traget index","a":1},"target2":{"value":"playercontroller","comment":"secondary traget index or 0","a":1},"distance":{"value":"short","comment":"camera distance","a":1},"theta":{"value":"short","comment":"view angle horizontal","a":1},"phi":{"value":"short","comment":"view angle vertical","a":1},"inertia":{"value":"byte","comment":"camera inertia","a":1},"ineye":{"value":"byte","comment":"diretcor suggests to show ineye","a":1}}}/>
+
+
+### hltv_rank_camera
+<GameEvent comment={"a camera ranking"} structure={{"index":{"value":"byte","comment":"fixed camera index","a":1},"rank":{"value":"float","comment":"ranking, how interesting is this camera view","a":1},"target":{"value":"playercontroller","comment":"best/closest target entity","a":1}}}/>
+
+
+### hltv_rank_entity
+<GameEvent comment={"an entity ranking"} structure={{"userid":{"value":"playercontroller","comment":"player slot","a":1},"rank":{"value":"float","comment":"ranking, how interesting is this entity to view","a":1},"target":{"value":"playercontroller","comment":"best/closest target entity","a":1}}}/>
+
+
+### hltv_fixed
+<GameEvent comment={"show from fixed view"} structure={{"posx":{"value":"long","comment":"camera position in world","a":1},"posy":{"value":"long","a":1},"posz":{"value":"long","a":1},"theta":{"value":"short","comment":"camera angles","a":1},"phi":{"value":"short","a":1},"offset":{"value":"short","a":1},"fov":{"value":"float","a":1},"target":{"value":"playercontroller","comment":"follow this player","a":1}}}/>
+
+
+### hltv_message
+<GameEvent comment={"a HLTV message send by moderators"} structure={{"text":{"value":"string","a":1}}}/>
+
+
+### hltv_status
+<GameEvent comment={"general HLTV status"} structure={{"clients":{"value":"long","comment":"number of HLTV spectators","a":1},"slots":{"value":"long","comment":"number of HLTV slots","a":1},"proxies":{"value":"short","comment":"number of HLTV proxies","a":1},"master":{"value":"string","comment":"disptach master IP:port","a":1}}}/>
+
+
+### hltv_title
+<GameEvent structure={{"text":{"value":"string","a":1}}}/>
+
+
+### hltv_chat
+<GameEvent comment={"a HLTV chat msg sent by spectators"} structure={{"text":{"value":"string","a":1},"steamID":{"value":"uint64","comment":"steam id","a":1}}}/>
+
+
+### hltv_versioninfo
+<GameEvent structure={{"version":{"value":"long","a":1}}}/>
+
+
+### hltv_replay
+<GameEvent structure={{"delay":{"value":"long","comment":"number of seconds in killer replay delay","a":1},"reason":{"value":"long","comment":"reason for replay\t(ReplayEventType_t)","a":1}}}/>
+
+
+### demo_start
+<GameEvent structure={{"local":{"value":"1"},"dota_combatlog_list":{"value":"local","comment":"CSVCMsgList_GameEvents that are combat log events"},"dota_hero_chase_list":{"value":"local","comment":"CSVCMsgList_GameEvents"},"dota_pick_hero_list":{"value":"local","comment":"CSVCMsgList_GameEvents"}}}/>
+
+
+### demo_stop
+<GameEvent structure={{}}/>
+
+
+### demo_skip
+<GameEvent structure={{"local":{"value":"1"},"playback_tick":{"value":"long","comment":"current playback tick","a":1},"skipto_tick":{"value":"long","comment":"tick we're going to","a":1},"user_message_list":{"value":"local","comment":"CSVCMsgList_UserMessages"},"dota_hero_chase_list":{"value":"local","comment":"CSVCMsgList_GameEvents"}}}/>
+
+
+### map_shutdown
+<GameEvent structure={{}}/>
+
+
+### map_transition
+<GameEvent structure={{}}/>
+
+
+### hostname_changed
+<GameEvent structure={{"hostname":{"value":"string","a":1}}}/>
+
+
+### difficulty_changed
+<GameEvent structure={{"newDifficulty":{"value":"short","a":1},"oldDifficulty":{"value":"short","a":1},"strDifficulty":{"value":"string","comment":"new difficulty as string","a":1}}}/>
+
+
+### game_message
+<GameEvent comment={"a message send by game logic to everyone"} structure={{"target":{"value":"byte","comment":"0 = console, 1 = HUD","a":1},"text":{"value":"string","comment":"the message text","a":1}}}/>
+
+
+### game_newmap
+<GameEvent comment={"send when new map is completely loaded"} structure={{"mapname":{"value":"string","comment":"map name","a":1}}}/>
+
+
+### round_start
+<GameEvent structure={{"timelimit":{"value":"long","comment":"round time limit in seconds","a":1},"fraglimit":{"value":"long","comment":"frag limit in seconds","a":1},"objective":{"value":"string","comment":"round objective","a":1}}}/>
+
+
+### round_end
+<GameEvent structure={{"winner":{"value":"byte","comment":"winner team/user i","a":1},"reason":{"value":"byte","comment":"reson why team won","a":1},"message":{"value":"string","comment":"end round message","a":1},"legacy":{"value":"byte","comment":"server-generated legacy value","a":1},"player_count":{"value":"short","comment":"total number of players alive at the end of round, used for statistics gathering, computed on the server in the event client is in replay when receiving this message","a":1},"nomusic":{"value":"byte","comment":"if set, don't play round end music, because action is still on-going","a":1}}}/>
+
+
+### round_start_pre_entity
+<GameEvent structure={{}}/>
+
+
+### round_start_post_nav
+<GameEvent structure={{}}/>
+
+
+### round_freeze_end
+<GameEvent structure={{}}/>
+
+
+### teamplay_round_start
+<GameEvent comment={"round restart"} structure={{"full_reset":{"value":"bool","comment":"is this a full reset of the map","a":1}}}/>
+
+
+### player_death
+<GameEvent comment={"a game event, name may be 32 characters long"} structure={{"userid":{"value":"playercontroller","comment":"user who died","a":1},"attacker":{"value":"playercontroller","comment":"player who killed","a":1},"assister":{"value":"playercontroller","comment":"player who assisted in the kill","a":1},"assistedflash":{"value":"bool","comment":"assister helped with a flash","a":1},"weapon":{"value":"string","comment":"weapon name killer used","a":1},"weapon_itemid":{"value":"string","comment":"inventory item id of weapon killer used","a":1},"weapon_fauxitemid":{"value":"string","comment":"faux item id of weapon killer used","a":1},"weapon_originalowner_xuid":{"value":"string","a":1},"headshot":{"value":"bool","comment":"singals a headshot","a":1},"dominated":{"value":"short","comment":"did killer dominate victim with this kill","a":1},"revenge":{"value":"short","comment":"did killer get revenge on victim with this kill","a":1},"wipe":{"value":"short","comment":"is the kill resulting in squad wipe","a":1},"penetrated":{"value":"short","comment":"number of objects shot penetrated before killing target","a":1},"noreplay":{"value":"bool","comment":"if replay data is unavailable, this will be present and set to false","a":1},"noscope":{"value":"bool","comment":"kill happened without a scope, used for death notice icon","a":1},"thrusmoke":{"value":"bool","comment":"hitscan weapon went through smoke grenade","a":1},"attackerblind":{"value":"bool","comment":"attacker was blind from flashbang","a":1},"distance":{"value":"float","comment":"distance to victim in meters","a":1},"userid_pawn":{"value":"strict_ehandle","a":1},"attacker_pawn":{"value":"strict_ehandle","a":1},"assister_pawn":{"value":"strict_ehandle","a":1}}}/>
+
+
+### player_footstep
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
+
+
+### player_hintmessage
+<GameEvent structure={{"hintmessage":{"value":"string","comment":"localizable string of a hint","a":1}}}/>
+
+
+### break_breakable
+<GameEvent structure={{"entindex":{"value":"long","a":1},"userid":{"value":"player_pawn"},"material":{"value":"byte","comment":"BREAK_GLASS, BREAK_WOOD, etc","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
+
+
+### break_prop
+<GameEvent structure={{"entindex":{"value":"long","a":1},"userid":{"value":"player_pawn"},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
+
+
+### entity_killed
+<GameEvent structure={{"entindex_killed":{"value":"long","a":1},"entindex_attacker":{"value":"long","a":1},"entindex_inflictor":{"value":"long","a":1},"damagebits":{"value":"long","a":1}}}/>
+
+
+### door_close
+<GameEvent structure={{"userid":{"value":"player_pawn","comment":"Who closed the door"},"checkpoint":{"value":"bool","comment":"Is the door a checkpoint door","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
+
+
+### vote_started
+<GameEvent structure={{"issue":{"value":"string","a":1},"param1":{"value":"string","a":1},"team":{"value":"byte","a":1},"initiator":{"value":"long","comment":"entity id of the player who initiated the vote","a":1}}}/>
+
+
+### vote_failed
+<GameEvent structure={{"team":{"value":"byte","a":1}}}/>
+
+
+### vote_passed
+<GameEvent structure={{"details":{"value":"string","a":1},"param1":{"value":"string","a":1},"team":{"value":"byte","a":1}}}/>
+
+
+### vote_changed
+<GameEvent structure={{"vote_option1":{"value":"byte","a":1},"vote_option2":{"value":"byte","a":1},"vote_option3":{"value":"byte","a":1},"vote_option4":{"value":"byte","a":1},"vote_option5":{"value":"byte","a":1},"potentialVotes":{"value":"byte","a":1}}}/>
+
+
+### vote_cast_yes
+<GameEvent structure={{"team":{"value":"byte","a":1},"entityid":{"value":"long","comment":"entity id of the voter","a":1}}}/>
+
+
+### vote_cast_no
+<GameEvent structure={{"team":{"value":"byte","a":1},"entityid":{"value":"long","comment":"entity id of the voter","a":1}}}/>
+
+
+### achievement_event
+<GameEvent structure={{"achievement_name":{"value":"string","comment":"non-localized name of achievement","a":1},"cur_val":{"value":"short","comment":"# of steps toward achievement","a":1},"max_val":{"value":"short","comment":"total # of steps in achievement","a":1}}}/>
+
+
+### achievement_earned
+<GameEvent structure={{"player":{"value":"playercontroller","comment":"entindex of the player","a":1},"achievement":{"value":"short","comment":"achievement ID","a":1}}}/>
+
+
+### achievement_write_failed
+<GameEvent comment={"Used for a notification message when an achievement fails to write"} structure={{}}/>
+
+
+### bonus_updated
+<GameEvent structure={{"numadvanced":{"value":"short","a":1},"numbronze":{"value":"short","a":1},"numsilver":{"value":"short","a":1},"numgold":{"value":"short","a":1}}}/>
+
+
+### spec_target_updated
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"spectating player","a":1},"target":{"value":"long","comment":"ehandle of the target","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
+
+
+### spec_mode_updated
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"entindex of the player","a":1}}}/>
+
+
+### entity_visible
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"The player who sees the entity","a":1},"subject":{"value":"short","comment":"Entindex of the entity they see","a":1},"classname":{"value":"string","comment":"Classname of the entity they see","a":1},"entityname":{"value":"string","comment":"name of the entity they see","a":1}}}/>
+
+
+### gameinstructor_draw
+<GameEvent structure={{}}/>
+
+
+### gameinstructor_nodraw
+<GameEvent structure={{}}/>
+
+
+### flare_ignite_npc
+<GameEvent structure={{"entindex":{"value":"long","comment":"entity ignited","a":1}}}/>
+
+
+### helicopter_grenade_punt_miss
+<GameEvent structure={{}}/>
+
+
+### physgun_pickup
+<GameEvent structure={{"target":{"value":"long","comment":"entity picked up","a":1}}}/>
+
+
+### inventory_updated
+<GameEvent structure={{}}/>
+
+
+### cart_updated
+<GameEvent structure={{}}/>
+
+
+### store_pricesheet_updated
+<GameEvent structure={{}}/>
+
+
+### item_schema_initialized
+<GameEvent structure={{}}/>
+
+
+### drop_rate_modified
+<GameEvent structure={{}}/>
+
+
+### event_ticket_modified
+<GameEvent structure={{}}/>
+
+
+### gc_connected
+<GameEvent structure={{}}/>
+
+
+### instructor_start_lesson
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"The player who this lesson is intended for","a":1},"hint_name":{"value":"string","comment":"Name of the lesson to start.  Must match instructor_lesson.txt","a":1},"hint_target":{"value":"long","comment":"entity id that the hint should display at. Leave empty if controller target","a":1},"vr_movement_type":{"value":"byte","a":1},"vr_single_controller":{"value":"bool","a":1},"vr_controller_type":{"value":"byte","a":1}}}/>
+
+
+### instructor_close_lesson
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"The player who this lesson is intended for","a":1},"hint_name":{"value":"string","comment":"Name of the lesson to start.  Must match instructor_lesson.txt","a":1}}}/>
+
+
+### instructor_server_hint_create
+<GameEvent comment={"create a hint using data supplied entirely by the server/map. Intended for hints to smooth playtests before content is ready to make the hint unneccessary. NOT INTENDED AS A SHIPPABLE CRUTCH"} structure={{"userid":{"value":"playercontroller","comment":"user ID of the player that triggered the hint","a":1},"hint_name":{"value":"string","comment":"what to name the hint. For referencing it again later (e.g. a kill command for the hint instead of a timeout)","a":1},"hint_replace_key":{"value":"string","comment":"type name so that messages of the same type will replace each other","a":1},"hint_target":{"value":"long","comment":"entity id that the hint should display at","a":1},"hint_activator_userid":{"value":"playercontroller","comment":"userid id of the activator","a":1},"hint_timeout":{"value":"short","comment":"how long in seconds until the hint automatically times out, 0 = never","a":1},"hint_icon_onscreen":{"value":"string","comment":"the hint icon to use when the hint is onscreen. e.g. \"icon_alert_red\"","a":1},"hint_icon_offscreen":{"value":"string","comment":"the hint icon to use when the hint is offscreen. e.g. \"icon_alert\"","a":1},"hint_caption":{"value":"string","comment":"the hint caption. e.g. \"#ThisIsDangerous\"","a":1},"hint_activator_caption":{"value":"string","comment":"the hint caption that only the activator sees e.g. \"#YouPushedItGood\"","a":1},"hint_color":{"value":"string","comment":"the hint color in \"r,g,b\" format where each component is 0-255","a":1},"hint_icon_offset":{"value":"float","comment":"how far on the z axis to offset the hint from entity origin","a":1},"hint_range":{"value":"float","comment":"range before the hint is culled","a":1},"hint_flags":{"value":"long","comment":"hint flags","a":1},"hint_binding":{"value":"string","comment":"bindings to use when use_binding is the onscreen icon","a":1},"hint_gamepad_binding":{"value":"string","comment":"gamepad bindings to use when use_binding is the onscreen icon","a":1},"hint_allow_nodraw_target":{"value":"bool","comment":"if false, the hint will dissappear if the target entity is invisible","a":1},"hint_nooffscreen":{"value":"bool","comment":"if true, the hint will not show when outside the player view","a":1},"hint_forcecaption":{"value":"bool","comment":"if true, the hint caption will show even if the hint is occluded","a":1},"hint_local_player_only":{"value":"bool","comment":"if true, only the local player will see the hint","a":1}}}/>
+
+
+### clientside_lesson_closed
+<GameEvent structure={{"lesson_name":{"value":"string","a":1}}}/>
+
+
+### dynamic_shadow_light_changed
+<GameEvent structure={{}}/>
 
 
 ### gameui_hidden
@@ -30,59 +376,27 @@ All the game events parsed from:
 
 
 ### items_gifted
-<GameEvent structure={{"player":{"value":"player_controller","comment":"entity used by player"},"itemdef":{"value":"long"},"numgifts":{"value":"short"},"giftidx":{"value":"long"},"accountid":{"value":"long"}}}/>
-
-
-### player_team
-<GameEvent comment={"player change his team"} structure={{"userid":{"value":"player_controller_and_pawn","comment":"player"},"team":{"value":"byte","comment":"team id"},"oldteam":{"value":"byte","comment":"old team id"},"disconnect":{"value":"bool","comment":"team change because player disconnects"},"silent":{"value":"bool"},"isbot":{"value":"bool","comment":"true if player is a bot"}}}/>
-
-
-### player_hurt
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn","comment":"player index who was hurt"},"attacker":{"value":"player_controller_and_pawn","comment":"player index who attacked"},"health":{"value":"byte","comment":"remaining health points"},"armor":{"value":"byte","comment":"remaining armor points"},"weapon":{"value":"string","comment":"weapon name attacker used, if not the world"},"dmg_health":{"value":"short","comment":"damage done to health"},"dmg_armor":{"value":"byte","comment":"damage done to armor"},"hitgroup":{"value":"byte","comment":"hitgroup that was damaged"}}}/>
-
-
-### player_chat
-<GameEvent comment={"a public player chat"} structure={{"teamonly":{"value":"bool","comment":"true if team only chat"},"userid":{"value":"short","comment":"chatting player"},"text":{"value":"string","comment":"chat text"}}}/>
+<GameEvent structure={{"player":{"value":"playercontroller","comment":"entity used by player","a":1},"itemdef":{"value":"long","a":1},"numgifts":{"value":"short","a":1},"giftidx":{"value":"long","a":1},"accountid":{"value":"long","a":1}}}/>
 
 
 ### player_score
-<GameEvent comment={"players scores changed"} structure={{"userid":{"value":"player_controller","comment":"user ID on server"},"kills":{"value":"short","comment":"# of kills"},"deaths":{"value":"short","comment":"# of deaths"},"score":{"value":"short","comment":"total game score"}}}/>
-
-
-### player_spawn
-<GameEvent comment={"player spawned in game"} structure={{"userid":{"value":"player_controller_and_pawn"}}}/>
+<GameEvent comment={"players scores changed"} structure={{"userid":{"value":"playercontroller","comment":"user ID on server","a":1},"kills":{"value":"short","comment":"# of kills","a":1},"deaths":{"value":"short","comment":"# of deaths","a":1},"score":{"value":"short","comment":"total game score","a":1}}}/>
 
 
 ### player_shoot
-<GameEvent comment={"player shoot his weapon"} structure={{"userid":{"value":"player_controller_and_pawn","comment":"user ID on server"},"weapon":{"value":"byte","comment":"weapon ID"},"mode":{"value":"byte","comment":"weapon mode"}}}/>
-
-
-### player_changename
-<GameEvent structure={{"userid":{"value":"player_controller","comment":"user ID on server"},"oldname":{"value":"string","comment":"players old (current) name"},"newname":{"value":"string","comment":"players new name"}}}/>
-
-
-### player_hintmessage
-<GameEvent structure={{"hintmessage":{"value":"string","comment":"localizable string of a hint"}}}/>
+<GameEvent comment={"player shoot his weapon"} structure={{"userid":{"value":"playercontroller","comment":"user ID on server","a":1},"weapon":{"value":"byte","comment":"weapon ID","a":1},"mode":{"value":"byte","comment":"weapon mode","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### game_init
 <GameEvent comment={"sent when a new game is started"} structure={{}}/>
 
 
-### game_newmap
-<GameEvent comment={"send when new map is completely loaded"} structure={{"mapname":{"value":"string","comment":"map name"}}}/>
-
-
 ### game_start
-<GameEvent comment={"a new game starts"} structure={{"roundslimit":{"value":"long","comment":"max round"},"timelimit":{"value":"long","comment":"time limit"},"fraglimit":{"value":"long","comment":"frag limit"},"objective":{"value":"string","comment":"round objective"}}}/>
+<GameEvent comment={"a new game starts"} structure={{"roundslimit":{"value":"long","comment":"max round","a":1},"timelimit":{"value":"long","comment":"time limit","a":1},"fraglimit":{"value":"long","comment":"frag limit","a":1},"objective":{"value":"string","comment":"round objective","a":1}}}/>
 
 
 ### game_end
-<GameEvent comment={"a game ended"} structure={{"winner":{"value":"byte","comment":"winner team/user id"}}}/>
-
-
-### round_start
-<GameEvent structure={{"timelimit":{"value":"long","comment":"round time limit in seconds"},"fraglimit":{"value":"long","comment":"frag limit in seconds"},"objective":{"value":"string","comment":"round objective"}}}/>
+<GameEvent comment={"a game ended"} structure={{"winner":{"value":"byte","comment":"winner team/user id","a":1}}}/>
 
 
 ### round_announce_match_point
@@ -105,10 +419,6 @@ All the game events parsed from:
 <GameEvent structure={{}}/>
 
 
-### round_end
-<GameEvent structure={{"winner":{"value":"byte","comment":"winner team/user i"},"reason":{"value":"byte","comment":"reson why team won"},"message":{"value":"string","comment":"end round message"},"legacy":{"value":"byte","comment":"server-generated legacy value"},"player_count":{"value":"short","comment":"total number of players alive at the end of round, used for statistics gathering, computed on the server in the event client is in replay when receiving this message"},"nomusic":{"value":"byte","comment":"if set, don't play round end music, because action is still on-going"}}}/>
-
-
 ### round_end_upload_stats
 <GameEvent structure={{}}/>
 
@@ -122,222 +432,90 @@ All the game events parsed from:
 
 
 ### ugc_map_info_received
-<GameEvent structure={{"published_file_id":{"value":"uint64"}}}/>
+<GameEvent structure={{"published_file_id":{"value":"uint64","a":1}}}/>
 
 
 ### ugc_map_unsubscribed
-<GameEvent structure={{"published_file_id":{"value":"uint64"}}}/>
+<GameEvent structure={{"published_file_id":{"value":"uint64","a":1}}}/>
 
 
 ### ugc_map_download_error
-<GameEvent structure={{"published_file_id":{"value":"uint64"},"error_code":{"value":"long"}}}/>
+<GameEvent structure={{"published_file_id":{"value":"uint64","a":1},"error_code":{"value":"long","a":1}}}/>
 
 
 ### ugc_file_download_finished
-<GameEvent structure={{"hcontent":{"value":"uint64","comment":"id of this specific content (may be image or map)"}}}/>
+<GameEvent structure={{"hcontent":{"value":"uint64","comment":"id of this specific content (may be image or map)","a":1}}}/>
 
 
 ### ugc_file_download_start
-<GameEvent structure={{"hcontent":{"value":"uint64","comment":"id of this specific content (may be image or map)"},"published_file_id":{"value":"uint64","comment":"id of the associated content package"}}}/>
+<GameEvent structure={{"hcontent":{"value":"uint64","comment":"id of this specific content (may be image or map)","a":1},"published_file_id":{"value":"uint64","comment":"id of the associated content package","a":1}}}/>
 
 
 ### begin_new_match
 <GameEvent comment={"Fired when a match ends or is restarted"} structure={{}}/>
 
 
-### round_start_pre_entity
-<GameEvent structure={{}}/>
-
-
-### teamplay_round_start
-<GameEvent comment={"round restart"} structure={{"full_reset":{"value":"bool","comment":"is this a full reset of the map"}}}/>
-
-
-### hostname_changed
-<GameEvent structure={{"hostname":{"value":"string"}}}/>
-
-
-### difficulty_changed
-<GameEvent structure={{"newDifficulty":{"value":"short"},"oldDifficulty":{"value":"short"},"strDifficulty":{"value":"string","comment":"new difficulty as string"}}}/>
-
-
-### finale_start
-<GameEvent structure={{"rushes":{"value":"short"}}}/>
-
-
-### game_message
-<GameEvent comment={"a message send by game logic to everyone"} structure={{"target":{"value":"byte","comment":"0 = console, 1 = HUD"},"text":{"value":"string","comment":"the message text"}}}/>
-
-
 ### dm_bonus_weapon_start
-<GameEvent structure={{"time":{"value":"short","comment":"The length of time that this bonus lasts"},"Pos":{"value":"short","comment":"Loadout position of the bonus weapon"}}}/>
+<GameEvent structure={{"time":{"value":"short","comment":"The length of time that this bonus lasts","a":1},"Pos":{"value":"short","comment":"Loadout position of the bonus weapon","a":1}}}/>
 
 
 ### survival_announce_phase
-<GameEvent structure={{"phase":{"value":"short","comment":"The phase #"}}}/>
-
-
-### break_breakable
-<GameEvent structure={{"entindex":{"value":"long"},"userid":{"value":"player_pawn"},"material":{"value":"byte","comment":"BREAK_GLASS, BREAK_WOOD, etc"}}}/>
+<GameEvent structure={{"phase":{"value":"short","comment":"The phase #","a":1}}}/>
 
 
 ### broken_breakable
-<GameEvent structure={{"entindex":{"value":"long"},"userid":{"value":"player_pawn"},"material":{"value":"byte","comment":"BREAK_GLASS, BREAK_WOOD, etc"}}}/>
-
-
-### break_prop
-<GameEvent structure={{"entindex":{"value":"long"},"userid":{"value":"player_pawn"}}}/>
+<GameEvent structure={{"entindex":{"value":"long","a":1},"userid":{"value":"player_pawn"},"material":{"value":"byte","comment":"BREAK_GLASS, BREAK_WOOD, etc","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### player_decal
-<GameEvent structure={{"userid":{"value":"player_pawn"}}}/>
-
-
-### entity_killed
-<GameEvent structure={{"entindex_killed":{"value":"long"},"entindex_attacker":{"value":"long"},"entindex_inflictor":{"value":"long"},"damagebits":{"value":"long"}}}/>
-
-
-### bonus_updated
-<GameEvent structure={{"numadvanced":{"value":"short"},"numbronze":{"value":"short"},"numsilver":{"value":"short"},"numgold":{"value":"short"}}}/>
-
-
-### player_stats_updated
-<GameEvent structure={{"forceupload":{"value":"bool"}}}/>
-
-
-### achievement_event
-<GameEvent structure={{"achievement_name":{"value":"string","comment":"non-localized name of achievement"},"cur_val":{"value":"short","comment":"# of steps toward achievement"},"max_val":{"value":"short","comment":"total # of steps in achievement"}}}/>
+<GameEvent structure={{"userid":{"value":"player_pawn"},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### achievement_increment
-<GameEvent comment={"sent whenever an achievement that's tracked on the HUD increases"} structure={{"achievement_id":{"value":"long","comment":"ID of achievement that went up"},"cur_val":{"value":"short","comment":"# of steps toward achievement"},"max_val":{"value":"short","comment":"total # of steps in achievement"}}}/>
-
-
-### achievement_earned
-<GameEvent structure={{"player":{"value":"player_controller","comment":"entindex of the player"},"achievement":{"value":"short","comment":"achievement ID"}}}/>
-
-
-### achievement_write_failed
-<GameEvent comment={"Used for a notification message when an achievement fails to write"} structure={{}}/>
-
-
-### physgun_pickup
-<GameEvent structure={{"target":{"value":"ehandle","comment":"entity picked up"}}}/>
-
-
-### flare_ignite_npc
-<GameEvent structure={{"entindex":{"value":"long","comment":"entity ignited"}}}/>
-
-
-### helicopter_grenade_punt_miss
-<GameEvent structure={{}}/>
-
-
-### user_data_downloaded
-<GameEvent comment={"fired when achievements/stats are downloaded from Steam or XBox Live"} structure={{}}/>
-
-
-### ragdoll_dissolved
-<GameEvent structure={{"entindex":{"value":"long"}}}/>
-
-
-### gameinstructor_draw
-<GameEvent structure={{}}/>
-
-
-### gameinstructor_nodraw
-<GameEvent structure={{}}/>
-
-
-### map_transition
-<GameEvent structure={{}}/>
-
-
-### entity_visible
-<GameEvent structure={{"userid":{"value":"player_controller","comment":"The player who sees the entity"},"subject":{"value":"short","comment":"Entindex of the entity they see"},"classname":{"value":"string","comment":"Classname of the entity they see"},"entityname":{"value":"string","comment":"name of the entity they see"}}}/>
+<GameEvent comment={"sent whenever an achievement that's tracked on the HUD increases"} structure={{"achievement_id":{"value":"long","comment":"ID of achievement that went up","a":1},"cur_val":{"value":"short","comment":"# of steps toward achievement","a":1},"max_val":{"value":"short","comment":"total # of steps in achievement","a":1}}}/>
 
 
 ### set_instructor_group_enabled
-<GameEvent structure={{"group":{"value":"string"},"enabled":{"value":"short"}}}/>
-
-
-### instructor_server_hint_create
-<GameEvent comment={"create a hint using data supplied entirely by the server/map. Intended for hints to smooth playtests before content is ready to make the hint unneccessary. NOT INTENDED AS A SHIPPABLE CRUTCH"} structure={{"userid":{"value":"player_controller","comment":"user ID of the player that triggered the hint"},"hint_name":{"value":"string","comment":"what to name the hint. For referencing it again later (e.g. a kill command for the hint instead of a timeout)"},"hint_replace_key":{"value":"string","comment":"type name so that messages of the same type will replace each other"},"hint_target":{"value":"long","comment":"entity id that the hint should display at"},"hint_activator_userid":{"value":"player_controller","comment":"userid id of the activator"},"hint_timeout":{"value":"short","comment":"how long in seconds until the hint automatically times out, 0 = never"},"hint_icon_onscreen":{"value":"string","comment":"the hint icon to use when the hint is onscreen. e.g. \"icon_alert_red\""},"hint_icon_offscreen":{"value":"string","comment":"the hint icon to use when the hint is offscreen. e.g. \"icon_alert\""},"hint_caption":{"value":"string","comment":"the hint caption. e.g. \"#ThisIsDangerous\""},"hint_activator_caption":{"value":"string","comment":"the hint caption that only the activator sees e.g. \"#YouPushedItGood\""},"hint_color":{"value":"string","comment":"the hint color in \"r,g,b\" format where each component is 0-255"},"hint_icon_offset":{"value":"float","comment":"how far on the z axis to offset the hint from entity origin"},"hint_range":{"value":"float","comment":"range before the hint is culled"},"hint_flags":{"value":"long","comment":"hint flags"},"hint_binding":{"value":"string","comment":"bindings to use when use_binding is the onscreen icon"},"hint_gamepad_binding":{"value":"string","comment":"gamepad bindings to use when use_binding is the onscreen icon"},"hint_allow_nodraw_target":{"value":"bool","comment":"if false, the hint will dissappear if the target entity is invisible"},"hint_nooffscreen":{"value":"bool","comment":"if true, the hint will not show when outside the player view"},"hint_forcecaption":{"value":"bool","comment":"if true, the hint caption will show even if the hint is occluded"},"hint_local_player_only":{"value":"bool","comment":"if true, only the local player will see the hint"}}}/>
+<GameEvent structure={{"group":{"value":"string","a":1},"enabled":{"value":"short","a":1}}}/>
 
 
 ### instructor_server_hint_stop
-<GameEvent comment={"destroys a server/map created hint"} structure={{"hint_name":{"value":"string","comment":"The hint to stop. Will stop ALL hints with this name"}}}/>
+<GameEvent comment={"destroys a server/map created hint"} structure={{"hint_name":{"value":"string","comment":"The hint to stop. Will stop ALL hints with this name","a":1}}}/>
 
 
 ### read_game_titledata
-<GameEvent comment={"read user titledata from profile"} structure={{"controllerId":{"value":"short","comment":"Controller id of user"}}}/>
+<GameEvent comment={"read user titledata from profile"} structure={{"controllerId":{"value":"short","comment":"Controller id of user","a":1}}}/>
 
 
 ### write_game_titledata
-<GameEvent comment={"write user titledata in profile"} structure={{"controllerId":{"value":"short","comment":"Controller id of user"}}}/>
+<GameEvent comment={"write user titledata in profile"} structure={{"controllerId":{"value":"short","comment":"Controller id of user","a":1}}}/>
 
 
 ### reset_game_titledata
-<GameEvent comment={"reset user titledata; do not automatically write profile"} structure={{"controllerId":{"value":"short","comment":"Controller id of user"}}}/>
+<GameEvent comment={"reset user titledata; do not automatically write profile"} structure={{"controllerId":{"value":"short","comment":"Controller id of user","a":1}}}/>
 
 
 ### weaponhud_selection
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn","comment":"Player who this event applies to"},"mode":{"value":"byte","comment":"EWeaponHudSelectionMode (switch / pickup / drop)"},"entindex":{"value":"long","comment":"Weapon entity index"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"Player who this event applies to","a":1},"mode":{"value":"byte","comment":"EWeaponHudSelectionMode (switch / pickup / drop)","a":1},"entindex":{"value":"long","comment":"Weapon entity index","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### vote_ended
 <GameEvent structure={{}}/>
 
 
-### vote_started
-<GameEvent structure={{"issue":{"value":"string"},"param1":{"value":"string"},"team":{"value":"byte"},"initiator":{"value":"long","comment":"entity id of the player who initiated the vote"}}}/>
-
-
-### vote_changed
-<GameEvent structure={{"vote_option1":{"value":"byte"},"vote_option2":{"value":"byte"},"vote_option3":{"value":"byte"},"vote_option4":{"value":"byte"},"vote_option5":{"value":"byte"},"potentialVotes":{"value":"byte"}}}/>
-
-
-### vote_passed
-<GameEvent structure={{"details":{"value":"string"},"param1":{"value":"string"},"team":{"value":"byte"}}}/>
-
-
-### vote_failed
-<GameEvent structure={{"team":{"value":"byte"}}}/>
-
-
 ### vote_cast
-<GameEvent structure={{"vote_option":{"value":"byte","comment":"which option the player voted on"},"team":{"value":"short"},"userid":{"value":"player_controller","comment":"player who voted"}}}/>
+<GameEvent structure={{"vote_option":{"value":"byte","comment":"which option the player voted on","a":1},"team":{"value":"short","a":1},"userid":{"value":"playercontroller","comment":"player who voted","a":1}}}/>
 
 
 ### vote_options
-<GameEvent structure={{"count":{"value":"byte","comment":"Number of options - up to MAX_VOTE_OPTIONS"},"option1":{"value":"string"},"option2":{"value":"string"},"option3":{"value":"string"},"option4":{"value":"string"},"option5":{"value":"string"}}}/>
+<GameEvent structure={{"count":{"value":"byte","comment":"Number of options - up to MAX_VOTE_OPTIONS","a":1},"option1":{"value":"string","a":1},"option2":{"value":"string","a":1},"option3":{"value":"string","a":1},"option4":{"value":"string","a":1},"option5":{"value":"string","a":1}}}/>
 
 
 ### endmatch_mapvote_selecting_map
-<GameEvent structure={{"count":{"value":"byte","comment":"Number of \"ties\""},"slot1":{"value":"byte"},"slot2":{"value":"byte"},"slot3":{"value":"byte"},"slot4":{"value":"byte"},"slot5":{"value":"byte"},"slot6":{"value":"byte"},"slot7":{"value":"byte"},"slot8":{"value":"byte"},"slot9":{"value":"byte"},"slot10":{"value":"byte"}}}/>
+<GameEvent structure={{"count":{"value":"byte","comment":"Number of \"ties\"","a":1},"slot1":{"value":"byte","a":1},"slot2":{"value":"byte","a":1},"slot3":{"value":"byte","a":1},"slot4":{"value":"byte","a":1},"slot5":{"value":"byte","a":1},"slot6":{"value":"byte","a":1},"slot7":{"value":"byte","a":1},"slot8":{"value":"byte","a":1},"slot9":{"value":"byte","a":1},"slot10":{"value":"byte","a":1}}}/>
 
 
 ### endmatch_cmm_start_reveal_items
-<GameEvent structure={{}}/>
-
-
-### inventory_updated
-<GameEvent structure={{}}/>
-
-
-### cart_updated
-<GameEvent structure={{}}/>
-
-
-### store_pricesheet_updated
-<GameEvent structure={{}}/>
-
-
-### gc_connected
-<GameEvent structure={{}}/>
-
-
-### item_schema_initialized
 <GameEvent structure={{}}/>
 
 
@@ -346,59 +524,55 @@ All the game events parsed from:
 
 
 ### add_player_sonar_icon
-<GameEvent structure={{"userid":{"value":"player_controller"},"pos_x":{"value":"float"},"pos_y":{"value":"float"},"pos_z":{"value":"float"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"pos_x":{"value":"float","a":1},"pos_y":{"value":"float","a":1},"pos_z":{"value":"float","a":1}}}/>
 
 
 ### add_bullet_hit_marker
-<GameEvent structure={{"userid":{"value":"player_controller"},"bone":{"value":"short"},"pos_x":{"value":"short"},"pos_y":{"value":"short"},"pos_z":{"value":"short"},"ang_x":{"value":"short"},"ang_y":{"value":"short"},"ang_z":{"value":"short"},"start_x":{"value":"short"},"start_y":{"value":"short"},"start_z":{"value":"short"},"hit":{"value":"bool"}}}/>
-
-
-### player_death
-<GameEvent comment={"a game event, name may be 32 characters long"} structure={{"userid":{"value":"player_controller_and_pawn","comment":"user who died"},"attacker":{"value":"player_controller_and_pawn","comment":"player who killed"},"assister":{"value":"player_controller_and_pawn","comment":"player who assisted in the kill"},"assistedflash":{"value":"bool","comment":"assister helped with a flash"},"weapon":{"value":"string","comment":"weapon name killer used"},"weapon_itemid":{"value":"string","comment":"inventory item id of weapon killer used"},"weapon_fauxitemid":{"value":"string","comment":"faux item id of weapon killer used"},"weapon_originalowner_xuid":{"value":"string"},"headshot":{"value":"bool","comment":"singals a headshot"},"dominated":{"value":"short","comment":"did killer dominate victim with this kill"},"revenge":{"value":"short","comment":"did killer get revenge on victim with this kill"},"wipe":{"value":"short","comment":"is the kill resulting in squad wipe"},"penetrated":{"value":"short","comment":"number of objects shot penetrated before killing target"},"noreplay":{"value":"bool","comment":"if replay data is unavailable, this will be present and set to false"},"noscope":{"value":"bool","comment":"kill happened without a scope, used for death notice icon"},"thrusmoke":{"value":"bool","comment":"hitscan weapon went through smoke grenade"},"attackerblind":{"value":"bool","comment":"attacker was blind from flashbang"},"distance":{"value":"float","comment":"distance to victim in meters"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"bone":{"value":"short","a":1},"pos_x":{"value":"short","a":1},"pos_y":{"value":"short","a":1},"pos_z":{"value":"short","a":1},"ang_x":{"value":"short","a":1},"ang_y":{"value":"short","a":1},"ang_z":{"value":"short","a":1},"start_x":{"value":"short","a":1},"start_y":{"value":"short","a":1},"start_z":{"value":"short","a":1},"hit":{"value":"bool","a":1}}}/>
 
 
 ### other_death
-<GameEvent structure={{"otherid":{"value":"short","comment":"other entity ID who died"},"othertype":{"value":"string","comment":"other entity type"},"attacker":{"value":"short","comment":"user ID who killed"},"weapon":{"value":"string","comment":"weapon name killer used"},"weapon_itemid":{"value":"string","comment":"inventory item id of weapon killer used"},"weapon_fauxitemid":{"value":"string","comment":"faux item id of weapon killer used"},"weapon_originalowner_xuid":{"value":"string"},"headshot":{"value":"bool","comment":"singals a headshot"},"penetrated":{"value":"short","comment":"number of objects shot penetrated before killing target"},"noscope":{"value":"bool","comment":"kill happened without a scope, used for death notice icon"},"thrusmoke":{"value":"bool","comment":"hitscan weapon went through smoke grenade"},"attackerblind":{"value":"bool","comment":"attacker was blind from flashbang"}}}/>
+<GameEvent structure={{"otherid":{"value":"short","comment":"other entity ID who died","a":1},"othertype":{"value":"string","comment":"other entity type","a":1},"attacker":{"value":"short","comment":"user ID who killed","a":1},"weapon":{"value":"string","comment":"weapon name killer used","a":1},"weapon_itemid":{"value":"string","comment":"inventory item id of weapon killer used","a":1},"weapon_fauxitemid":{"value":"string","comment":"faux item id of weapon killer used","a":1},"weapon_originalowner_xuid":{"value":"string","a":1},"headshot":{"value":"bool","comment":"singals a headshot","a":1},"penetrated":{"value":"short","comment":"number of objects shot penetrated before killing target","a":1},"noscope":{"value":"bool","comment":"kill happened without a scope, used for death notice icon","a":1},"thrusmoke":{"value":"bool","comment":"hitscan weapon went through smoke grenade","a":1},"attackerblind":{"value":"bool","comment":"attacker was blind from flashbang","a":1}}}/>
 
 
 ### item_purchase
-<GameEvent structure={{"userid":{"value":"player_controller"},"team":{"value":"short"},"loadout":{"value":"short"},"weapon":{"value":"string"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"team":{"value":"short","a":1},"loadout":{"value":"short","a":1},"weapon":{"value":"string","a":1}}}/>
 
 
 ### bomb_beginplant
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn","comment":"player who is planting the bomb"},"site":{"value":"short","comment":"bombsite index"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player who is planting the bomb","a":1},"site":{"value":"short","comment":"bombsite index","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### bomb_abortplant
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn","comment":"player who is planting the bomb"},"site":{"value":"short","comment":"bombsite index"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player who is planting the bomb","a":1},"site":{"value":"short","comment":"bombsite index","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### bomb_planted
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn","comment":"player who planted the bomb"},"site":{"value":"short","comment":"bombsite index"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player who planted the bomb","a":1},"site":{"value":"short","comment":"bombsite index","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### bomb_defused
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn","comment":"player who defused the bomb"},"site":{"value":"short","comment":"bombsite index"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player who defused the bomb","a":1},"site":{"value":"short","comment":"bombsite index","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### bomb_exploded
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn","comment":"player who planted the bomb"},"site":{"value":"short","comment":"bombsite index"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player who planted the bomb","a":1},"site":{"value":"short","comment":"bombsite index","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### bomb_dropped
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn","comment":"player who dropped the bomb"},"entindex":{"value":"long"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player who dropped the bomb","a":1},"entindex":{"value":"long","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### bomb_pickup
-<GameEvent structure={{"userid":{"value":"player_pawn","comment":"player pawn who picked up the bomb"}}}/>
+<GameEvent structure={{"userid":{"value":"player_pawn","comment":"player pawn who picked up the bomb"},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### defuser_dropped
-<GameEvent structure={{"entityid":{"value":"long","comment":"defuser's entity ID"}}}/>
+<GameEvent structure={{"entityid":{"value":"long","comment":"defuser's entity ID","a":1}}}/>
 
 
 ### defuser_pickup
-<GameEvent structure={{"entityid":{"value":"long","comment":"defuser's entity ID"},"userid":{"value":"player_controller_and_pawn","comment":"player who picked up the defuser"}}}/>
+<GameEvent structure={{"entityid":{"value":"long","comment":"defuser's entity ID","a":1},"userid":{"value":"playercontroller","comment":"player who picked up the defuser","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### announce_phase_end
@@ -410,31 +584,31 @@ All the game events parsed from:
 
 
 ### bomb_begindefuse
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn","comment":"player who is defusing"},"haskit":{"value":"bool"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player who is defusing","a":1},"haskit":{"value":"bool","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### bomb_abortdefuse
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn","comment":"player who was defusing"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player who was defusing","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### hostage_follows
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn","comment":"player who touched the hostage"},"hostage":{"value":"short","comment":"hostage entity index"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player who touched the hostage","a":1},"hostage":{"value":"short","comment":"hostage entity index","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### hostage_hurt
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn","comment":"player who hurt the hostage"},"hostage":{"value":"short","comment":"hostage entity index"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player who hurt the hostage","a":1},"hostage":{"value":"short","comment":"hostage entity index","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### hostage_killed
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn","comment":"player who killed the hostage"},"hostage":{"value":"short","comment":"hostage entity index"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player who killed the hostage","a":1},"hostage":{"value":"short","comment":"hostage entity index","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### hostage_rescued
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn","comment":"player who rescued the hostage"},"hostage":{"value":"short","comment":"hostage entity index"},"site":{"value":"short","comment":"rescue site index"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player who rescued the hostage","a":1},"hostage":{"value":"short","comment":"hostage entity index","a":1},"site":{"value":"short","comment":"rescue site index","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### hostage_stops_following
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn","comment":"player who rescued the hostage"},"hostage":{"value":"short","comment":"hostage entity index"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player who rescued the hostage","a":1},"hostage":{"value":"short","comment":"hostage entity index","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### hostage_rescued_all
@@ -442,95 +616,95 @@ All the game events parsed from:
 
 
 ### hostage_call_for_help
-<GameEvent structure={{"hostage":{"value":"short","comment":"hostage entity index"}}}/>
+<GameEvent structure={{"hostage":{"value":"short","comment":"hostage entity index","a":1}}}/>
 
 
 ### vip_escaped
-<GameEvent structure={{"userid":{"value":"player_controller","comment":"player who was the VIP"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player who was the VIP","a":1}}}/>
 
 
 ### vip_killed
-<GameEvent structure={{"userid":{"value":"player_controller","comment":"player who was the VIP"},"attacker":{"value":"player_controller","comment":"user ID who killed the VIP"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player who was the VIP","a":1},"attacker":{"value":"playercontroller","comment":"user ID who killed the VIP","a":1}}}/>
 
 
 ### player_radio
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn"},"slot":{"value":"short"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"slot":{"value":"short","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### bomb_beep
-<GameEvent structure={{"entindex":{"value":"long","comment":"c4 entity"}}}/>
+<GameEvent structure={{"entindex":{"value":"long","comment":"c4 entity","a":1}}}/>
 
 
 ### weapon_fire
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn"},"weapon":{"value":"string","comment":"weapon name used"},"silenced":{"value":"bool","comment":"is weapon silenced"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"weapon":{"value":"string","comment":"weapon name used","a":1},"silenced":{"value":"bool","comment":"is weapon silenced","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### weapon_fire_on_empty
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn"},"weapon":{"value":"string","comment":"weapon name used"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"weapon":{"value":"string","comment":"weapon name used","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### grenade_thrown
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn"},"weapon":{"value":"string","comment":"weapon name used"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"weapon":{"value":"string","comment":"weapon name used","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### weapon_outofammo
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### weapon_reload
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### weapon_zoom
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### silencer_detach
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### inspect_weapon
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### weapon_zoom_rifle
-<GameEvent comment={"exists for the game instructor to let it know when the player zoomed in with a regular rifle. Different from the above weapon_zoom because we don't use this event to notify bots"} structure={{"userid":{"value":"player_controller_and_pawn"}}}/>
+<GameEvent comment={"exists for the game instructor to let it know when the player zoomed in with a regular rifle. Different from the above weapon_zoom because we don't use this event to notify bots"} structure={{"userid":{"value":"playercontroller","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### player_spawned
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn"},"inrestart":{"value":"bool","comment":"true if restart is pending"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"inrestart":{"value":"bool","comment":"true if restart is pending","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### item_pickup
-<GameEvent structure={{"userid":{"value":"player_controller"},"item":{"value":"string","comment":"either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'"},"silent":{"value":"bool"},"defindex":{"value":"long"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"item":{"value":"string","comment":"either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'","a":1},"silent":{"value":"bool","a":1},"defindex":{"value":"long","a":1}}}/>
 
 
 ### item_pickup_slerp
-<GameEvent structure={{"userid":{"value":"player_controller"},"index":{"value":"short"},"behavior":{"value":"short"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"index":{"value":"short","a":1},"behavior":{"value":"short","a":1}}}/>
 
 
 ### item_pickup_failed
-<GameEvent structure={{"userid":{"value":"player_controller"},"item":{"value":"string"},"reason":{"value":"short"},"limit":{"value":"short"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"item":{"value":"string","a":1},"reason":{"value":"short","a":1},"limit":{"value":"short","a":1}}}/>
 
 
 ### item_remove
-<GameEvent structure={{"userid":{"value":"player_controller"},"item":{"value":"string","comment":"either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'"},"defindex":{"value":"long"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"item":{"value":"string","comment":"either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'","a":1},"defindex":{"value":"long","a":1}}}/>
 
 
 ### ammo_pickup
-<GameEvent structure={{"userid":{"value":"player_controller"},"item":{"value":"string","comment":"either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'"},"index":{"value":"long","comment":"the weapon entindex"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"item":{"value":"string","comment":"either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'","a":1},"index":{"value":"long","comment":"the weapon entindex","a":1}}}/>
 
 
 ### item_equip
-<GameEvent structure={{"userid":{"value":"player_controller"},"item":{"value":"string","comment":"either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'"},"defindex":{"value":"long"},"canzoom":{"value":"bool"},"hassilencer":{"value":"bool"},"issilenced":{"value":"bool"},"hastracers":{"value":"bool"},"weptype":{"value":"short"},"ispainted":{"value":"bool"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"item":{"value":"string","comment":"either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'","a":1},"defindex":{"value":"long","a":1},"canzoom":{"value":"bool","a":1},"hassilencer":{"value":"bool","a":1},"issilenced":{"value":"bool","a":1},"hastracers":{"value":"bool","a":1},"weptype":{"value":"short","a":1},"ispainted":{"value":"bool","a":1}}}/>
 
 
 ### enter_buyzone
-<GameEvent structure={{"userid":{"value":"player_controller"},"canbuy":{"value":"bool"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"canbuy":{"value":"bool","a":1}}}/>
 
 
 ### exit_buyzone
-<GameEvent structure={{"userid":{"value":"player_controller"},"canbuy":{"value":"bool"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"canbuy":{"value":"bool","a":1}}}/>
 
 
 ### buytime_ended
@@ -538,35 +712,35 @@ All the game events parsed from:
 
 
 ### enter_bombzone
-<GameEvent structure={{"userid":{"value":"player_controller"},"hasbomb":{"value":"bool"},"isplanted":{"value":"bool"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"hasbomb":{"value":"bool","a":1},"isplanted":{"value":"bool","a":1}}}/>
 
 
 ### exit_bombzone
-<GameEvent structure={{"userid":{"value":"player_controller"},"hasbomb":{"value":"bool"},"isplanted":{"value":"bool"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"hasbomb":{"value":"bool","a":1},"isplanted":{"value":"bool","a":1}}}/>
 
 
 ### enter_rescue_zone
-<GameEvent structure={{"userid":{"value":"player_controller"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1}}}/>
 
 
 ### exit_rescue_zone
-<GameEvent structure={{"userid":{"value":"player_controller"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1}}}/>
 
 
 ### silencer_off
-<GameEvent structure={{"userid":{"value":"player_controller"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1}}}/>
 
 
 ### silencer_on
-<GameEvent structure={{"userid":{"value":"player_controller"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1}}}/>
 
 
 ### buymenu_open
-<GameEvent structure={{"userid":{"value":"player_controller"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1}}}/>
 
 
 ### buymenu_close
-<GameEvent structure={{"userid":{"value":"player_controller"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1}}}/>
 
 
 ### round_prestart
@@ -578,83 +752,75 @@ All the game events parsed from:
 
 
 ### grenade_bounce
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### hegrenade_detonate
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn"},"entityid":{"value":"short"},"x":{"value":"float"},"y":{"value":"float"},"z":{"value":"float"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"entityid":{"value":"short","a":1},"x":{"value":"float","a":1},"y":{"value":"float","a":1},"z":{"value":"float","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### flashbang_detonate
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn"},"entityid":{"value":"short"},"x":{"value":"float"},"y":{"value":"float"},"z":{"value":"float"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"entityid":{"value":"short","a":1},"x":{"value":"float","a":1},"y":{"value":"float","a":1},"z":{"value":"float","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### smokegrenade_detonate
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn"},"entityid":{"value":"short"},"x":{"value":"float"},"y":{"value":"float"},"z":{"value":"float"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"entityid":{"value":"short","a":1},"x":{"value":"float","a":1},"y":{"value":"float","a":1},"z":{"value":"float","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### smokegrenade_expired
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn"},"entityid":{"value":"short"},"x":{"value":"float"},"y":{"value":"float"},"z":{"value":"float"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"entityid":{"value":"short","a":1},"x":{"value":"float","a":1},"y":{"value":"float","a":1},"z":{"value":"float","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### molotov_detonate
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn"},"x":{"value":"float"},"y":{"value":"float"},"z":{"value":"float"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"x":{"value":"float","a":1},"y":{"value":"float","a":1},"z":{"value":"float","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### decoy_detonate
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn"},"entityid":{"value":"short"},"x":{"value":"float"},"y":{"value":"float"},"z":{"value":"float"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"entityid":{"value":"short","a":1},"x":{"value":"float","a":1},"y":{"value":"float","a":1},"z":{"value":"float","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### decoy_started
-<GameEvent structure={{"userid":{"value":"player_pawn"},"entityid":{"value":"short"},"x":{"value":"float"},"y":{"value":"float"},"z":{"value":"float"}}}/>
+<GameEvent structure={{"userid":{"value":"player_pawn"},"entityid":{"value":"short","a":1},"x":{"value":"float","a":1},"y":{"value":"float","a":1},"z":{"value":"float","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### tagrenade_detonate
-<GameEvent structure={{"userid":{"value":"player_controller"},"entityid":{"value":"short"},"x":{"value":"float"},"y":{"value":"float"},"z":{"value":"float"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"entityid":{"value":"short","a":1},"x":{"value":"float","a":1},"y":{"value":"float","a":1},"z":{"value":"float","a":1}}}/>
 
 
 ### inferno_startburn
-<GameEvent structure={{"entityid":{"value":"short"},"x":{"value":"float"},"y":{"value":"float"},"z":{"value":"float"}}}/>
+<GameEvent structure={{"entityid":{"value":"short","a":1},"x":{"value":"float","a":1},"y":{"value":"float","a":1},"z":{"value":"float","a":1}}}/>
 
 
 ### inferno_expire
-<GameEvent structure={{"entityid":{"value":"short"},"x":{"value":"float"},"y":{"value":"float"},"z":{"value":"float"}}}/>
+<GameEvent structure={{"entityid":{"value":"short","a":1},"x":{"value":"float","a":1},"y":{"value":"float","a":1},"z":{"value":"float","a":1}}}/>
 
 
 ### inferno_extinguish
-<GameEvent structure={{"entityid":{"value":"short"},"x":{"value":"float"},"y":{"value":"float"},"z":{"value":"float"}}}/>
+<GameEvent structure={{"entityid":{"value":"short","a":1},"x":{"value":"float","a":1},"y":{"value":"float","a":1},"z":{"value":"float","a":1}}}/>
 
 
 ### decoy_firing
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn"},"entityid":{"value":"short"},"x":{"value":"float"},"y":{"value":"float"},"z":{"value":"float"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"entityid":{"value":"short","a":1},"x":{"value":"float","a":1},"y":{"value":"float","a":1},"z":{"value":"float","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### bullet_impact
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn"},"x":{"value":"float"},"y":{"value":"float"},"z":{"value":"float"}}}/>
-
-
-### player_footstep
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"x":{"value":"float","a":1},"y":{"value":"float","a":1},"z":{"value":"float","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### player_jump
-<GameEvent structure={{"userid":{"value":"player_controller"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1}}}/>
 
 
 ### player_blind
-<GameEvent structure={{"userid":{"value":"player_controller"},"attacker":{"value":"player_controller","comment":"user ID who threw the flash"},"entityid":{"value":"short","comment":"the flashbang going off"},"blind_duration":{"value":"float"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"attacker":{"value":"playercontroller","comment":"user ID who threw the flash","a":1},"entityid":{"value":"short","comment":"the flashbang going off","a":1},"blind_duration":{"value":"float","a":1}}}/>
 
 
 ### player_falldamage
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn"},"damage":{"value":"float"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"damage":{"value":"float","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### door_moving
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn"},"entindex":{"value":"long"}}}/>
-
-
-### round_freeze_end
-<GameEvent structure={{}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"entindex":{"value":"long","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### mb_input_lock_success
@@ -666,7 +832,7 @@ All the game events parsed from:
 
 
 ### nav_blocked
-<GameEvent structure={{"area":{"value":"long"},"blocked":{"value":"bool"}}}/>
+<GameEvent structure={{"area":{"value":"long","a":1},"blocked":{"value":"bool","a":1}}}/>
 
 
 ### nav_generate
@@ -677,16 +843,8 @@ All the game events parsed from:
 <GameEvent structure={{}}/>
 
 
-### spec_target_updated
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn","comment":"spectating player"},"target":{"value":"ehandle","comment":"ehandle of the target"}}}/>
-
-
-### spec_mode_updated
-<GameEvent structure={{"userid":{"value":"player_controller","comment":"entindex of the player"}}}/>
-
-
 ### hltv_changed_mode
-<GameEvent structure={{"oldmode":{"value":"long"},"newmode":{"value":"long"},"obs_target":{"value":"long"}}}/>
+<GameEvent structure={{"oldmode":{"value":"long","a":1},"newmode":{"value":"long","a":1},"obs_target":{"value":"long","a":1}}}/>
 
 
 ### cs_game_disconnected
@@ -702,7 +860,7 @@ All the game events parsed from:
 
 
 ### cs_win_panel_round
-<GameEvent structure={{"show_timer_defend":{"value":"bool"},"show_timer_attack":{"value":"bool"},"timer_time":{"value":"short"},"final_event":{"value":"byte","comment":"define in cs_gamerules.h"},"funfact_token":{"value":"string"},"funfact_player":{"value":"player_controller"},"funfact_data1":{"value":"long"},"funfact_data2":{"value":"long"},"funfact_data3":{"value":"long"}}}/>
+<GameEvent structure={{"show_timer_defend":{"value":"bool","a":1},"show_timer_attack":{"value":"bool","a":1},"timer_time":{"value":"short","a":1},"final_event":{"value":"byte","comment":"define in cs_gamerules.h","a":1},"funfact_token":{"value":"string","a":1},"funfact_player":{"value":"playercontroller","a":1},"funfact_data1":{"value":"long","a":1},"funfact_data2":{"value":"long","a":1},"funfact_data3":{"value":"long","a":1}}}/>
 
 
 ### cs_win_panel_match
@@ -718,7 +876,7 @@ All the game events parsed from:
 
 
 ### show_deathpanel
-<GameEvent structure={{"victim":{"value":"player_controller_and_pawn","comment":"endindex of the one who was killed"},"killer":{"value":"ehandle","comment":"entindex of the killer entity"},"killer_controller":{"value":"player_controller"},"hits_taken":{"value":"short"},"damage_taken":{"value":"short"},"hits_given":{"value":"short"},"damage_given":{"value":"short"}}}/>
+<GameEvent structure={{"victim":{"value":"playercontroller","comment":"endindex of the one who was killed","a":1},"killer":{"value":"long","comment":"entindex of the killer entity","a":1},"killer_controller":{"value":"playercontroller","a":1},"hits_taken":{"value":"short","a":1},"damage_taken":{"value":"short","a":1},"hits_given":{"value":"short","a":1},"damage_given":{"value":"short","a":1},"victim_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### hide_deathpanel
@@ -726,27 +884,27 @@ All the game events parsed from:
 
 
 ### player_avenged_teammate
-<GameEvent structure={{"avenger_id":{"value":"player_controller"},"avenged_player_id":{"value":"player_controller"}}}/>
+<GameEvent structure={{"avenger_id":{"value":"playercontroller","a":1},"avenged_player_id":{"value":"playercontroller","a":1}}}/>
 
 
 ### achievement_earned_local
-<GameEvent structure={{"achievement":{"value":"short","comment":"achievement ID"},"splitscreenplayer":{"value":"short","comment":"splitscreen ID"}}}/>
+<GameEvent structure={{"achievement":{"value":"short","comment":"achievement ID","a":1},"splitscreenplayer":{"value":"short","comment":"splitscreen ID","a":1}}}/>
 
 
 ### repost_xbox_achievements
-<GameEvent structure={{"splitscreenplayer":{"value":"short","comment":"splitscreen ID"}}}/>
+<GameEvent structure={{"splitscreenplayer":{"value":"short","comment":"splitscreen ID","a":1}}}/>
 
 
 ### match_end_conditions
-<GameEvent structure={{"frags":{"value":"long"},"max_rounds":{"value":"long"},"win_rounds":{"value":"long"},"time":{"value":"long"}}}/>
+<GameEvent structure={{"frags":{"value":"long","a":1},"max_rounds":{"value":"long","a":1},"win_rounds":{"value":"long","a":1},"time":{"value":"long","a":1}}}/>
 
 
 ### round_mvp
-<GameEvent structure={{"userid":{"value":"player_controller"},"reason":{"value":"short"},"value":{"value":"long"},"musickitmvps":{"value":"long"},"nomusic":{"value":"byte"},"musickitid":{"value":"long"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"reason":{"value":"short","a":1},"value":{"value":"long","a":1},"musickitmvps":{"value":"long","a":1},"nomusic":{"value":"byte","a":1},"musickitid":{"value":"long","a":1}}}/>
 
 
 ### show_survival_respawn_status
-<GameEvent structure={{"loc_token":{"value":"string"},"duration":{"value":"long"},"userid":{"value":"player_controller_and_pawn"}}}/>
+<GameEvent structure={{"loc_token":{"value":"string","a":1},"duration":{"value":"long","a":1},"userid":{"value":"playercontroller","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### client_disconnect
@@ -754,43 +912,43 @@ All the game events parsed from:
 
 
 ### gg_player_levelup
-<GameEvent structure={{"userid":{"value":"player_controller","comment":"player who leveled up"},"weaponrank":{"value":"short"},"weaponname":{"value":"string","comment":"name of weapon being awarded"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player who leveled up","a":1},"weaponrank":{"value":"short","a":1},"weaponname":{"value":"string","comment":"name of weapon being awarded","a":1}}}/>
 
 
 ### ggtr_player_levelup
-<GameEvent structure={{"userid":{"value":"player_controller","comment":"player who leveled up"},"weaponrank":{"value":"short"},"weaponname":{"value":"string","comment":"name of weapon being awarded"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player who leveled up","a":1},"weaponrank":{"value":"short","a":1},"weaponname":{"value":"string","comment":"name of weapon being awarded","a":1}}}/>
 
 
 ### ggprogressive_player_levelup
-<GameEvent structure={{"userid":{"value":"player_controller","comment":"player who leveled up"},"weaponrank":{"value":"short"},"weaponname":{"value":"string","comment":"name of weapon being awarded"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player who leveled up","a":1},"weaponrank":{"value":"short","a":1},"weaponname":{"value":"string","comment":"name of weapon being awarded","a":1}}}/>
 
 
 ### gg_killed_enemy
-<GameEvent structure={{"victimid":{"value":"player_controller","comment":"user ID who died"},"attackerid":{"value":"player_controller","comment":"user ID who killed"},"dominated":{"value":"short","comment":"did killer dominate victim with this kill"},"revenge":{"value":"short","comment":"did killer get revenge on victim with this kill"},"bonus":{"value":"bool","comment":"did killer kill with a bonus weapon?"}}}/>
+<GameEvent structure={{"victimid":{"value":"playercontroller","comment":"user ID who died","a":1},"attackerid":{"value":"playercontroller","comment":"user ID who killed","a":1},"dominated":{"value":"short","comment":"did killer dominate victim with this kill","a":1},"revenge":{"value":"short","comment":"did killer get revenge on victim with this kill","a":1},"bonus":{"value":"bool","comment":"did killer kill with a bonus weapon?","a":1}}}/>
 
 
 ### gg_final_weapon_achieved
-<GameEvent structure={{"userid":{"value":"player_controller","comment":"user ID who achieved the final gun game weapon"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"user ID who achieved the final gun game weapon","a":1}}}/>
 
 
 ### gg_bonus_grenade_achieved
-<GameEvent structure={{"userid":{"value":"player_controller","comment":"user ID who achieved the bonus grenade"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"user ID who achieved the bonus grenade","a":1}}}/>
 
 
 ### switch_team
-<GameEvent structure={{"numPlayers":{"value":"short","comment":"number of active players on both T and CT"},"numSpectators":{"value":"short","comment":"number of spectators"},"avg_rank":{"value":"short","comment":"average rank of human players"},"numTSlotsFree":{"value":"short"},"numCTSlotsFree":{"value":"short"}}}/>
+<GameEvent structure={{"numPlayers":{"value":"short","comment":"number of active players on both T and CT","a":1},"numSpectators":{"value":"short","comment":"number of spectators","a":1},"avg_rank":{"value":"short","comment":"average rank of human players","a":1},"numTSlotsFree":{"value":"short","a":1},"numCTSlotsFree":{"value":"short","a":1}}}/>
 
 
 ### gg_leader
-<GameEvent structure={{"userid":{"value":"player_controller","comment":"user ID that is currently in the lead"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"user ID that is currently in the lead","a":1}}}/>
 
 
 ### gg_team_leader
-<GameEvent structure={{"userid":{"value":"player_controller","comment":"user ID that is currently in the lead"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"user ID that is currently in the lead","a":1}}}/>
 
 
 ### gg_player_impending_upgrade
-<GameEvent structure={{"userid":{"value":"player_controller","comment":"player who will be leveling up"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player who will be leveling up","a":1}}}/>
 
 
 ### write_profile_data
@@ -798,7 +956,7 @@ All the game events parsed from:
 
 
 ### trial_time_expired
-<GameEvent comment={"fired when a player runs out of time in trial mode"} structure={{"userid":{"value":"player_controller","comment":"player whose time has expired"}}}/>
+<GameEvent comment={"fired when a player runs out of time in trial mode"} structure={{"userid":{"value":"playercontroller","comment":"player whose time has expired","a":1}}}/>
 
 
 ### update_matchmaking_stats
@@ -806,39 +964,39 @@ All the game events parsed from:
 
 
 ### player_reset_vote
-<GameEvent structure={{"userid":{"value":"player_controller"},"vote":{"value":"bool"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"vote":{"value":"bool","a":1}}}/>
 
 
 ### enable_restart_voting
-<GameEvent structure={{"enable":{"value":"bool"}}}/>
+<GameEvent structure={{"enable":{"value":"bool","a":1}}}/>
 
 
 ### sfuievent
-<GameEvent structure={{"action":{"value":"string"},"data":{"value":"string"},"slot":{"value":"byte"}}}/>
+<GameEvent structure={{"action":{"value":"string","a":1},"data":{"value":"string","a":1},"slot":{"value":"byte","a":1}}}/>
 
 
 ### start_vote
-<GameEvent structure={{"userid":{"value":"player_controller"},"type":{"value":"byte"},"vote_parameter":{"value":"short"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"type":{"value":"byte","a":1},"vote_parameter":{"value":"short","a":1}}}/>
 
 
 ### player_given_c4
-<GameEvent structure={{"userid":{"value":"player_controller","comment":"user ID who received the c4"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"user ID who received the c4","a":1}}}/>
 
 
 ### gg_reset_round_start_sounds
-<GameEvent structure={{"userid":{"value":"player_controller","comment":"user ID who should have round start sounds reset"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"user ID who should have round start sounds reset","a":1}}}/>
 
 
 ### tr_player_flashbanged
-<GameEvent structure={{"userid":{"value":"player_controller","comment":"user ID of the player banged"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"user ID of the player banged","a":1}}}/>
 
 
 ### tr_mark_complete
-<GameEvent structure={{"complete":{"value":"short"}}}/>
+<GameEvent structure={{"complete":{"value":"short","a":1}}}/>
 
 
 ### tr_mark_best_time
-<GameEvent structure={{"time":{"value":"long"}}}/>
+<GameEvent structure={{"time":{"value":"long","a":1}}}/>
 
 
 ### tr_exit_hint_trigger
@@ -846,7 +1004,7 @@ All the game events parsed from:
 
 
 ### bot_takeover
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn"},"botid":{"value":"player_controller"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"botid":{"value":"playercontroller","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### tr_show_finish_msgbox
@@ -858,11 +1016,11 @@ All the game events parsed from:
 
 
 ### jointeam_failed
-<GameEvent structure={{"userid":{"value":"player_controller"},"reason":{"value":"byte","comment":"0 = team_full"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"reason":{"value":"byte","comment":"0 = team_full","a":1}}}/>
 
 
 ### teamchange_pending
-<GameEvent structure={{"userid":{"value":"player_controller"},"toteam":{"value":"byte"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"toteam":{"value":"byte","a":1}}}/>
 
 
 ### material_default_complete
@@ -870,23 +1028,23 @@ All the game events parsed from:
 
 
 ### cs_prev_next_spectator
-<GameEvent structure={{"next":{"value":"bool"}}}/>
+<GameEvent structure={{"next":{"value":"bool","a":1}}}/>
 
 
 ### cs_handle_ime_event
-<GameEvent structure={{"local":{"value":"1"},"eventtype":{"value":"string"},"eventdata":{"value":"wstring"}}}/>
+<GameEvent structure={{"local":{"value":"1"},"eventtype":{"value":"string","a":1},"eventdata":{"value":"wstring"}}}/>
 
 
 ### nextlevel_changed
-<GameEvent comment={"a game event, name may be 32 characters long"} structure={{"nextlevel":{"value":"string"},"mapgroup":{"value":"string"},"skirmishmode":{"value":"string"}}}/>
+<GameEvent comment={"a game event, name may be 32 characters long"} structure={{"nextlevel":{"value":"string","a":1},"mapgroup":{"value":"string","a":1},"skirmishmode":{"value":"string","a":1}}}/>
 
 
 ### seasoncoin_levelup
-<GameEvent structure={{"userid":{"value":"player_controller"},"category":{"value":"short"},"rank":{"value":"short"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"category":{"value":"short","a":1},"rank":{"value":"short","a":1}}}/>
 
 
 ### tournament_reward
-<GameEvent structure={{"defindex":{"value":"long"},"totalrewards":{"value":"long"},"accountid":{"value":"long"}}}/>
+<GameEvent structure={{"defindex":{"value":"long","a":1},"totalrewards":{"value":"long","a":1},"accountid":{"value":"long","a":1}}}/>
 
 
 ### start_halftime
@@ -894,91 +1052,91 @@ All the game events parsed from:
 
 
 ### ammo_refill
-<GameEvent structure={{"userid":{"value":"player_controller"},"success":{"value":"bool"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"success":{"value":"bool","a":1}}}/>
 
 
 ### parachute_pickup
-<GameEvent structure={{"userid":{"value":"player_controller"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1}}}/>
 
 
 ### parachute_deploy
-<GameEvent structure={{"userid":{"value":"player_controller"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1}}}/>
 
 
 ### dronegun_attack
-<GameEvent structure={{"userid":{"value":"player_controller"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1}}}/>
 
 
 ### drone_dispatched
-<GameEvent structure={{"userid":{"value":"player_controller"},"priority":{"value":"short"},"drone_dispatched":{"value":"short"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"priority":{"value":"short","a":1},"drone_dispatched":{"value":"short","a":1}}}/>
 
 
 ### loot_crate_visible
-<GameEvent structure={{"userid":{"value":"player_controller","comment":"player entindex"},"subject":{"value":"short","comment":"crate entindex"},"type":{"value":"string","comment":"type of crate (metal, wood, or paradrop)"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player entindex","a":1},"subject":{"value":"short","comment":"crate entindex","a":1},"type":{"value":"string","comment":"type of crate (metal, wood, or paradrop)","a":1}}}/>
 
 
 ### loot_crate_opened
-<GameEvent structure={{"userid":{"value":"player_controller","comment":"player entindex"},"type":{"value":"string","comment":"type of crate (metal, wood, or paradrop)"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player entindex","a":1},"type":{"value":"string","comment":"type of crate (metal, wood, or paradrop)","a":1}}}/>
 
 
 ### open_crate_instr
-<GameEvent structure={{"userid":{"value":"player_controller","comment":"player entindex"},"subject":{"value":"short","comment":"crate entindex"},"type":{"value":"string","comment":"type of crate (metal, wood, or paradrop)"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player entindex","a":1},"subject":{"value":"short","comment":"crate entindex","a":1},"type":{"value":"string","comment":"type of crate (metal, wood, or paradrop)","a":1}}}/>
 
 
 ### smoke_beacon_paradrop
-<GameEvent structure={{"userid":{"value":"player_controller"},"paradrop":{"value":"short"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"paradrop":{"value":"short","a":1}}}/>
 
 
 ### survival_paradrop_spawn
-<GameEvent structure={{"entityid":{"value":"short"}}}/>
+<GameEvent structure={{"entityid":{"value":"short","a":1}}}/>
 
 
 ### survival_paradrop_break
-<GameEvent structure={{"entityid":{"value":"short"}}}/>
+<GameEvent structure={{"entityid":{"value":"short","a":1}}}/>
 
 
 ### drone_cargo_detached
-<GameEvent structure={{"userid":{"value":"player_controller"},"cargo":{"value":"short"},"delivered":{"value":"bool"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"cargo":{"value":"short","a":1},"delivered":{"value":"bool","a":1}}}/>
 
 
 ### drone_above_roof
-<GameEvent structure={{"userid":{"value":"player_controller"},"cargo":{"value":"short"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"cargo":{"value":"short","a":1}}}/>
 
 
 ### choppers_incoming_warning
-<GameEvent structure={{"global":{"value":"bool"}}}/>
+<GameEvent structure={{"global":{"value":"bool","a":1}}}/>
 
 
 ### firstbombs_incoming_warning
-<GameEvent structure={{"global":{"value":"bool"}}}/>
+<GameEvent structure={{"global":{"value":"bool","a":1}}}/>
 
 
 ### dz_item_interaction
-<GameEvent structure={{"userid":{"value":"player_controller","comment":"player entindex"},"subject":{"value":"short","comment":"crate entindex"},"type":{"value":"string","comment":"type of crate (metal, wood, or paradrop)"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player entindex","a":1},"subject":{"value":"short","comment":"crate entindex","a":1},"type":{"value":"string","comment":"type of crate (metal, wood, or paradrop)","a":1}}}/>
 
 
 ### survival_teammate_respawn
-<GameEvent structure={{"userid":{"value":"player_controller"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1}}}/>
 
 
 ### survival_no_respawns_warning
-<GameEvent structure={{"userid":{"value":"player_controller"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1}}}/>
 
 
 ### survival_no_respawns_final
-<GameEvent structure={{"userid":{"value":"player_controller"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1}}}/>
 
 
 ### player_ping
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn"},"entityid":{"value":"short"},"x":{"value":"float"},"y":{"value":"float"},"z":{"value":"float"},"urgent":{"value":"bool"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"entityid":{"value":"short","a":1},"x":{"value":"float","a":1},"y":{"value":"float","a":1},"z":{"value":"float","a":1},"urgent":{"value":"bool","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### player_ping_stop
-<GameEvent structure={{"entityid":{"value":"short"}}}/>
+<GameEvent structure={{"entityid":{"value":"short","a":1}}}/>
 
 
 ### player_sound
-<GameEvent structure={{"userid":{"value":"player_controller_and_pawn"},"radius":{"value":"int"},"duration":{"value":"float"},"step":{"value":"bool"}}}/>
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"radius":{"value":"long","a":1},"duration":{"value":"float","a":1},"step":{"value":"bool","a":1},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
 
 
 ### guardian_wave_restart

@@ -1,4 +1,11 @@
 .type {
+	background: #b46e05;
+	color: white;
+	font-weight: 600;
+	padding: 0.2rem 0.4rem;
+}
+
+.typeConfirmed {
 	background: #0A246A;
 	color: white;
 	font-weight: 600;
