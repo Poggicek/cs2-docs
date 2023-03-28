@@ -553,6 +553,27 @@ sidebar_position: 5
 | StopSoundEvent | void StopSoundEvent( string <em>string_1</em>, handle <em>handle_2</em> ) | Stops a sound event with optional delivery |
 | StopSoundOn | void StopSoundOn( string <em>string_1</em>, handle <em>handle_2</em> ) | Stop named sound on Entity |
 
+### Utilities
+| Function | Signature | Description |
+| -------- | --------- | ----------- |
+| DeepPrint | void DeepPrint( <em>debugInstance</em>, <em>prefix</em> ) | Print out a class/array/instance/table to the console |
+| DeepString | void DeepString( <em>debugInstance</em>, <em>prefix</em> ) | Print out a class/array/instance/table to a string |
+| DeepPrintTable | void DeepPrintTable( <em>debugInstance</em>, string <em>prefix</em>, <em>isPublicScriptScope</em> ) | Print out a table (and subtables) to the console |
+| Deg2Rad | float Deg2Rad( float <em>deg</em> ) | |
+| Rad2Deg | float Rad2Deg( float <em>rad</em> ) | |
+| Clamp | Clamp( <em>val</em>, <em>min</em>, <em>max</em> ) | |
+| Lerp | Lerp( <em>t</em>, <em>a</em>, <em>b</em> ) | |
+| VectorDistanceSq | VectorDistanceSq( Vector <em>v1</em>, Vector <em>v2</em> ) | |
+| VectorDistance | VectorDistance( Vector <em>v1</em>, Vector <em>v2</em> ) | |
+| VectorLerp | VectorLerp( Vector <em>t</em>, Vector <em>a</em>, Vector <em>b</em> ) | |
+| VectorIsZero | VectorIsZero( Vector <em>v</em> ) | |
+| RemapVal | RemapVal( <em>v</em>, <em>a</em>, <em>b</em>, <em>c</em>, <em>d</em> ) | Remap a value in the range [a,b] to [c,d]. |
+| RemapValClamped | RemapValClamped( <em>v</em>, <em>a</em>, <em>b</em>, <em>c</em>, <em>d</em> ) | Remap a value in the range [a,b] to [c,d]. |
+| min | min( <em>x</em>, <em>y</em> ) | |
+| max | max( <em>x</em>, <em>y</em> ) | |
+| abs | abs( <em>val</em> ) | |
+| Merge | Merge( <em>table1</em>, <em>table2</em> ) | |
+
 ### Other
 
 | Function | Signature | Description |
