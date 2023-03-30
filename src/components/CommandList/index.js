@@ -1,6 +1,9 @@
 import React from "react";
 import COMMANDS from "./commands.json"
 
+const sortedList = COMMANDS.sort((a, b) =>
+    a.name.localeCompare(b.name));
+
 export default function CommandList() {
 	return (
 		<>
@@ -13,7 +16,7 @@ export default function CommandList() {
 					</tr>
 				</thead>
 				<tbody>
-					{COMMANDS.map((r, index) => (
+					{sortedList.map((r, index) => (
 						<tr key={index}>
 							<td>{r.name}</td>
 							<td>{r.description}</td>
