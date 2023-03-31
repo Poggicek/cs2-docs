@@ -472,6 +472,53 @@ Adding a function with this signature to the entity script causes it to be calle
 | -------- | --------- | ----------- |
 | IsPublicUniverse | bool IsPublicUniverse( ) | Is the script connected to the public Steam universe |
 
+
+### QAngle
+
+| Function | Signature | Description |
+| -------- | --------- | ----------- |
+| constructor | QAngle( float <em>pitch</em>, float <em>yaw</em>, float <em>roll</em> ) | Creates a new QAngle |
+| __add | QAngle __add( QAngle <em>a</em>, QAngle <em>b</em> ) | Adds two QAngles together. Overloaded with + operator. Use RotateOrientation() instead to properly rotate angles. |
+| __eq | bool __eq( QAngle <em>a</em>, QAngle <em>b</em> ) | Tests for equality. Overloaded with == operator |
+| __tostring | string __tostring( ) | Converts the QAngle into a string. Overloaded with .. operator |
+| Forward | Vector Forward( ) | Returns the forward Vector |
+| Left | Vector Left( ) | Returns the left Vector |
+| Up | Vector Up( ) | Returns the Up Vector |
+
+#### QAngle Members
+| Variable | Description |
+| -------- | ----------- |
+| x | Pitch angle |
+| y | Yaw angle |
+| z | Roll angle |
+
+### Vector
+
+| Function | Signature | Description |
+| -------- | --------- | ----------- |
+| constructor | Vector( float <em>x</em>, float <em>y</em>, float <em>z</em> ) | Creates a new Vector |
+| __add | Vector __add( Vector <em>a</em>, Vector <em>b</em> ) | Adds two Vectors together. Overloaded with + operator |
+| __div | Vector __div( Vector <em>a</em>, Vector <em>b</em> ) | Divides a by b. Overloaded with / operator |
+| __eq | bool __eq( Vector <em>a</em>, Vector <em>b</em> ) | Tests for equality. Overloaded with == operator |
+| __len | float __len( ) | Returns the length of the Vector. Overloaded with # operator |
+| __mul | Vector __mul( Vector <em>a</em>, Vector/Scalar <em>b</em> ) | Multiplies a Vector with scalar or another Vector. Overloaded with * operator |
+| __sub | Vector __sub( Vector <em>a</em>, Vector <em>b</em> ) | Subtracts b from a. Overloaded with - operator |
+| __tostring | string __tostring( ) | Converts the Vector into a string. Overloaded with .. operator |
+| __unm | Vector __unm( ) | Reverse the Vector. Overloaded with unary - |
+| Cross | Vector Cross( Vector <em>a</em>, Vector <em>b</em> ) | Cross product of two vectors |
+| Dot | float Dot( Vector <em>a</em>, Vector <em>b</em> ) | Dot product of two vectors |
+| Length | float Length( ) | Length of the Vector |
+| Length2D | float Length2D( ) | Length of the Vector in the XY plane |
+| Lerp | Vector Lerp( Vector <em>target</em>, float <em>time</em> ) | Linear interpolation between the vector and the passed in target over time = [0,1] |
+| Normalized | Vector Normalized( ) | Returns the unit Vector |
+
+#### Vector Members
+| Variable | Description |
+| -------- | ----------- |
+| x | X-Axis |
+| y | Y-Axis |
+| z | Z-Axis |
+
 ## Global Functions
 
 
@@ -693,49 +740,3 @@ Adding a function with this signature to the entity script causes it to be calle
 | VectorToAngles | QAngle VectorToAngles( Vector <em>input</em> ) | Get Qangles (with no roll) for a Vector. |
 | cvar_getf | float cvar_getf( string <em>cvarName</em> ) | Gets the value of the given cvar, as a float. |
 | cvar_setf | bool cvar_setf( string <em>cvarName</em>, float <em>value</em> ) | Sets the value of the given cvar, as a float. |
-
-### QAngle
-
-| Function | Signature | Description |
-| -------- | --------- | ----------- |
-| constructor | QAngle( float <em>pitch</em>, float <em>yaw</em>, float <em>roll</em> ) | Creates a new QAngle |
-| __add | QAngle __add( QAngle <em>a</em>, QAngle <em>b</em> ) | Adds two QAngles together. Overloaded with + operator. Use RotateOrientation() instead to properly rotate angles. |
-| __eq | bool __eq( QAngle <em>a</em>, QAngle <em>b</em> ) | Tests for equality. Overloaded with == operator |
-| __tostring | string __tostring( ) | Converts the QAngle into a string. Overloaded with .. operator |
-| Forward | Vector Forward( ) | Returns the forward Vector |
-| Left | Vector Left( ) | Returns the left Vector |
-| Up | Vector Up( ) | Returns the Up Vector |
-
-#### QAngle Members
-| Variable | Description |
-| -------- | ----------- |
-| x | Pitch angle |
-| y | Yaw angle |
-| z | Roll angle |
-
-### Vector
-
-| Function | Signature | Description |
-| -------- | --------- | ----------- |
-| constructor | Vector( float <em>x</em>, float <em>y</em>, float <em>z</em> ) | Creates a new Vector |
-| __add | Vector __add( Vector <em>a</em>, Vector <em>b</em> ) | Adds two Vectors together. Overloaded with + operator |
-| __div | Vector __div( Vector <em>a</em>, Vector <em>b</em> ) | Divides a by b. Overloaded with / operator |
-| __eq | bool __eq( Vector <em>a</em>, Vector <em>b</em> ) | Tests for equality. Overloaded with == operator |
-| __len | float __len( ) | Returns the length of the Vector. Overloaded with # operator |
-| __mul | Vector __mul( Vector <em>a</em>, Vector/Scalar <em>b</em> ) | Multiplies a Vector with scalar or another Vector. Overloaded with * operator |
-| __sub | Vector __sub( Vector <em>a</em>, Vector <em>b</em> ) | Subtracts b from a. Overloaded with - operator |
-| __tostring | string __tostring( ) | Converts the Vector into a string. Overloaded with .. operator |
-| __unm | Vector __unm( ) | Reverse the Vector. Overloaded with unary - |
-| Cross | Vector Cross( Vector <em>a</em>, Vector <em>b</em> ) | Cross product of two vectors |
-| Dot | float Dot( Vector <em>a</em>, Vector <em>b</em> ) | Dot product of two vectors |
-| Length | float Length( ) | Length of the Vector |
-| Length2D | float Length2D( ) | Length of the Vector in the XY plane |
-| Lerp | Vector Lerp( Vector <em>target</em>, float <em>time</em> ) | Linear interpolation between the vector and the passed in target over time = [0,1] |
-| Normalized | Vector Normalized( ) | Returns the unit Vector |
-
-#### Vector Members
-| Variable | Description |
-| -------- | ----------- |
-| x | X-Axis |
-| y | Y-Axis |
-| z | Z-Axis |
