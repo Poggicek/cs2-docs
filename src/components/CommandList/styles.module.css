@@ -1,0 +1,45 @@
+.input {
+	margin-bottom: 10px;
+}
+
+.extraFilters {
+	margin-left: 5px;
+}
+
+.checkboxGroup {
+	display: flex;
+	align-items: center;
+}
+
+.checkbox {
+	width: 17px;
+	height: 17px;
+	margin-left: auto;
+}
+
+.label {
+	margin-right: 15px;
+}
+
+.dropdown {
+	padding: 20px 15px 20px 15px;
+	width: max-content;
+	user-select: none;
+	display: grid;
+	grid-template-columns: auto auto;
+	column-gap: 20px;
+	max-width: 50rem;
+	max-height: 30rem;
+}
+
+@media screen and (max-width: 600px) {
+	.dropdown {
+		display: block
+	}
+
+	.wrapper {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 10px;
+	}
+}
