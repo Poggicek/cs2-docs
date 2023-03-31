@@ -1,5 +1,6 @@
 import React from "react";
 import COMMANDS from "./commands.json"
+import { GetFlagOverrides } from "./../../utils/convar-flags"
 
 const sortedList = COMMANDS.sort((a, b) =>
     a.name.localeCompare(b.name));
@@ -20,7 +21,7 @@ export default function CommandList() {
 						<tr key={index}>
 							<td>{r.name}</td>
 							<td>{r.description}</td>
-							<td>{r.flags}</td>
+							<td>{r.flags} {GetFlagOverrides(r.flagsRaw)}</td>
 						</tr>
 					))}
 				</tbody>

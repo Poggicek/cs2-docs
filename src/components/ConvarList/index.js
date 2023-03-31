@@ -1,5 +1,6 @@
 import React from "react";
 import CONVARS from "./CONVARS.json"
+import { GetFlagOverrides } from "./../../utils/convar-flags"
 
 const sortedList = CONVARS.sort((a, b) =>
     a.name.localeCompare(b.name));
@@ -20,7 +21,7 @@ export default function ConvarList() {
 						<tr key={index}>
 							<td>{r.name} {r.default.toString()}</td>
 							<td>{r.description}{r.min && <strong><br/>Min: {r.min}</strong>} {r.max && <strong><br/>Max: {r.max}</strong>}</td>
-							<td>{r.flags}</td>
+							<td>{r.flags} {GetFlagOverrides(r.flagsRaw)}</td>
 						</tr>
 					))}
 				</tbody>
