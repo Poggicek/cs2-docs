@@ -472,6 +472,35 @@ Adding a function with this signature to the entity script causes it to be calle
 | -------- | --------- | ----------- |
 | IsPublicUniverse | bool IsPublicUniverse( ) | Is the script connected to the public Steam universe |
 
+### CTakeDamageInfo
+
+DamageInfo handle returned by CreateDamageInfo() 
+| Function | Signature | Description |
+| -------- | --------- | ----------- |
+| AddDamage | void AddDamage( float <em>flAddAmount</em> ) | Add flAddAmount to the damage value |
+| AddDamageType | void AddDamageType( int <em>bitsDamageType</em> ) | Add bitsDamageType to damage types |
+| GetAmmoType | int GetAmmoType( ) | Returns the ammo type |
+| GetAttacker | handle GetAttacker( ) | Returns the attacker's entity |
+| GetDamage | float GetDamage( ) | Returns the damage value |
+| GetDamageCustom | int GetDamageCustom( ) | |
+| GetDamageForce | Vector GetDamageForce( ) | Returns the directional Vector |
+| GetDamagePosition | Vector GetDamagePosition( ) | Returns the position Vector of the damage |
+| GetDamageType | int GetDamageType( ) | Returns the damage type |
+| GetInflictor | handle GetInflictor( ) | Returns the inflictor's entity (usually the weapon) |
+| GetOriginalDamage | float GetOriginalDamage( ) | |
+| GetReportedPosition | Vector GetReportedPosition( ) | |
+| HasDamageType | bool HasDamageType( int <em>bitsToTest</em> ) | Returns whether or not bitsToTest exists in the damage type |
+| IsNull | bool IsNull( ) |  |
+| ScaleDamage | void ScaleDamage( float <em>flScaleAmount</em> ) | Scales the damage value by flScaleAmount |
+| SetAmmoType | void SetAmmoType( int <em>iAmmoType</em> ) | Sets the ammo type to iAmmoType |
+| SetAttacker | void SetAttacker( handle <em>hAttacker</em> ) | Sets the attacker's entity to hAttacker |
+| SetDamage | void SetDamage( float <em>flDamage</em> ) | Sets the damage value to flDamage |
+| SetDamageCustom | void SetDamageCustom( int <em>iDamageCustom</em> ) | |
+| SetDamageForce | void SetDamageForce( Vector <em>damageForce</em> ) | Sets the directional Vector to damageForce |
+| SetDamagePosition | void SetDamagePosition( Vector <em>damagePosition</em> ) | Sets the positional Vector to damagePosition |
+| SetDamageType | void SetDamageType( int <em>bitsDamageType</em> ) | Sets the damage type to bitsDamageType |
+| SetOriginalDamage | void SetOriginalDamage( float <em>flOriginalDamage</em> ) | |
+| SetReportedPosition | void SetReportedPosition( Vector <em>reportedPosition</em> ) | |
 
 ### QAngle
 
