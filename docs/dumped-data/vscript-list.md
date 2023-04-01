@@ -474,7 +474,8 @@ Adding a function with this signature to the entity script causes it to be calle
 
 ### CTakeDamageInfo
 
-DamageInfo handle returned by CreateDamageInfo() 
+DamageInfo handle returned by CreateDamageInfo()
+
 | Function | Signature | Description |
 | -------- | --------- | ----------- |
 | AddDamage | void AddDamage( float <em>flAddAmount</em> ) | Add flAddAmount to the damage value |
