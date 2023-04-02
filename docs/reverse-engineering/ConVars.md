@@ -36,27 +36,51 @@ public:
 	ConVarValue_t *maxValue; //0x0018
 	const char *description; //0x0020
 	ConVarType_t type; //0x0028
-	uint16_t padding; //0x002A
+	uint16_t unk1; //0x002A
 	uint32_t timesChanged; //0x002C
 	ConVarFlags_t flags; //0x0030
 	uint32_t callbackId; //0x0038
-	uint32_t unk; //0x003C
-	ConVarValue_t value[]; //0x0040
+	// Used when setting default, max, min values from the ConVarDesc_t
+	// although that's not the only place of usage
+	// flags seems to be:
+	// (1 << 0) Skip setting value to split screen slots and also something keyvalues related
+	// (1 << 1) Skip setting default value
+	// (1 << 2) Skip setting min/max values
+	uint32_t allocation_flag_of_some_sort;
+	ConVarValue_t values[]; //0x0040
 }; //Size: 0x0044
 ```
 
 ![ConVar structure](img/convarstruct.png)
 
+In most cases there's only one value, but if the flag is `FCVAR_PER_USER` it will be equal to `g_pCVar->GetMaxSplitScreenSlots()`.
+
 `callbackId` is the index of the callback that gets looked up in another linked list.
 
 `type` indicates the type of the value.
-Current known types are:
 
-- 0: `boolean`
-- 7: `float`
-- TODO
+```cpp
+enum EConVarType : short
+{
+	EConVarType_Bool,
+	EConVarType_Int16,
+	EConVarType_UInt16,
+	EConVarType_Int32,
+	EConVarType_UInt32,
+	EConVarType_Int64,
+	EConVarType_UInt64,
+	EConVarType_Float32,
+	EConVarType_Float64,
+	EConVarType_String,
+	EConVarType_Color,
+	EConVarType_Vector2,
+	EConVarType_Vector3,
+	EConVarType_Vector4,
+	EConVarType_Qangle
+};
+```
 
-In most cases there's only one value, but if the flag is `FCVAR_PER_USER` it will be equal to `g_pCVar->GetMaxSplitScreenSlots()`.
+[Source](https://github.com/alliedmodders/hl2sdk/pull/125/)
 
 ## ConVar callbacks
 
