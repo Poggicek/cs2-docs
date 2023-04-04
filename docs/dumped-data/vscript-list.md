@@ -103,7 +103,7 @@ sidebar_position: 5
 | ValidatePrivateScriptScope | void ValidatePrivateScriptScope( ) | Validates the private script scope and creates it if one doesn't exist. |
 
 #### CBaseEntity Hooks
-Adding a function with this signature to the entity script causes it to be called from code at the appropriate moment. 
+Adding a function with this signature to the entity script causes it to be called from code at the appropriate moment.
 
 | Function | Signature | Description |
 | -------- | --------- | ----------- |
@@ -360,7 +360,7 @@ Adding a function with this signature to the entity script causes it to be calle
 
 | Function | Signature | Description |
 | -------- | --------- | ----------- |
-| constructor | CNativeOutputs( ) | Creates a new CNativeOutputs object. | 
+| constructor | CNativeOutputs( ) | Creates a new CNativeOutputs object. |
 | AddOutput | void AddOutput( string <em>outputName</em>, string <em>description</em> ) | Add an output |
 | Init | void Init( int <em>numOutputs</em> ) | Initialize with number of outputs |
 
@@ -445,11 +445,11 @@ Adding a function with this signature to the entity script causes it to be calle
 
 | Function | Signature | Description |
 | -------- | --------- | ----------- |
-| GetBool | table GetBool( string <em>name</em> ) | Returns the convar as a boolean flag. |
+| GetBool | bool GetBool( string <em>name</em> ) | Returns the convar as a boolean flag. |
 | GetCommandClient | handle GetCommandClient( ) | Returns the player who issued this console command. |
-| GetFloat | table GetFloat( string <em>name</em> ) | Returns the convar as a float. May return null if no such convar. |
-| GetInt | table GetInt( string <em>name</em> ) | Returns the convar as an int. May return null if no such convar. |
-| GetStr | table GetStr( string <em>name</em> ) | Returns the convar as a string. May return null if no such convar. |
+| GetFloat | float GetFloat( string <em>name</em> ) | Returns the convar as a float. May return null if no such convar. |
+| GetInt | int GetInt( string <em>name</em> ) | Returns the convar as an int. May return null if no such convar. |
+| GetStr | string GetStr( string <em>name</em> ) | Returns the convar as a string. May return null if no such convar. |
 | RegisterCommand | void RegisterCommand( string <em>name</em>, handle <em>function</em>, string <em>helpString</em>, int <em>flags</em> ) | Register a console command. |
 | RegisterConvar | void RegisterConvar( string <em>name</em>, string <em>defaultValue</em>, string <em>helpString</em>, int <em>flags</em> ) | Register a new console variable. |
 | SetBool | void SetBool( string <em>name</em>, bool <em>val</em> ) | Sets the value of the convar to the bool. |
