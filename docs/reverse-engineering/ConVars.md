@@ -46,7 +46,7 @@ public:
 	// (1 << 0) Skip setting value to split screen slots and also something keyvalues related
 	// (1 << 1) Skip setting default value
 	// (1 << 2) Skip setting min/max values
-	uint32_t allocation_flag_of_some_sort;
+	uint32_t allocation_flag_of_some_sort; //0x003C
 	ConVarValue_t values[]; //0x0040
 }; //Size: 0x0044
 ```

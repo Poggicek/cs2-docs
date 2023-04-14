@@ -4,6 +4,10 @@ sidebar_position: 5
 
 # VScript API
 
+:::caution
+For all those poor souls that use this, please use my [vscode extension](https://marketplace.visualstudio.com/items?itemName=poggudev.cs2-vscript-natives) instead.
+:::
+
 ## Class Methods
 
 ### CBaseEntity
