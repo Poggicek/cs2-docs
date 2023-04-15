@@ -149,6 +149,7 @@ const config = {
         ],
       },
       prism: {
+        additionalLanguages: ["lua"],
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },

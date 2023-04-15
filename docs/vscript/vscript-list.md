@@ -1,7 +1,7 @@
 ---
-sidebar_position: 5
+sidebar_position: 2
+slug: /dumped-data/vscript-list
 ---
-
 # VScript API
 
 :::caution
