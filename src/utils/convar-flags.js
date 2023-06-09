@@ -7,7 +7,7 @@ export const BigAnd = (num1, num2) => {
 }
 
 export const FlagOverrides = {
-	[BigLeftShift(1, 32)]: "defensive",
+	//[BigLeftShift(1, 32)]: "defensive",
 }
 
 export const GetFlagOverrides = (flags) => {
@@ -50,4 +50,5 @@ export const FLAGS = {
 	"vconsole_set_focus": "VConsole set focus",
 	"clientcmd_can_execute": "Clientcmd can execute",
 	"execute_per_tick": "Execute per tick",
+	"defensive": "Defensive",
 }
