@@ -5,6 +5,7 @@ import { GetFlagOverrides } from "./../../utils/convar-flags"
 import styles from "./styles.module.css";
 import debounce from 'lodash.debounce';
 import { FLAGS } from "./../../utils/convar-flags"
+import StatefulCheckbox, { CheckboxState } from "./../StatefulCheckbox"
 
 const sortedList = COMMANDS.sort((a, b) =>
     a.name.localeCompare(b.name));
@@ -19,11 +20,12 @@ function Filters({filter, setFilter})
     debounce(changeHandler, 300)
   , []);
 
-	const onFilterChecked = (e) => {
-		setFilter((filter) => ({
-			...filter,
-			flags: e.target.checked ? [...filter.flags, e.target.id] : filter.flags.filter(f => f !== e.target.id)
-		}));
+	const onFilterChecked = (e, state) => {
+		setFilter((filter) => {
+			let flags = {...filter.flags};
+			flags[e.target.id] = state;
+			return {...filter, flags: flags}
+		});
 	}
 
 	return (
@@ -34,9 +36,9 @@ function Filters({filter, setFilter})
 				<button className="button button--secondary">Filters</button>
 				<ul className={clsx("dropdown__menu", styles.dropdown)}>
 					{Object.entries(FLAGS).map(([name, displayName], index) => (
-						<li className={styles.checkboxGroup}>
-							<label className={styles.label} for={name}>{displayName}</label>
-							<input onChange={onFilterChecked} className={styles.checkbox} id={name} type="checkbox" checked={filter.flags.includes(name)}/>
+						<li key={name} className={styles.checkboxGroup}>
+							<label className={styles.label} htmlFor={name}>{displayName}</label>
+							<StatefulCheckbox id={name} className={styles.checkbox} onChange={onFilterChecked} />
 						</li>
 					))}
 				</ul>
@@ -46,7 +48,25 @@ function Filters({filter, setFilter})
 }
 
 export default function CommandList() {
-	const [filter, setFilter] = useState({search: "", flags: []});
+	const [filter, setFilter] = useState({search: "", flags: {}});
+
+	const checkFilter = (item) => {
+		if(!item.name.toLowerCase().includes(filter.search.toLowerCase()))
+			return false;
+
+		if(Object.entries(filter.flags).some(([name, state]) => {
+			if(state == CheckboxState.Include && !item.flags.includes(name))
+				return true;
+			else if(state == CheckboxState.Exclude && item.flags.includes(name))
+				return true;
+			return false;
+		}))
+		{
+			return false;
+		}
+
+		return true;
+	}
 
 	return (
 		<>
@@ -60,7 +80,7 @@ export default function CommandList() {
 					</tr>
 				</thead>
 				<tbody>
-					{sortedList.filter(r => r.name.includes(filter.search) && (r.flags.split(' ').filter(f => filter.flags.includes(f)).length > 0 || filter.flags.length === 0)).map((r, index) => (
+				{sortedList.filter(checkFilter).map((r, index) => (
 						<tr key={index}>
 							<td>{r.name}</td>
 							<td>{r.description}</td>
