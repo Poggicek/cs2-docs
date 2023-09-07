@@ -4,9 +4,15 @@ slug: /dumped-data/vscript-list
 ---
 # VScript API
 
-:::caution
-For all those poor souls that use this, please use my [vscode extension](https://marketplace.visualstudio.com/items?itemName=poggudev.cs2-vscript-natives) instead.
+:::danger IMPORTANT
+VScript is currently discontinued and all progress on it has been halted. This documentation is provided as-is and may not be accurate.
 :::
+
+## ⚠️ The current state of VScript ⚠️
+
+As of the mirage update, VScript is intentionally **disabled** by Valve. This means that the lua runtime is no longer available in the base game. While there are patches that re-enable VScript, we do not recommend using them as they might stop working at any point in time. Valve has been working on a new scripting system (Pulse) for a while now, but it is not yet[^1] available to the public.
+
+[^1]: It is not confirmed whether Pulse will be available to the public at all.
 
 ## Class Methods
 
