@@ -5,7 +5,7 @@ slug: /
 
 # Introduction
 
-This a community driven documentation that aims to help people with the development of server side plugins. Since CS2 has switched to the new Source 2 engine (Now 8 years old) there have been breaking changes to the game's codebase. As a result of that, it made a lot of old information obsolete.
+This is a community driven documentation that aims to help people with the development of server side plugins. Since CS2 has switched to the new Source 2 engine (Now 8 years old) there have been breaking changes to the game's codebase. As a result of that, it made a lot of old information obsolete.
 
 :::danger Disclaimer
 All the information on this site is for server modification purposes only.
