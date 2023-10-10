@@ -15,7 +15,7 @@ A player controller holds all the information about the player itself, e.g. `m_s
 :::
 
 ## A player controller still exists after a player disconnects
-A controller holds a `PlayerConnectedState m_iConnected` value that represents the current state of the player. If a player disconnects, the controller will still exist (even through map changes) but the state will be set to `PlayerConnectedState::PlayerDisconnected`. This could be a problem if you are passing controllers through timers where you'd normally only check if the entity handle is still valid, now the state has to be checked as well.
+A controller holds a `PlayerConnectedState m_iConnected` value that represents the current state of the player. If a player disconnects, the controller will still exist but the state will be set to `PlayerConnectedState::PlayerDisconnected`. This could be a problem if you are passing controllers through timers where you'd normally only check if the entity handle is still valid, now the state has to be checked as well.
 
 :::note Not confirmed
 Disconnected controllers should only be replaced by new players if the server is full
