@@ -34,3 +34,7 @@ Metamod is a mod loader with basic plugin API. It will not provide any functiona
 			Game	core
 ...
 ```
+
+:::attention
+Whenever CS2 updates you need to edit the `gameinfo.gi` file again as it is replaced with each update.
+:::
