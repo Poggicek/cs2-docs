@@ -33,6 +33,3 @@ enum class PlayerConnectedState : uint32_t
 	PlayerReserved = 0x5,
 };
 ```
-
-## Userids are no longer "unique"
-Unlike source 1 where userids were unique up to 65k, source 2 userids act more like player slots and will be reused. Definitely don't use them as a long term identifier (e.g. in timers).
