@@ -225,7 +225,7 @@ All the game events parsed from:
 
 
 ### player_death
-<GameEvent comment={"a game event, name may be 32 characters long"} structure={{"userid":{"value":"playercontroller","comment":"user who died","a":1},"attacker":{"value":"playercontroller","comment":"player who killed","a":1},"assister":{"value":"playercontroller","comment":"player who assisted in the kill","a":1},"assistedflash":{"value":"bool","comment":"assister helped with a flash","a":1},"weapon":{"value":"string","comment":"weapon name killer used","a":1},"weapon_itemid":{"value":"string","comment":"inventory item id of weapon killer used","a":1},"weapon_fauxitemid":{"value":"string","comment":"faux item id of weapon killer used","a":1},"weapon_originalowner_xuid":{"value":"string","a":1},"headshot":{"value":"bool","comment":"singals a headshot","a":1},"dominated":{"value":"short","comment":"did killer dominate victim with this kill","a":1},"revenge":{"value":"short","comment":"did killer get revenge on victim with this kill","a":1},"wipe":{"value":"short","comment":"is the kill resulting in squad wipe","a":1},"penetrated":{"value":"short","comment":"number of objects shot penetrated before killing target","a":1},"noreplay":{"value":"bool","comment":"if replay data is unavailable, this will be present and set to false","a":1},"noscope":{"value":"bool","comment":"kill happened without a scope, used for death notice icon","a":1},"thrusmoke":{"value":"bool","comment":"hitscan weapon went through smoke grenade","a":1},"attackerblind":{"value":"bool","comment":"attacker was blind from flashbang","a":1},"distance":{"value":"float","comment":"distance to victim in meters","a":1},"userid_pawn":{"value":"strict_ehandle","a":1},"attacker_pawn":{"value":"strict_ehandle","a":1},"assister_pawn":{"value":"strict_ehandle","a":1}}}/>
+<GameEvent comment={"a game event, name may be 32 characters long"} structure={{"userid":{"value":"playercontroller","comment":"user who died","a":1},"attacker":{"value":"playercontroller","comment":"player who killed","a":1},"assister":{"value":"playercontroller","comment":"player who assisted in the kill","a":1},"assistedflash":{"value":"bool","comment":"assister helped with a flash","a":1},"weapon":{"value":"string","comment":"weapon name killer used","a":1},"weapon_itemid":{"value":"string","comment":"inventory item id of weapon killer used","a":1},"weapon_fauxitemid":{"value":"string","comment":"faux item id of weapon killer used","a":1},"weapon_originalowner_xuid":{"value":"string","a":1},"headshot":{"value":"bool","comment":"singals a headshot","a":1},"dominated":{"value":"short","comment":"did killer dominate victim with this kill","a":1},"revenge":{"value":"short","comment":"did killer get revenge on victim with this kill","a":1},"wipe":{"value":"short","comment":"is the kill resulting in squad wipe","a":1},"penetrated":{"value":"short","comment":"number of objects shot penetrated before killing target","a":1},"noreplay":{"value":"bool","comment":"if replay data is unavailable, this will be present and set to false","a":1},"noscope":{"value":"bool","comment":"kill happened without a scope, used for death notice icon","a":1},"thrusmoke":{"value":"bool","comment":"hitscan weapon went through smoke grenade","a":1},"attackerblind":{"value":"bool","comment":"attacker was blind from flashbang","a":1},"distance":{"value":"float","comment":"distance to victim in meters","a":1},"userid_pawn":{"value":"strict_ehandle","a":1},"attacker_pawn":{"value":"strict_ehandle","a":1},"assister_pawn":{"value":"strict_ehandle","a":1},"dmg_health":{"value":"short","comment":"damage done to health","a":1},"dmg_armor":{"value":"byte","comment":"damage done to armor","a":1},"hitgroup":{"value":"byte","comment":"hitgroup that was damaged","a":1}}}/>
 
 
 ### player_footstep
@@ -470,10 +470,6 @@ All the game events parsed from:
 
 ### player_decal
 <GameEvent structure={{"userid":{"value":"player_pawn"},"userid_pawn":{"value":"strict_ehandle","a":1}}}/>
-
-
-### achievement_increment
-<GameEvent comment={"sent whenever an achievement that's tracked on the HUD increases"} structure={{"achievement_id":{"value":"long","comment":"ID of achievement that went up","a":1},"cur_val":{"value":"short","comment":"# of steps toward achievement","a":1},"max_val":{"value":"short","comment":"total # of steps in achievement","a":1}}}/>
 
 
 ### set_instructor_group_enabled
@@ -912,44 +908,12 @@ All the game events parsed from:
 <GameEvent structure={{}}/>
 
 
-### gg_player_levelup
-<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player who leveled up","a":1},"weaponrank":{"value":"short","a":1},"weaponname":{"value":"string","comment":"name of weapon being awarded","a":1}}}/>
-
-
-### ggtr_player_levelup
-<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player who leveled up","a":1},"weaponrank":{"value":"short","a":1},"weaponname":{"value":"string","comment":"name of weapon being awarded","a":1}}}/>
-
-
-### ggprogressive_player_levelup
-<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player who leveled up","a":1},"weaponrank":{"value":"short","a":1},"weaponname":{"value":"string","comment":"name of weapon being awarded","a":1}}}/>
-
-
 ### gg_killed_enemy
 <GameEvent structure={{"victimid":{"value":"playercontroller","comment":"user ID who died","a":1},"attackerid":{"value":"playercontroller","comment":"user ID who killed","a":1},"dominated":{"value":"short","comment":"did killer dominate victim with this kill","a":1},"revenge":{"value":"short","comment":"did killer get revenge on victim with this kill","a":1},"bonus":{"value":"bool","comment":"did killer kill with a bonus weapon?","a":1}}}/>
 
 
-### gg_final_weapon_achieved
-<GameEvent structure={{"userid":{"value":"playercontroller","comment":"user ID who achieved the final gun game weapon","a":1}}}/>
-
-
-### gg_bonus_grenade_achieved
-<GameEvent structure={{"userid":{"value":"playercontroller","comment":"user ID who achieved the bonus grenade","a":1}}}/>
-
-
 ### switch_team
 <GameEvent structure={{"numPlayers":{"value":"short","comment":"number of active players on both T and CT","a":1},"numSpectators":{"value":"short","comment":"number of spectators","a":1},"avg_rank":{"value":"short","comment":"average rank of human players","a":1},"numTSlotsFree":{"value":"short","a":1},"numCTSlotsFree":{"value":"short","a":1}}}/>
-
-
-### gg_leader
-<GameEvent structure={{"userid":{"value":"playercontroller","comment":"user ID that is currently in the lead","a":1}}}/>
-
-
-### gg_team_leader
-<GameEvent structure={{"userid":{"value":"playercontroller","comment":"user ID that is currently in the lead","a":1}}}/>
-
-
-### gg_player_impending_upgrade
-<GameEvent structure={{"userid":{"value":"playercontroller","comment":"player who will be leveling up","a":1}}}/>
 
 
 ### write_profile_data
@@ -982,10 +946,6 @@ All the game events parsed from:
 
 ### player_given_c4
 <GameEvent structure={{"userid":{"value":"playercontroller","comment":"user ID who received the c4","a":1}}}/>
-
-
-### gg_reset_round_start_sounds
-<GameEvent structure={{"userid":{"value":"playercontroller","comment":"user ID who should have round start sounds reset","a":1}}}/>
 
 
 ### tr_player_flashbanged
@@ -1030,10 +990,6 @@ All the game events parsed from:
 
 ### cs_prev_next_spectator
 <GameEvent structure={{"next":{"value":"bool","a":1}}}/>
-
-
-### cs_handle_ime_event
-<GameEvent structure={{"local":{"value":"1", "comment": "Event is not networked to clients"},"eventtype":{"value":"string","a":1},"eventdata":{"value":"wstring"}}}/>
 
 
 ### nextlevel_changed
@@ -1150,3 +1106,27 @@ All the game events parsed from:
 
 ### team_intro_end
 <GameEvent structure={{}}/>
+
+
+### bullet_flight_resolution
+<GameEvent structure={{"userid":{"value":"playercontroller","a":1},"userid_pawn":{"value":"strict_ehandle","a":1},"pos_x":{"value":"short","a":1},"pos_y":{"value":"short","a":1},"pos_z":{"value":"short","a":1},"ang_x":{"value":"short","a":1},"ang_y":{"value":"short","a":1},"ang_z":{"value":"short","a":1},"start_x":{"value":"short","a":1},"start_y":{"value":"short","a":1},"start_z":{"value":"short","a":1}}}/>
+
+
+### door_break
+<GameEvent structure={{"entindex":{"value":"long","a":1},"dmgstate":{"value":"long","a":1}}}/>
+
+
+### door_closed
+<GameEvent structure={{"userid_pawn":{"value":"strict_ehandle","a":1},"entindex":{"value":"long","a":1}}}/>
+
+
+### door_open
+<GameEvent structure={{"userid_pawn":{"value":"strict_ehandle","a":1},"entindex":{"value":"long","a":1}}}/>
+
+
+### game_phase_changed
+<GameEvent structure={{"new_phase":{"value":"short","a":1}}}/>
+
+
+### hltv_replay_status
+<GameEvent structure={{"reason":{"value":"long","a":1}}}/>
