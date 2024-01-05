@@ -1,0 +1,16 @@
+:root {
+  --quote-color: #f1f1f1;
+}
+
+[data-theme='dark'] {
+  --quote-color: #2b2a2a;
+}
+
+.quote {
+	width: fit-content;
+	border-left: 4px solid #c5c5c5;
+	padding-left: 5px;
+	padding: 4px 8px 4px 8px;
+	margin: 4px 0;
+	background-color: var(--quote-color);
+}
