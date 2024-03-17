@@ -3,522 +3,489 @@ sidebar_position: 6
 ---
 
 # Entity List
-All classes derived from CBaseEntity, dumped with with `ent_spew_derived_classes`.
+All classes derived from CBaseEntity, dumped with with [CS2ServerGUI](https://github.com/Source2ZE/CS2ServerGUI).
 
 ## List of all entities
 
-| Entity |
-| ------ |
-| _dummyBaseFireClass |
-| _firesmoke |
-| ai_changehintgroup |
-| ai_changetarget |
-| ai_nav_link_area |
-| ai_sound |
-| ambient_generic |
-| baseanimgraph |
-| basemodelentity |
-| beam |
-| breachcharge_projectile |
-| bumpmine_projectile |
-| cable_dynamic |
-| chicken |
-| color_correction |
-| color_correction_volume |
-| commentary_auto |
-| cs_env_gunfire |
-| cs_gamerules |
-| cs_player_controller |
-| cs_player_manager |
-| cs_team_manager |
-| csgo_viewmodel |
-| dangerzone_controller |
-| dangerzone_entity |
-| decoy_projectile |
-| drone |
-| dronegun |
-| dynamic_prop |
-| dz_door |
-| entity_blocker |
-| entityflame |
-| env_beam |
-| env_beverage |
-| env_blood |
-| env_bubbles |
-| env_combined_light_probe_volume |
-| env_credits |
-| env_cs_place |
-| env_cubemap |
-| env_cubemap_box |
-| env_cubemap_fog |
-| env_debughistory |
-| env_decal |
-| env_detail_controller |
-| env_entity_dissolver |
-| env_entity_igniter |
-| env_entity_maker |
-| env_explosion |
-| env_fade |
-| env_fire |
-| env_firesensor |
-| env_firesource |
-| env_fog_controller |
-| env_funnel |
-| env_global |
-| env_glow |
-| env_gradient_fog |
-| env_hudhint |
-| env_instructor_hint |
-| env_instructor_vr_hint |
-| env_laser |
-| env_light_probe_volume |
-| env_lightglow |
-| env_message |
-| env_microphone |
-| env_muzzleflash |
-| env_particle_glow |
-| env_physexplosion |
-| env_physimpact |
-| env_physwire |
-| env_projectedtexture |
-| env_screenoverlay |
-| env_shake |
-| env_sky |
-| env_soundscape |
-| env_soundscape_proxy |
-| env_soundscape_triggerable |
-| env_spark |
-| env_splash |
-| env_sprite |
-| env_sprite_clientside |
-| env_sprite_oriented |
-| env_sun |
-| env_tilt |
-| env_tonemap_controller |
-| env_tonemap_controller2 |
-| env_tracer |
-| env_viewpunch |
-| env_volumetric_fog_controller |
-| env_volumetric_fog_volume |
-| env_wind |
-| env_zoom |
-| filter_activator_attribute_int |
-| filter_activator_class |
-| filter_activator_context |
-| filter_activator_mass_greater |
-| filter_activator_model |
-| filter_activator_name |
-| filter_activator_team |
-| filter_base |
-| filter_damage_type |
-| filter_enemy |
-| filter_health |
-| filter_los |
-| filter_multi |
-| filter_proximity |
-| fish |
-| flashbang_projectile |
-| fog_volume |
-| func_bomb_target |
-| func_breakable |
-| func_brush |
-| func_button |
-| func_buyzone |
-| func_clip_interaction_layer |
-| func_clip_vphysics |
-| func_conveyor |
-| func_door |
-| func_door_rotating |
-| func_electrified_volume |
-| func_fish_pool |
-| func_footstep_control |
-| func_guntarget |
-| func_hostage_rescue |
-| func_illusionary |
-| func_ladder |
-| func_monitor |
-| func_movelinear |
-| func_nav_avoidance_obstacle |
-| func_nav_blocker |
-| func_nav_markup |
-| func_nav_markup_game |
-| func_physbox |
-| func_physical_button |
-| func_plat |
-| func_platrot |
-| func_precipitation |
-| func_precipitation_blocker |
-| func_proprrespawnzone |
-| func_pushable |
-| func_rot_button |
-| func_rotating |
-| func_shatterglass |
-| func_survival_c4_target |
-| func_tablet_blocker |
-| func_tanktrain |
-| func_timescale |
-| func_trackautochange |
-| func_trackchange |
-| func_tracktrain |
-| func_train |
-| func_traincontrols |
-| func_useableladder |
-| func_vehicleclip |
-| func_wall |
-| func_wall_toggle |
-| func_water |
-| func_water_analog |
-| funCBaseFlex |
-| game_end |
-| game_gib_manager |
-| game_player_equip |
-| game_ragdoll_manager |
-| game_text |
-| game_weapon_manager |
-| game_zone_player |
-| grassburn |
-| grenade |
-| handle_dummy |
-| handle_test |
-| hegrenade_projectile |
-| hl_vr_texture_based_animatable |
-| hostage_entity |
-| inferno |
-| info_armsrace_counterterrorist |
-| info_armsrace_terrorist |
-| info_bomb_target_hint_A |
-| info_bomb_target_hint_B |
-| info_constraint_anchor |
-| info_data |
-| info_deathmatch_spawn |
-| info_dynamic_shadow_hint |
-| info_dynamic_shadow_hint_box |
-| info_enemy_terrorist_spawn |
-| info_game_event_proxy |
-| info_gascanister_launchpoint |
-| info_hostage_rescue_zone_hint |
-| info_hostage_spawn |
-| info_ladder_dismount |
-| info_landmark |
-| info_map_parameters |
-| info_map_region |
-| info_nav_space |
-| info_null |
-| info_offscreen_panorama_texture |
-| info_paradrop_denial |
-| info_particle_system |
-| info_particle_target |
-| info_player_counterterrorist |
-| info_player_deathmatch |
-| info_player_ping |
-| info_player_start |
-| info_player_terrorist |
-| info_projecteddecal |
-| info_spawngroup_landmark |
-| info_spawngroup_load_unload |
-| info_target |
-| info_target_instructor_hint |
-| info_teleport_destination |
-| info_visibility_box |
-| info_world_layer |
-| instanced_scripted_scene |
-| item_assaultsuit |
-| item_cash |
-| item_coop_coin |
-| item_cutters |
-| item_defuser |
-| item_generic |
-| item_generic_trigger_helper |
-| item_heavyassaultsuit |
-| item_kevlar |
-| item_sodacan |
-| keyframe_rope |
-| keyframe_track |
-| light_barn |
-| light_directional |
-| light_dynamic |
-| light_environment |
-| light_omni |
-| light_omni2 |
-| light_ortho |
-| light_rect |
-| light_spot |
-| logic_achievement |
-| logic_active_autosave |
-| logic_auto |
-| logic_autosave |
-| logic_branch |
-| logic_branch_listener |
-| logic_case |
-| logic_choreographed_scene |
-| logic_collision_pair |
-| logic_compare |
-| logic_distance_autosave |
-| logic_distance_check |
-| logic_eventlistener |
-| logic_game_event |
-| logic_gameevent_listener |
-| logic_lineto |
-| logic_measure_movement |
-| logic_multilight_proxy |
-| logic_navigation |
-| logic_npc_counter_aabb |
-| logic_npc_counter_obb |
-| logic_npc_counter_radius |
-| logic_playerproxy |
-| logic_proximity |
-| logic_relay |
-| logic_scene_list_manager |
-| logic_script |
-| logic_timer |
-| mapvetopick_controller |
-| markup_volume |
-| markup_volume_tagged |
-| markup_volume_with_ref |
-| math_colorblend |
-| math_counter |
-| math_remap |
-| molotov_projectile |
-| momentary_door |
-| momentary_rot_button |
-| move_keyframed |
-| move_rope |
-| multisource |
-| observer |
-| paradrop_chopper |
-| path_corner |
-| path_corner_crash |
-| path_particle_rope |
-| path_particle_rope_clientside |
-| path_track |
-| phys_ballsocket |
-| phys_constraint |
-| phys_genericconstraint |
-| phys_hinge |
-| phys_hinge_local |
-| phys_keepupright |
-| phys_lengthconstraint |
-| phys_magnet |
-| phys_motor |
-| phys_pulleyconstraint |
-| phys_ragdollconstraint |
-| phys_ragdollmagnet |
-| phys_slideconstraint |
-| phys_splineconstraint |
-| phys_spring |
-| phys_thruster |
-| phys_torque |
-| phys_wheelconstraint |
-| physics_entity_solver |
-| physics_prop_ragdoll |
-| planted_c4 |
-| planted_c4_survival |
-| plat_trigger |
-| player |
-| player_controller |
-| player_loadsaved |
-| player_spray_decal |
-| point_anglesensor |
-| point_angularvelocitysensor |
-| point_broadcastclientcommand |
-| point_camera |
-| point_camera_vertical_fov |
-| point_clientcommand |
-| point_clientui_dialog |
-| point_clientui_world_panel |
-| point_clientui_world_text_panel |
-| point_commentary_node |
-| point_commentary_viewpoint |
-| point_dz_dronegun |
-| point_dz_itemspawn_group |
-| point_dz_parachute |
-| point_dz_weaponspawn |
-| point_dz_weaponspawn_group |
-| point_enable_motion_fixup |
-| point_entity_finder |
-| point_gamestats_counter |
-| point_give_ammo |
-| point_hint_ui |
-| point_hmd_anchor |
-| point_hurt |
-| point_instructor_event |
-| point_message |
-| point_nav_walkable |
-| point_prefab |
-| point_proximity_sensor |
-| point_push |
-| point_servercommand |
-| point_soundevent |
-| point_teleport |
-| point_template |
-| point_value_remapper |
-| point_velocitysensor |
-| point_viewcontrol |
-| point_vr_anchor_override |
-| point_worldtext |
-| post_processing_volume |
-| predicted_viewmodel |
-| prop_ammo_box_generic |
-| prop_counter |
-| prop_door_rotating |
-| prop_dynamic |
-| prop_dynamic_ornament |
-| prop_dynamic_override |
-| prop_exploding_barrel |
-| prop_exploding_barrel_top |
-| prop_loot_crate |
-| prop_mapplaced_long_use_entity |
-| prop_metal_crate |
-| prop_money_crate |
-| prop_paradrop_crate |
-| prop_physics |
-| prop_physics_multiplayer |
-| prop_physics_override |
-| prop_physics_respawnable |
-| prop_ragdoll |
-| prop_ragdoll_attached |
-| prop_weapon_refill_heavyarmor |
-| prop_weapon_upgrade_armor |
-| prop_weapon_upgrade_armor_helmet |
-| prop_weapon_upgrade_chute |
-| prop_weapon_upgrade_contractkill |
-| prop_weapon_upgrade_exojump |
-| prop_weapon_upgrade_helmet |
-| prop_weapon_upgrade_tablet_droneintel |
-| prop_weapon_upgrade_tablet_highres |
-| prop_weapon_upgrade_tablet_zoneintel |
-| radar_jammer |
-| script_nav_blocker |
-| script_trigger_hurt |
-| script_trigger_multiple |
-| script_trigger_once |
-| script_trigger_push |
-| scripted_item_drop |
-| scripted_scene |
-| scripted_sequence |
-| shatterglass_shard |
-| sky_camera |
-| skybox_reference |
-| smokegrenade_projectile |
-| snd_event_alignedbox |
-| snd_event_param |
-| snd_event_path_corner |
-| snd_event_point |
-| snd_opvar_set |
-| snd_opvar_set_aabb |
-| snd_opvar_set_obb |
-| snd_opvar_set_path_corner |
-| snd_opvar_set_point |
-| snd_opvar_set_point_base |
-| snd_opvar_set_wind_obb |
-| snd_sound_area_obb |
-| snd_sound_area_sphere |
-| snd_soundscape |
-| snd_soundscape_proxy |
-| snd_soundscape_triggerable |
-| snd_stack_save |
-| soundent |
-| spark_shower |
-| spawnpoint |
-| spawnpointcoopenemy |
-| spotlight_end |
-| spraycan |
-| survival_spawn_chopper |
-| tanktrain_ai |
-| tanktrain_aitarget |
-| team_intro_counterterrorist |
-| team_intro_terrorist |
-| team_manager |
-| team_select_counterterrorist |
-| team_select_terrorist |
-| test_effect |
-| trigger |
-| trigger_active_weapon_detect |
-| trigger_autosave |
-| trigger_bomb_reset |
-| trigger_brush |
-| trigger_buoyancy |
-| trigger_callback |
-| trigger_changelevel |
-| trigger_detect_bullet_fire |
-| trigger_detect_explosion |
-| trigger_fan |
-| trigger_fog |
-| trigger_game_event |
-| trigger_gravity |
-| trigger_hurt |
-| trigger_hurt_ghost |
-| trigger_impact |
-| trigger_lerp_object |
-| trigger_look |
-| trigger_multiple |
-| trigger_once |
-| trigger_physics |
-| trigger_proximity |
-| trigger_push |
-| trigger_remove |
-| trigger_safemoneygather |
-| trigger_serverragdoll |
-| trigger_snd_sos_opvar |
-| trigger_soundscape |
-| trigger_survival_playarea |
-| trigger_teleport |
-| trigger_togglesave |
-| trigger_tonemap |
-| trigger_transition |
-| trigger_tripwire |
-| tripwirefire_projectile |
-| viewmodel |
-| vote_controller |
-| waterbullet |
-| weapon_ak47 |
-| weapon_aug |
-| weapon_awp |
-| weapon_bizon |
-| weapon_breachcharge |
-| weapon_bumpmine |
-| weapon_c4 |
-| weapon_deagle |
-| weapon_decoy |
-| weapon_elite |
-| weapon_famas |
-| weapon_fists |
-| weapon_fiveseven |
-| weapon_flashbang |
-| weapon_g3sg1 |
-| weapon_galilar |
-| weapon_glock |
-| weapon_healthshot |
-| weapon_hegrenade |
-| weapon_hkp2000 |
-| weapon_incgrenade |
-| weapon_knife |
-| weapon_knifegg |
-| weapon_m249 |
-| weapon_m4a1 |
-| weapon_mac10 |
-| weapon_mag7 |
-| weapon_melee |
-| weapon_molotov |
-| weapon_mp7 |
-| weapon_mp9 |
-| weapon_negev |
-| weapon_nova |
-| weapon_p250 |
-| weapon_p90 |
-| weapon_sawedoff |
-| weapon_scar20 |
-| weapon_sg556 |
-| weapon_shield |
-| weapon_smokegrenade |
-| weapon_ssg08 |
-| weapon_tablet |
-| weapon_tagrenade |
-| weapon_taser |
-| weapon_tec9 |
-| weapon_tripwirefire |
-| weapon_ump45 |
-| weapon_xm1014 |
-| weapon_zone_repulsor |
-| wearable_item |
-| worldent |
+| Classname | Designer name |
+| --------- | ------------- |
+| CBaseFire | _dummyBaseFireClass |
+| CFireSmoke | _firesmoke |
+| CAI_ChangeHintGroup | ai_changehintgroup |
+| CNavLinkAreaEntity | ai_nav_link_area |
+| CAISound | ai_sound |
+| CAmbientGeneric | ambient_generic |
+| CBaseAnimGraph | baseanimgraph |
+| CBaseFlex | funCBaseFlex |
+| CBaseFlex | baseflex |
+| CBaseModelEntity | basemodelentity |
+| CBeam | beam |
+| CBreachChargeProjectile | breachcharge_projectile |
+| CBumpMineProjectile | bumpmine_projectile |
+| CChicken | chicken |
+| CColorCorrection | color_correction |
+| CColorCorrectionVolume | color_correction_volume |
+| CCommentaryAuto | commentary_auto |
+| CCSGameRulesProxy | cs_gamerules |
+| CCSMinimapBoundary | cs_minimap_boundary |
+| CCSPlayerController | cs_player_controller |
+| CCSPlayerResource | cs_player_manager |
+| CCSTeam | cs_team_manager |
+| CCSGOViewModel | csgo_viewmodel |
+| CDecoyProjectile | decoy_projectile |
+| CEntityBlocker | entity_blocker |
+| CEntityFlame | entityflame |
+| CEnvBeam | env_beam |
+| CEnvBeverage | env_beverage |
+| CBlood | env_blood |
+| CBubbling | env_bubbles |
+| CEnvCombinedLightProbeVolume | env_combined_light_probe_volume |
+| CCredits | env_credits |
+| CCSPlace | env_cs_place |
+| CEnvCubemap | env_cubemap |
+| CEnvCubemapBox | env_cubemap_box |
+| CEnvCubemapFog | env_cubemap_fog |
+| CDebugHistory | env_debughistory |
+| CEnvDecal | env_decal |
+| CEnvDetailController | env_detail_controller |
+| CEntityDissolve | env_entity_dissolver |
+| CEnvEntityIgniter | env_entity_igniter |
+| CEnvEntityMaker | env_entity_maker |
+| CEnvExplosion | env_explosion |
+| CEnvFade | env_fade |
+| CFire | env_fire |
+| CEnvFireSensor | env_firesensor |
+| CEnvFireSource | env_firesource |
+| CFogController | env_fog_controller |
+| CEnvFunnel | env_funnel |
+| CEnvGlobal | env_global |
+| CGradientFog | env_gradient_fog |
+| CEnvHudHint | env_hudhint |
+| CEnvInstructorHint | env_instructor_hint |
+| CEnvInstructorVRHint | env_instructor_vr_hint |
+| CEnvLaser | env_laser |
+| CEnvLightProbeVolume | env_light_probe_volume |
+| CLightGlow | env_lightglow |
+| CMessage | env_message |
+| CEnvMicrophone | env_microphone |
+| CEnvMuzzleFlash | env_muzzleflash |
+| CEnvParticleGlow | env_particle_glow |
+| CPhysExplosion | env_physexplosion |
+| CPhysImpact | env_physimpact |
+| CPhysicsWire | env_physwire |
+| CPlayerVisibility | env_player_visibility |
+| CEnvProjectedTexture | env_projectedtexture |
+| CEnvScreenOverlay | env_screenoverlay |
+| CEnvShake | env_shake |
+| CEnvSky | env_sky |
+| CEnvSoundscape | env_soundscape |
+| CEnvSoundscape | snd_soundscape |
+| CEnvSoundscapeProxy | snd_soundscape_proxy |
+| CEnvSoundscapeProxy | env_soundscape_proxy |
+| CEnvSoundscapeTriggerable | env_soundscape_triggerable |
+| CEnvSoundscapeTriggerable | snd_soundscape_triggerable |
+| CEnvSpark | env_spark |
+| CEnvSplash | env_splash |
+| CSprite | env_sprite |
+| CSprite | env_glow |
+| CCSSprite | env_sprite_clientside |
+| CSpriteOriented | env_sprite_oriented |
+| CSun | env_sun |
+| CEnvTilt | env_tilt |
+| CTonemapController2 | env_tonemap_controller |
+| CTonemapController2 | env_tonemap_controller2 |
+| CEnvTracer | env_tracer |
+| CEnvViewPunch | env_viewpunch |
+| CEnvVolumetricFogController | env_volumetric_fog_controller |
+| CEnvVolumetricFogVolume | env_volumetric_fog_volume |
+| CEnvWind | env_wind |
+| CFilterAttributeInt | filter_activator_attribute_int |
+| CFilterClass | filter_activator_class |
+| CFilterContext | filter_activator_context |
+| CFilterMassGreater | filter_activator_mass_greater |
+| CFilterModel | filter_activator_model |
+| CFilterName | filter_activator_name |
+| FilterTeam | filter_activator_team |
+| CBaseFilter | filter_base |
+| FilterDamageType | filter_damage_type |
+| CFilterEnemy | filter_enemy |
+| FilterHealth | filter_health |
+| CFilterLOS | filter_los |
+| CFilterMultiple | filter_multi |
+| CFilterProximity | filter_proximity |
+| CFish | fish |
+| CFlashbangProjectile | flashbang_projectile |
+| CFogVolume | fog_volume |
+| CBombTarget | func_bomb_target |
+| CBreakable | func_breakable |
+| CFuncBrush | func_brush |
+| CBaseButton | func_button |
+| CBuyZone | func_buyzone |
+| CFuncInteractionLayerClip | func_clip_interaction_layer |
+| CFuncVPhysicsClip | func_clip_vphysics |
+| CFuncConveyor | func_conveyor |
+| CBaseDoor | func_door |
+| CRotDoor | func_door_rotating |
+| CFuncElectrifiedVolume | func_electrified_volume |
+| CFishPool | func_fish_pool |
+| CFootstepControl | func_footstep_control |
+| CGunTarget | func_guntarget |
+| CHostageRescueZone | func_hostage_rescue |
+| CFuncIllusionary | func_illusionary |
+| CFuncLadder | func_ladder |
+| CFuncLadder | func_useableladder |
+| CFuncMonitor | func_monitor |
+| CFuncMoveLinear | func_movelinear |
+| CFuncMoveLinear | momentary_door |
+| CFuncNavObstruction | func_nav_avoidance_obstacle |
+| CFuncNavBlocker | func_nav_blocker |
+| CMarkupVolumeTagged_Nav | func_nav_markup |
+| CMarkupVolumeTagged_NavGame | func_nav_markup_game |
+| CPhysBox | func_physbox |
+| CPhysicalButton | func_physical_button |
+| CFuncPlat | func_plat |
+| CFuncPlatRot | func_platrot |
+| CPrecipitation | func_precipitation |
+| CPrecipitationBlocker | func_precipitation_blocker |
+| CFuncPropRespawnZone | func_proprrespawnzone |
+| CPushable | func_pushable |
+| CRotButton | func_rot_button |
+| CFuncRotating | func_rotating |
+| CFuncShatterglass | func_shatterglass |
+| CFuncTankTrain | func_tanktrain |
+| CFuncTimescale | func_timescale |
+| CFuncTrackAuto | func_trackautochange |
+| CFuncTrackChange | func_trackchange |
+| CFuncTrackTrain | func_tracktrain |
+| CFuncTrain | func_train |
+| CFuncTrainControls | func_traincontrols |
+| CFuncVehicleClip | func_vehicleclip |
+| CFuncWall | func_wall |
+| CFuncWallToggle | func_wall_toggle |
+| CFuncWater | func_water |
+| CGameEnd | game_end |
+| CGameGibManager | game_gib_manager |
+| CGameMoney | game_money |
+| CGamePlayerEquip | game_player_equip |
+| CRagdollManager | game_ragdoll_manager |
+| CGameText | game_text |
+| CGamePlayerZone | game_zone_player |
+| CBaseGrenade | grenade |
+| CHandleDummy | handle_dummy |
+| CHandleTest | handle_test |
+| CHEGrenadeProjectile | hegrenade_projectile |
+| CTextureBasedAnimatable | hl_vr_texture_based_animatable |
+| CHostage | info_hostage_spawn |
+| CHostage | hostage_entity |
+| CInferno | inferno |
+| CInfoInstructorHintBombTargetA | info_bomb_target_hint_A |
+| CInfoInstructorHintBombTargetB | info_bomb_target_hint_B |
+| CConstraintAnchor | info_constraint_anchor |
+| CInfoData | info_data |
+| CInfoDeathmatchSpawn | info_deathmatch_spawn |
+| CInfoDynamicShadowHint | info_dynamic_shadow_hint |
+| CInfoDynamicShadowHintBox | info_dynamic_shadow_hint_box |
+| CInfoEnemyTerroristSpawn | info_enemy_terrorist_spawn |
+| CInfoGameEventProxy | info_game_event_proxy |
+| CInfoInstructorHintHostageRescueZone | info_hostage_rescue_zone_hint |
+| CInfoLadderDismount | info_ladder_dismount |
+| CInfoLandmark | info_landmark |
+| CMapInfo | info_map_parameters |
+| CNavSpaceInfo | info_nav_space |
+| CNullEntity | info_null |
+| CInfoOffscreenPanoramaTexture | info_offscreen_panorama_texture |
+| CParticleSystem | info_particle_system |
+| CInfoParticleTarget | info_particle_target |
+| CInfoPlayerCounterterrorist | info_player_counterterrorist |
+| CBaseDMStart | info_player_deathmatch |
+| CPlayerPing | info_player_ping |
+| CInfoPlayerStart | info_player_start |
+| CInfoPlayerTerrorist | info_player_terrorist |
+| CProjectedDecal | info_projecteddecal |
+| CInfoSpawnGroupLandmark | info_spawngroup_landmark |
+| CInfoSpawnGroupLoadUnload | info_spawngroup_load_unload |
+| CInfoTarget | info_target |
+| CInfoInstructorHintTarget | info_target_instructor_hint |
+| CInfoTargetServerOnly | info_target_server_only |
+| CInfoTeleportDestination | info_teleport_destination |
+| CInfoVisibilityBox | info_visibility_box |
+| CInfoWorldLayer | info_world_layer |
+| CInstancedSceneEntity | instanced_scripted_scene |
+| CItemAssaultSuit | item_assaultsuit |
+| CCoopBonusCoin | item_coop_coin |
+| CItemDefuser | item_cutters |
+| CItemDefuser | item_defuser |
+| CItemGeneric | item_generic |
+| CItemGenericTriggerHelper | item_generic_trigger_helper |
+| CItemHeavyAssaultSuit | item_heavyassaultsuit |
+| CItemKevlar | item_kevlar |
+| CItemSoda | item_sodacan |
+| CRopeKeyframe | move_rope |
+| CRopeKeyframe | keyframe_rope |
+| CPathKeyFrame | keyframe_track |
+| CBarnLight | light_barn |
+| CLightDirectionalEntity | light_directional |
+| CDynamicLight | light_dynamic |
+| CLightEnvironmentEntity | light_environment |
+| CLightEntity | light_omni |
+| COmniLight | light_omni2 |
+| CLightOrthoEntity | light_ortho |
+| CRectLight | light_rect |
+| CLightSpotEntity | light_spot |
+| CLogicAchievement | logic_achievement |
+| CLogicActiveAutosave | logic_active_autosave |
+| CLogicAuto | logic_auto |
+| CLogicAutosave | logic_autosave |
+| CLogicBranch | logic_branch |
+| CLogicBranchList | logic_branch_listener |
+| CLogicCase | logic_case |
+| CLogicCollisionPair | logic_collision_pair |
+| CLogicCompare | logic_compare |
+| CLogicDistanceAutosave | logic_distance_autosave |
+| CLogicDistanceCheck | logic_distance_check |
+| CLogicEventListener | logic_eventlistener |
+| CLogicGameEvent | logic_game_event |
+| CLogicGameEventListener | logic_gameevent_listener |
+| CLogicLineToEntity | logic_lineto |
+| CLogicMeasureMovement | logic_measure_movement |
+| CMultiLightProxy | logic_multilight_proxy |
+| CLogicNavigation | logic_navigation |
+| CLogicNPCCounterAABB | logic_npc_counter_aabb |
+| CLogicNPCCounterOBB | logic_npc_counter_obb |
+| CLogicNPCCounter | logic_npc_counter_radius |
+| CLogicPlayerProxy | logic_playerproxy |
+| CLogicProximity | logic_proximity |
+| CLogicRelay | logic_relay |
+| CSceneListManager | logic_scene_list_manager |
+| CLogicScript | logic_script |
+| CTimerEntity | logic_timer |
+| CMapVetoPickController | mapvetopick_controller |
+| CMarkupVolume | markup_volume |
+| CSimpleMarkupVolumeTagged | markup_volume_tagged |
+| CMarkupVolumeWithRef | markup_volume_with_ref |
+| CMathColorBlend | math_colorblend |
+| CMathCounter | math_counter |
+| CMathRemap | math_remap |
+| CMolotovProjectile | molotov_projectile |
+| CMomentaryRotButton | momentary_rot_button |
+| CBaseMoveBehavior | move_keyframed |
+| CMultiSource | multisource |
+| CCSObserverPawn | observer |
+| CPathCorner | path_corner |
+| CPathCornerCrash | path_corner_crash |
+| CPathParticleRope | path_particle_rope |
+| CPathParticleRope | path_particle_rope_clientside |
+| CPathTrack | path_track |
+| CPhysBallSocket | phys_ballsocket |
+| CPhysFixed | phys_constraint |
+| CGenericConstraint | phys_genericconstraint |
+| CPhysHinge | phys_hinge |
+| CPhysHinge | phys_hinge_local |
+| CKeepUpright | phys_keepupright |
+| CPhysLength | phys_lengthconstraint |
+| CPhysMagnet | phys_magnet |
+| CPhysMotor | phys_motor |
+| CPhysPulley | phys_pulleyconstraint |
+| CRagdollConstraint | phys_ragdollconstraint |
+| CRagdollMagnet | phys_ragdollmagnet |
+| CPhysSlideConstraint | phys_slideconstraint |
+| CSplineConstraint | phys_splineconstraint |
+| CPhysicsSpring | phys_spring |
+| CPhysThruster | phys_thruster |
+| CPhysTorque | phys_torque |
+| CPhysWheelConstraint | phys_wheelconstraint |
+| CPhysicsEntitySolver | physics_entity_solver |
+| CPlantedC4 | planted_c4 |
+| CPlatTrigger | plat_trigger |
+| CCSPlayerPawn | player |
+| CBasePlayerController | player_controller |
+| CRevertSaved | player_loadsaved |
+| CPlayerSprayDecal | player_spray_decal |
+| CPointAngleSensor | point_anglesensor |
+| CPointAngularVelocitySensor | point_angularvelocitysensor |
+| CPointBroadcastClientCommand | point_broadcastclientcommand |
+| CPointCamera | point_camera |
+| CPointCameraVFOV | point_camera_vertical_fov |
+| CPointClientCommand | point_clientcommand |
+| CPointClientUIDialog | point_clientui_dialog |
+| CPointClientUIWorldPanel | point_clientui_world_panel |
+| CPointClientUIWorldTextPanel | point_clientui_world_text_panel |
+| CPointCommentaryNode | point_commentary_node |
+| CCommentaryViewPosition | point_commentary_viewpoint |
+| CEnableMotionFixup | point_enable_motion_fixup |
+| CPointEntityFinder | point_entity_finder |
+| CPointGamestatsCounter | point_gamestats_counter |
+| CPointGiveAmmo | point_give_ammo |
+| CPointHurt | point_hurt |
+| CInstructorEventEntity | point_instructor_event |
+| CMessageEntity | point_message |
+| CNavWalkable | point_nav_walkable |
+| CPointPrefab | point_prefab |
+| CPointProximitySensor | point_proximity_sensor |
+| CPointPulse | point_pulse |
+| CPointPush | point_push |
+| CPointScriptEntity | point_script |
+| CPointServerCommand | point_servercommand |
+| CSoundEventEntity | snd_event_point |
+| CSoundEventEntity | point_soundevent |
+| CPointTeleport | point_teleport |
+| CPointTemplate | point_template |
+| CPointValueRemapper | point_value_remapper |
+| CPointVelocitySensor | point_velocitysensor |
+| CPointWorldText | point_worldtext |
+| CPostProcessingVolume | post_processing_volume |
+| CPredictedViewModel | predicted_viewmodel |
+| CPropDoorRotatingBreakable | prop_door_rotating |
+| CDynamicProp | dynamic_prop |
+| CDynamicProp | prop_dynamic |
+| CDynamicProp | cable_dynamic |
+| CDynamicProp | prop_dynamic_override |
+| COrnamentProp | prop_dynamic_ornament |
+| CPhysicsProp | prop_physics |
+| CPhysicsPropMultiplayer | prop_physics_multiplayer |
+| CPhysicsPropOverride | prop_physics_override |
+| CPhysicsPropRespawnable | prop_physics_respawnable |
+| CRagdollProp | prop_ragdoll |
+| CRagdollProp | physics_prop_ragdoll |
+| CRagdollPropAttached | prop_ragdoll_attached |
+| CEntityInstance | root |
+| CScriptNavBlocker | script_nav_blocker |
+| CScriptTriggerHurt | script_trigger_hurt |
+| CScriptTriggerMultiple | script_trigger_multiple |
+| CScriptTriggerOnce | script_trigger_once |
+| CScriptTriggerPush | script_trigger_push |
+| CScriptItem | scripted_item_drop |
+| CSceneEntity | scripted_scene |
+| CSceneEntity | logic_choreographed_scene |
+| CScriptedSequence | scripted_sequence |
+| CShatterGlassShardPhysics | shatterglass_shard |
+| CSkyCamera | sky_camera |
+| CSkyboxReference | skybox_reference |
+| CSmokeGrenadeProjectile | smokegrenade_projectile |
+| CSoundEventAABBEntity | snd_event_alignedbox |
+| CSoundEventOBBEntity | snd_event_orientedbox |
+| CSoundEventParameter | snd_event_param |
+| CSoundEventPathCornerEntity | snd_event_path_corner |
+| CSoundOpvarSetEntity | snd_opvar_set |
+| CSoundOpvarSetAABBEntity | snd_opvar_set_aabb |
+| CSoundOpvarSetAutoRoomEntity | snd_opvar_set_auto_room |
+| CSoundOpvarSetOBBEntity | snd_opvar_set_obb |
+| CSoundOpvarSetPathCornerEntity | snd_opvar_set_path_corner |
+| CSoundOpvarSetPointEntity | snd_opvar_set_point |
+| CSoundOpvarSetPointBase | snd_opvar_set_point_base |
+| CSoundOpvarSetOBBWindEntity | snd_opvar_set_wind_obb |
+| CSoundAreaEntityBase | snd_sound_area_base |
+| CSoundAreaEntityOrientedBox | snd_sound_area_obb |
+| CSoundAreaEntitySphere | snd_sound_area_sphere |
+| CSoundStackSave | snd_stack_save |
+| CSoundEnt | soundent |
+| CShower | spark_shower |
+| SpawnPoint | spawnpoint |
+| SpawnPointCoopEnemy | spawnpointcoopenemy |
+| CSpotlightEnd | spotlight_end |
+| CTankTrainAI | tanktrain_ai |
+| CTankTargetChange | tanktrain_aitarget |
+| CCSGO_TeamIntroCounterTerroristPosition | team_intro_counterterrorist |
+| CCSGO_TeamIntroTerroristPosition | team_intro_terrorist |
+| CTeam | team_manager |
+| CCSGO_TeamSelectCounterTerroristPosition | team_select_counterterrorist |
+| CCSGO_TeamSelectTerroristPosition | team_select_terrorist |
+| CTestEffect | test_effect |
+| CBaseTrigger | trigger |
+| CTriggerActiveWeaponDetect | trigger_active_weapon_detect |
+| CTriggerSave | trigger_autosave |
+| CTriggerBombReset | trigger_bomb_reset |
+| CTriggerBrush | trigger_brush |
+| CTriggerBuoyancy | trigger_buoyancy |
+| CTriggerCallback | trigger_callback |
+| CChangeLevel | trigger_changelevel |
+| CTriggerDetectBulletFire | trigger_detect_bullet_fire |
+| CTriggerDetectExplosion | trigger_detect_explosion |
+| CTriggerFan | trigger_fan |
+| CFogTrigger | trigger_fog |
+| CTriggerGameEvent | trigger_game_event |
+| CTriggerGravity | trigger_gravity |
+| CTriggerHostageReset | trigger_hostage_reset |
+| CTriggerHurt | trigger_hurt |
+| CTriggerHurtGhost | trigger_hurt_ghost |
+| CTriggerImpact | trigger_impact |
+| CTriggerLerpObject | trigger_lerp_object |
+| CTriggerLook | trigger_look |
+| CTriggerMultiple | trigger_multiple |
+| CTriggerOnce | trigger_once |
+| CTriggerPhysics | trigger_physics |
+| CTriggerProximity | trigger_proximity |
+| CTriggerPush | trigger_push |
+| CTriggerRemove | trigger_remove |
+| CServerRagdollTrigger | trigger_serverragdoll |
+| CTriggerSndSosOpvar | trigger_snd_sos_opvar |
+| CTriggerSoundscape | trigger_soundscape |
+| CTriggerTeleport | trigger_teleport |
+| CTriggerToggleSave | trigger_togglesave |
+| CTonemapTrigger | trigger_tonemap |
+| CTriggerVolume | trigger_transition |
+| CTriggerTripWire | trigger_tripwire |
+| CTripWireFireProjectile | tripwirefire_projectile |
+| CBaseViewModel | viewmodel |
+| CVoteController | vote_controller |
+| CWaterBullet | waterbullet |
+| CAK47 | weapon_ak47 |
+| CWeaponAug | weapon_aug |
+| CWeaponAWP | weapon_awp |
+| CBaseCSGrenade | weapon_basecsgrenade |
+| CWeaponBizon | weapon_bizon |
+| CBreachCharge | weapon_breachcharge |
+| CBumpMine | weapon_bumpmine |
+| CC4 | weapon_c4 |
+| CCSWeaponBase | weapon_cs_base |
+| CWeaponBaseItem | weapon_csbase |
+| CWeaponCZ75a | weapon_cz75a |
+| CDEagle | weapon_deagle |
+| CDecoyGrenade | weapon_decoy |
+| CWeaponElite | weapon_elite |
+| CWeaponFamas | weapon_famas |
+| CFists | weapon_fists |
+| CWeaponFiveSeven | weapon_fiveseven |
+| CFlashbang | weapon_flashbang |
+| CWeaponG3SG1 | weapon_g3sg1 |
+| CWeaponGalilAR | weapon_galilar |
+| CWeaponGlock | weapon_glock |
+| CItem_Healthshot | weapon_healthshot |
+| CHEGrenade | weapon_hegrenade |
+| CWeaponHKP2000 | weapon_hkp2000 |
+| CIncendiaryGrenade | weapon_incgrenade |
+| CKnife | weapon_knife |
+| CWeaponM249 | weapon_m249 |
+| CWeaponM4A1 | weapon_m4a1 |
+| CWeaponM4A1Silencer | weapon_m4a1_silencer |
+| CWeaponMAC10 | weapon_mac10 |
+| CWeaponMag7 | weapon_mag7 |
+| CMelee | weapon_melee |
+| CMolotovGrenade | weapon_molotov |
+| CWeaponMP5SD | weapon_mp5sd |
+| CWeaponMP7 | weapon_mp7 |
+| CWeaponMP9 | weapon_mp9 |
+| CWeaponNegev | weapon_negev |
+| CWeaponNOVA | weapon_nova |
+| CWeaponP250 | weapon_p250 |
+| CWeaponP90 | weapon_p90 |
+| CWeaponRevolver | weapon_revolver |
+| CWeaponSawedoff | weapon_sawedoff |
+| CWeaponSCAR20 | weapon_scar20 |
+| CWeaponSG556 | weapon_sg556 |
+| CWeaponShield | weapon_shield |
+| CSmokeGrenade | weapon_smokegrenade |
+| CWeaponSSG08 | weapon_ssg08 |
+| CTablet | weapon_tablet |
+| CSensorGrenade | weapon_tagrenade |
+| CWeaponTaser | weapon_taser |
+| CWeaponTec9 | weapon_tec9 |
+| CTripWireFire | weapon_tripwirefire |
+| CWeaponUMP45 | weapon_ump45 |
+| CWeaponUSPSilencer | weapon_usp_silencer |
+| CWeaponXM1014 | weapon_xm1014 |
+| CWeaponZoneRepulsor | weapon_zone_repulsor |
+| CEconWearable | wearable_item |
+| CCSGO_WingmanIntroCounterTerroristPosition | wingman_intro_counterterrorist |
+| CCSGO_WingmanIntroTerroristPosition | wingman_intro_terrorist |
+| CWorld | worldent |
