@@ -8,7 +8,7 @@ All classes derived from CBaseEntity, dumped with with [CS2ServerGUI](https://gi
 ## List of all entities
 
 | Classname | Designer name |
-| --------- | ------------- |
+| --- | --- |
 | CBaseFire | _dummyBaseFireClass |
 | CFireSmoke | _firesmoke |
 | CAI_ChangeHintGroup | ai_changehintgroup |
@@ -23,6 +23,7 @@ All classes derived from CBaseEntity, dumped with with [CS2ServerGUI](https://gi
 | CBreachChargeProjectile | breachcharge_projectile |
 | CBumpMineProjectile | bumpmine_projectile |
 | CChicken | chicken |
+| CCitadelSoundOpvarSetOBB | citadel_snd_opvar_set_obb |
 | CColorCorrection | color_correction |
 | CColorCorrectionVolume | color_correction_volume |
 | CCommentaryAuto | commentary_auto |
@@ -82,12 +83,12 @@ All classes derived from CBaseEntity, dumped with with [CS2ServerGUI](https://gi
 | CEnvSoundscape | snd_soundscape |
 | CEnvSoundscapeProxy | snd_soundscape_proxy |
 | CEnvSoundscapeProxy | env_soundscape_proxy |
-| CEnvSoundscapeTriggerable | env_soundscape_triggerable |
 | CEnvSoundscapeTriggerable | snd_soundscape_triggerable |
+| CEnvSoundscapeTriggerable | env_soundscape_triggerable |
 | CEnvSpark | env_spark |
 | CEnvSplash | env_splash |
-| CSprite | env_sprite |
 | CSprite | env_glow |
+| CSprite | env_sprite |
 | CCSSprite | env_sprite_clientside |
 | CSpriteOriented | env_sprite_oriented |
 | CSun | env_sun |
@@ -135,8 +136,9 @@ All classes derived from CBaseEntity, dumped with with [CS2ServerGUI](https://gi
 | CFuncLadder | func_ladder |
 | CFuncLadder | func_useableladder |
 | CFuncMonitor | func_monitor |
-| CFuncMoveLinear | func_movelinear |
 | CFuncMoveLinear | momentary_door |
+| CFuncMoveLinear | func_movelinear |
+| CFuncMover | func_mover |
 | CFuncNavObstruction | func_nav_avoidance_obstacle |
 | CFuncNavBlocker | func_nav_blocker |
 | CMarkupVolumeTagged_Nav | func_nav_markup |
@@ -175,8 +177,8 @@ All classes derived from CBaseEntity, dumped with with [CS2ServerGUI](https://gi
 | CHandleTest | handle_test |
 | CHEGrenadeProjectile | hegrenade_projectile |
 | CTextureBasedAnimatable | hl_vr_texture_based_animatable |
-| CHostage | info_hostage_spawn |
 | CHostage | hostage_entity |
+| CHostage | info_hostage_spawn |
 | CInferno | inferno |
 | CInfoInstructorHintBombTargetA | info_bomb_target_hint_A |
 | CInfoInstructorHintBombTargetB | info_bomb_target_hint_B |
@@ -185,7 +187,6 @@ All classes derived from CBaseEntity, dumped with with [CS2ServerGUI](https://gi
 | CInfoDeathmatchSpawn | info_deathmatch_spawn |
 | CInfoDynamicShadowHint | info_dynamic_shadow_hint |
 | CInfoDynamicShadowHintBox | info_dynamic_shadow_hint_box |
-| CInfoEnemyTerroristSpawn | info_enemy_terrorist_spawn |
 | CInfoGameEventProxy | info_game_event_proxy |
 | CInfoInstructorHintHostageRescueZone | info_hostage_rescue_zone_hint |
 | CInfoLadderDismount | info_ladder_dismount |
@@ -212,7 +213,6 @@ All classes derived from CBaseEntity, dumped with with [CS2ServerGUI](https://gi
 | CInfoWorldLayer | info_world_layer |
 | CInstancedSceneEntity | instanced_scripted_scene |
 | CItemAssaultSuit | item_assaultsuit |
-| CCoopBonusCoin | item_coop_coin |
 | CItemDefuser | item_cutters |
 | CItemDefuser | item_defuser |
 | CItemGeneric | item_generic |
@@ -273,8 +273,11 @@ All classes derived from CBaseEntity, dumped with with [CS2ServerGUI](https://gi
 | CCSObserverPawn | observer |
 | CPathCorner | path_corner |
 | CPathCornerCrash | path_corner_crash |
+| CPathMover | path_mover |
+| CMoverPathNode | path_node_mover |
 | CPathParticleRope | path_particle_rope |
 | CPathParticleRope | path_particle_rope_clientside |
+| CPathSimple | path_simple |
 | CPathTrack | path_track |
 | CPhysBallSocket | phys_ballsocket |
 | CPhysFixed | phys_constraint |
@@ -324,10 +327,10 @@ All classes derived from CBaseEntity, dumped with with [CS2ServerGUI](https://gi
 | CPointProximitySensor | point_proximity_sensor |
 | CPointPulse | point_pulse |
 | CPointPush | point_push |
-| CPointScriptEntity | point_script |
+| CCSServerPointScriptEntity | point_script |
 | CPointServerCommand | point_servercommand |
-| CSoundEventEntity | snd_event_point |
 | CSoundEventEntity | point_soundevent |
+| CSoundEventEntity | snd_event_point |
 | CPointTeleport | point_teleport |
 | CPointTemplate | point_template |
 | CPointValueRemapper | point_value_remapper |
@@ -338,15 +341,15 @@ All classes derived from CBaseEntity, dumped with with [CS2ServerGUI](https://gi
 | CPropDoorRotatingBreakable | prop_door_rotating |
 | CDynamicProp | dynamic_prop |
 | CDynamicProp | prop_dynamic |
-| CDynamicProp | cable_dynamic |
 | CDynamicProp | prop_dynamic_override |
+| CDynamicProp | cable_dynamic |
 | COrnamentProp | prop_dynamic_ornament |
 | CPhysicsProp | prop_physics |
 | CPhysicsPropMultiplayer | prop_physics_multiplayer |
 | CPhysicsPropOverride | prop_physics_override |
 | CPhysicsPropRespawnable | prop_physics_respawnable |
-| CRagdollProp | prop_ragdoll |
 | CRagdollProp | physics_prop_ragdoll |
+| CRagdollProp | prop_ragdoll |
 | CRagdollPropAttached | prop_ragdoll_attached |
 | CEntityInstance | root |
 | CScriptNavBlocker | script_nav_blocker |
@@ -355,8 +358,8 @@ All classes derived from CBaseEntity, dumped with with [CS2ServerGUI](https://gi
 | CScriptTriggerOnce | script_trigger_once |
 | CScriptTriggerPush | script_trigger_push |
 | CScriptItem | scripted_item_drop |
-| CSceneEntity | scripted_scene |
 | CSceneEntity | logic_choreographed_scene |
+| CSceneEntity | scripted_scene |
 | CScriptedSequence | scripted_sequence |
 | CShatterGlassShardPhysics | shatterglass_shard |
 | CSkyCamera | sky_camera |
@@ -366,6 +369,7 @@ All classes derived from CBaseEntity, dumped with with [CS2ServerGUI](https://gi
 | CSoundEventOBBEntity | snd_event_orientedbox |
 | CSoundEventParameter | snd_event_param |
 | CSoundEventPathCornerEntity | snd_event_path_corner |
+| CSoundEventSphereEntity | snd_event_sphere |
 | CSoundOpvarSetEntity | snd_opvar_set |
 | CSoundOpvarSetAABBEntity | snd_opvar_set_aabb |
 | CSoundOpvarSetAutoRoomEntity | snd_opvar_set_auto_room |
@@ -381,7 +385,6 @@ All classes derived from CBaseEntity, dumped with with [CS2ServerGUI](https://gi
 | CSoundEnt | soundent |
 | CShower | spark_shower |
 | SpawnPoint | spawnpoint |
-| SpawnPointCoopEnemy | spawnpointcoopenemy |
 | CSpotlightEnd | spotlight_end |
 | CTankTrainAI | tanktrain_ai |
 | CTankTargetChange | tanktrain_aitarget |
@@ -407,7 +410,6 @@ All classes derived from CBaseEntity, dumped with with [CS2ServerGUI](https://gi
 | CTriggerGravity | trigger_gravity |
 | CTriggerHostageReset | trigger_hostage_reset |
 | CTriggerHurt | trigger_hurt |
-| CTriggerHurtGhost | trigger_hurt_ghost |
 | CTriggerImpact | trigger_impact |
 | CTriggerLerpObject | trigger_lerp_object |
 | CTriggerLook | trigger_look |
