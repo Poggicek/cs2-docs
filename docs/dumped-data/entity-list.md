@@ -309,6 +309,7 @@ All classes derived from CBaseEntity, dumped with with [CS2ServerGUI](https://gi
 | CPointBroadcastClientCommand | point_broadcastclientcommand |
 | CPointCamera | point_camera |
 | CPointCameraVFOV | point_camera_vertical_fov |
+| CPointChildModifier | point_childmodifier |
 | CPointClientCommand | point_clientcommand |
 | CPointClientUIDialog | point_clientui_dialog |
 | CPointClientUIWorldPanel | point_clientui_world_panel |

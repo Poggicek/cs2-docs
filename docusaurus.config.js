@@ -85,13 +85,13 @@ const config = {
             addItemToCategory(sidebarItems, 'Dumped Data', {
               type: 'link',
               label: "Schemas",
-              href: "https://github.com/neverlosecc/source2sdk/tree/cs2/sdk"
+              href: "https://github.com/neverlosecc/source2sdk/tree/cs2/sdk/include/source2sdk"
             })
 
             addItemToCategory(sidebarItems, 'Dumped Data', {
               type: 'link',
-              label: "Usermessages",
-              href: "https://gist.github.com/psychonic/f529f20a02f6d78d56513127ff720683#file-usermessages-proto"
+              label: "Protobufs",
+              href: "https://github.com/SteamDatabase/GameTracking-CS2/tree/master/Protobufs"
             })
 
             return sidebarItems;
