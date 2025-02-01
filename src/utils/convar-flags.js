@@ -20,6 +20,7 @@ export const GetFlagOverrides = (flags) => {
 }
 
 export const FLAGS = {
+	"notconnected": "Not connected",
 	"linked_concommand": "Linked concommand",
 	"developmentonly": "Development only",
 	"gamedll": "Game DLL",
@@ -30,7 +31,7 @@ export const FLAGS = {
 	"archive": "Archive",
 	"notify": "Notify",
 	"userinfo": "User info",
-	"something_that_hides": "Something that hides",
+	"hide": "Hide",
 	"unlogged": "Unlogged",
 	"missing1": "Missing 1",
 	"missing2": "Missing 2",
@@ -46,9 +47,12 @@ export const FLAGS = {
 	"not_connected": "Not connected",
 	"vconsole_fuzzy_matching": "VConsole fuzzy matching",
 	"server_can_execute": "Server can execute",
+	"client_can_execute": "Client can execute",
 	"server_cannot_query": "Server cannot query",
 	"vconsole_set_focus": "VConsole set focus",
 	"clientcmd_can_execute": "Clientcmd can execute",
 	"execute_per_tick": "Execute per tick",
+	"missing5": "Missing 5",
+	"missing6": "Missing 6",
 	"defensive": "Defensive",
 }
