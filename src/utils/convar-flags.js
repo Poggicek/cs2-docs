@@ -43,7 +43,6 @@ export const FLAGS = {
 	"commandline_enforced": "CLI enforced",
 	"notconnected": "Not connected",
 	"vconsole_fuzzy_matching": "VConsole fuzzy matching",
-	"not_connected": "Not connected",
 	"server_can_execute": "Server can execute",
 	"client_can_execute": "Client can execute",
 	"server_cannot_query": "Server cannot query",
