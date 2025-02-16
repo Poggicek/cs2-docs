@@ -23,7 +23,7 @@ export default function StatefulCheckbox({onChange, className, ...props}) {
 
 	return (
 		<label className={styles.container + " " + className}>
-			<input className={styles.checkbox} type="checkbox" {...props} onChange={onChangeEvent} checked={state < CheckboxState.Unset} exclude={(state == CheckboxState.Exclude).toString()} />
+			<input type="checkbox" {...props} onChange={onChangeEvent} checked={state < CheckboxState.Unset} exclude={(state == CheckboxState.Exclude).toString()} />
 			<span className={styles.checkmark}></span>
 		</label>
 	);

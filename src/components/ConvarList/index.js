@@ -28,6 +28,10 @@ function Filters({filter, setFilter})
 		});
 	}
 
+	const onTypeInfoUpdate = () => {
+		setFilter((filter) => ({...filter, typeInfo: !filter.typeInfo}));
+	}
+
 	return (
 		<div className={styles.wrapper}>
 			<input onChange={onDebouncedChange} className={clsx("navbar__search-input", styles.input)} placeholder="Search" />
@@ -43,12 +47,17 @@ function Filters({filter, setFilter})
 					))}
 				</ul>
 			</div>
+
+			<div className={styles.typeInfo}>
+				<input className={styles.checkbox} type="checkbox" id="scales" name="scales" checked={filter.typeInfo} onChange={onTypeInfoUpdate} />
+				<label for="scales">Show type info</label>
+			</div>
 		</div>
 	)
 }
 
 export default function ConvarList() {
-	const [filter, setFilter] = useState({search: "", flags: {}});
+	const [filter, setFilter] = useState({search: "", flags: {}, typeInfo: false});
 
 	const checkFilter = (item) => {
 		if(!item.name.toLowerCase().includes(filter.search.toLowerCase()))
@@ -75,6 +84,9 @@ export default function ConvarList() {
 				<thead>
 					<tr>
 						<th>Name</th>
+						{filter.typeInfo && (
+							<th style={{width:"10%"}}>Type</th>
+						)}
 						<th>Description</th>
 						<th>Flags</th>
 					</tr>
@@ -83,6 +95,9 @@ export default function ConvarList() {
 				{sortedList.filter(checkFilter).map((r, index) => (
 						<tr key={index}>
 							<td>{r.name} {r.default.toString()}</td>
+							{filter.typeInfo && (
+								<td>{r.type}</td>
+							)}
 							<td>{r.description}{r.min && <strong><br/>Min: {r.min}</strong>} {r.max && <strong><br/>Max: {r.max}</strong>}</td>
 							<td>{r.flags} {GetFlagOverrides(r.flagsRaw)}</td>
 						</tr>
